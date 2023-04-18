@@ -1,4 +1,4 @@
-package adu.kh.variable.ex1;
+package edu.kh.variable.ex1;
 
 public class VariableExample1 {
     // 생성된 .java 파일과 class 오른쪽에 작성된 이름은 같아야 한다.

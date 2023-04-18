@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/git Workspace.iml" filepath="$PROJECT_DIR$/.idea/git Workspace.iml" />
+      <module fileurl="file://$PROJECT_DIR$/m00_javaBasic/m00_javaBasic.iml" filepath="$PROJECT_DIR$/m00_javaBasic/m00_javaBasic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/m01_variable/m01_variable.iml" filepath="$PROJECT_DIR$/m01_variable/m01_variable.iml" />
     </modules>
   </component>
 </project>

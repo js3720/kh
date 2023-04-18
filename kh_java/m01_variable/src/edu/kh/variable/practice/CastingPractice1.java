@@ -1,4 +1,4 @@
-package adu.kh.variable.practice;
+package edu.kh.variable.practice;
 public class CastingPractice1 {
     public static void main(String[] args) {
         int iNum1 = 10;
@@ -24,10 +24,12 @@ public class CastingPractice1 {
 
         System.out.println(iNum1/fNum);         //3.3333333
         System.out.println((double)iNum1/fNum); //3.3333333333333335
+        // float : 소수점 아래 8번 째 자리까지 연산 후 반올림
+        // double : 소수점 아래 16번 째 자리까지 연산 후 반올림
 
         System.out.println(ch);                 //A
         System.out.println((int)ch);            //65
-        System.out.println((int)ch+iNum1);      //75
+        System.out.println(ch+iNum1);           //75
         System.out.println((char)(ch+iNum1));   //K
     }
 }

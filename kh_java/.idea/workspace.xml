@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e328e22a-569a-4376-841d-0c9b84d389e8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/git Workspace.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/kh_java.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m00_javaBasic/m00_javaBasic.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m00_javaBasic/src/adu/kh/basic/JavaTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m01_variable/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m01_variable/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m01_variable/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m01_variable/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m01_variable/m01_variable.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m01_variable/src/adu/kh/variable/ex1/VariableExample1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m01_variable/src/adu/kh/variable/ex1/VariableExample2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m01_variable/src/adu/kh/variable/ex1/VariableExample3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m01_variable/src/adu/kh/variable/ex1/VariableExample4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m01_variable/src/adu/kh/variable/practice/CastingPractice1.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2OY7lMYLFDrN4uQx35t5YRbwhXg" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/jongsoo/git Workspace/kh_java/m00_javaBasic",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e328e22a-569a-4376-841d-0c9b84d389e8" name="Changes" comment="" />
+      <created>1681725812178</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1681725812178</updated>
+      <workItem from="1681725813604" duration="44000" />
+      <workItem from="1681727548089" duration="795000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

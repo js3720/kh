@@ -1,4 +1,4 @@
-package adu.kh.variable.ex1;
+package edu.kh.variable.ex1;
 
 public class VariableExample2 {
 
