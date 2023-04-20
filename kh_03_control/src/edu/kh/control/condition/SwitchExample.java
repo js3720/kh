@@ -76,4 +76,30 @@ public class SwitchExample {
         }
         System.out.println(season);
     }
+
+    public void ex4(){
+        // 정수 2개와 연산자( + - * / % ) 입력 받아서 결과 출력
+        Scanner sc = new Scanner(System.in);
+        System.out.print("정수 1 입력 : ");
+        int num1 = sc.nextInt();
+        System.out.print("연산자 입력 : ");
+        String op = sc.next(); // 스캐너는 문자 하나(char)를 입력 받는 기능이 별도로 없음.
+        System.out.print("정수 2 입력 : ");
+        int num2 = sc.nextInt();
+
+        switch (op){
+            case "+" : System.out.println(num1+op+num2+"="+(num1+num2)); break;
+            case "-" : System.out.println(num1+op+num2+"="+(num1-num2)); break;
+            case "*" : System.out.println(num1+op+num2+"="+(num1*num2)); break;
+            case "/" :
+                if(num2==0) System.out.println("0으로 나눌 수 없습니다.");
+                else System.out.println(num1+op+num2+"="+(num1/num2));
+                break;
+            case "%" :
+                if(num2==0) System.out.println("0으로 나눌 수 없습니다.");
+                else System.out.println(num1+op+num2+"="+(num1%num2));
+                break;
+            default : System.out.println("존재하지 않는 연산자 입니다."); break;
+        }
+    }
 }

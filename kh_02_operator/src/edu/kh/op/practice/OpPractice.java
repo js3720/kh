@@ -29,7 +29,8 @@ public class OpPractice {
         System.out.print("성적(소수점 아래 둘째 자리까지) : ");
         double score = sc.nextDouble();
 
-        System.out.printf("\n%d학년 %d반 %d번 %s %s의 성적은 %.2f점 입니다.\n",grade,studentClass,studentNum,name,gender,score);
+        System.out.printf("\n%d학년 %d반 %d번 %s %s의 성적은 %.2f점 입니다.\n",
+                grade,studentClass,studentNum,name,gender,score);
     }
 
     public void practice3(){

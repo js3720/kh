@@ -13,6 +13,7 @@ public class ConditionRun {
         SwitchExample swEx = new SwitchExample();
 //        swEx.ex1();
 //        swEx.ex2();
-        swEx.ex3();
+//        swEx.ex3();
+        swEx.ex4();
     }
 }

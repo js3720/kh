@@ -23,10 +23,9 @@ public class ConditionPractice {
         System.out.print("영어점수 : ");
         int eng = sc.nextInt();
 
-        System.out.println("합계 : " + (kor+math+eng));
-        System.out.println("평균 : " + (kor+math+eng)/3.0);
-
         if(kor>=40 && math>=40 && eng>=40 && (kor+math+eng)/3>=60){
+            System.out.printf("국어 : %d\n수학 : %d\n영어 : %d\n합계 : %d\n평균 : %.1f\n"
+                    ,kor,math,eng,kor+math+eng,(kor+math+eng)/3.0);
             System.out.println("축하합니다, 합격입니다!");
         }
         else System.out.println("불합격입니다.");
@@ -58,9 +57,9 @@ public class ConditionPractice {
         System.out.println("BMI 지수 : "+bmi);
 
         if(bmi < 18.5) System.out.println("저체중");
-        else if(bmi>=18.5 && bmi<23) System.out.println("정상체중");
-        else if(bmi>=23 && bmi<25) System.out.println("과체중");
-        else if(bmi>=25 && bmi<30) System.out.println("비만");
+        else if(bmi < 23) System.out.println("정상체중");
+        else if(bmi < 25) System.out.println("과체중");
+        else if(bmi < 30) System.out.println("비만");
         else System.out.println("고도 비만");
     }
 
@@ -77,7 +76,7 @@ public class ConditionPractice {
         double sum = midterm*0.2 + finals*0.3 + assignment*0.3 + attendance;
 
         System.out.println("========== 결과 ==========");
-        if(attendance<15) System.out.printf("Fail [출석 횟수 부족 (%d/20)]\n",attendance);
+        if(attendance <= 20*(1-0.3)) System.out.printf("Fail [출석 횟수 부족 (%d/20)]\n",attendance);
         else{
             System.out.printf("중간 고사 점수(20) : %.1f\n", midterm*0.2);
             System.out.printf("중간 고사 점수(30) : %.1f\n", finals*0.3);
