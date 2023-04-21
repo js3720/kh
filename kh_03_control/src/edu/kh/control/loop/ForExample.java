@@ -160,6 +160,7 @@ public class ForExample {
         }
 
     }
+
     public void ex14() {
         // [구구단 출력]
         // 2 ~ 9 사이 수를 하나 입력 받아
@@ -176,4 +177,120 @@ public class ForExample {
             }
         }
     }
+
+    public void ex15(){
+        // [19단 출력]
+        // 2 ~ 19 사이 수를 하나 입력 받아서  X1 ~ X19까지 출력
+        // 단, 입력 받은 수가 2 ~ 19 사이 숫자가 아니면 "잘못 입력 하셨습니다" 출력
+        Scanner sc = new Scanner(System.in);
+        System.out.print("2 ~ 19 사이의 수 입력 : ");
+        int num = sc.nextInt();
+
+        if(num<2 || num>19) System.out.println("잘못 입력 하셨습니다.");
+        else{
+            for(int i=1; i<=19; i++){
+                System.out.printf("%d X %d = %d\n",num,i,num*i);
+            }
+        }
+    }
+
+    public void ex16(){
+        // 중첩 반복문 - 구구단 모두 출력하기
+        for(int i=2; i<=9; i++){
+            for(int j=1; j<=9; j++){
+                System.out.printf("%d X %d = %d\t",i,j,i*j);
+            }
+            System.out.println();
+        }
+    }
+
+    public void ex17(){
+        // 중첩 반복문 - 구구단 9단부터 2단까지 역발향으로 출력하기, 곱해지는 수는 1 -> 9 정방향
+        for(int i=9; i>=2; i--){
+            for(int j=1; j<=9; j++){
+                System.out.printf("%d X %d = %d\t",i,j,i*j);
+            }
+            System.out.println();
+        }
+    }
+
+    public void ex18(){
+        // 중첩 반복문 - 12345를 5번 출력하기
+        for(int i=1; i<=5; i++){
+            for(int j=1; j<=5; j++){
+                System.out.print(j);
+            }
+            System.out.println();
+        }
+        System.out.println("-----");
+        for(int i=1; i<=3; i++){
+            for(int j=5; j>=1; j--){
+                System.out.print(j);
+            }
+            System.out.println();
+        }
+    }
+
+    public void ex19(){
+        // 2중 for문을 이용하여 다음 모양을 출력 하시오.
+        // 1
+        // 12
+        // 123
+        // 1234
+        for(int i=1; i<=4; i++){
+            for(int j=1; j<=i; j++){
+                System.out.print(j);
+            }
+            System.out.println();
+        }
+        System.out.println("-----");
+        // 4321
+        // 321
+        // 21
+        // 1
+        for(int i=4; i>=1; i--){
+            for(int j=i; j>=1; j--){
+                System.out.print(j);
+            }
+            System.out.println();
+        }
+    }
+
+    public void ex20(){
+        // 숫자 세기(count)
+        int count = 0;                      // 3의 배수의 개수를 세기위한 변수
+        for(int i=1; i<=20; i++){           // 1부터 20까지 1씩 증가하면서
+            if(i%3==0){                     // 3의 배수이면
+                System.out.print(i+" ");    // 출력하고
+                count++;                    // 3의 배수 개수를 센다 ( 너 3의 배수네? 개수 +1 )
+            }
+        }
+        System.out.println(" : "+ count + "개\n");// 3의 배수 개수 출력
+
+        System.out.println("----------------");
+
+        int sum = 0;                        // 3의 배수의 개수를 더하기위한 변수
+        for(int i=1; i<=20; i++){           // 1부터 20까지 1씩 증가하면서
+            if(i%3==0){                     // 3의 배수이면
+                System.out.print(i+" ");    // 출력하고
+                sum+=i;                     // 3의 배수 개수를 센다 ( 너 3의 배수네? 합계값 sum에 지금 값을 더해줘 )
+            }
+        }
+        System.out.println("3의 배수의 합계 : "+ sum);
+    }
+
+    public void ex21(){
+        // 2중 for문과 count를 이용해서 아래 모양 출력하기.
+        int count = 0;
+        for(int i= 1; i<=3; i++){
+            for(int j=1; j<=4; j++){
+                System.out.printf("%3d",++count);
+            }
+            System.out.println();
+        }
+    }
+
 }
+//    Scanner sc = new Scanner(System.in);
+//    System.out.print("");
+//    int num = sc.nextInt();

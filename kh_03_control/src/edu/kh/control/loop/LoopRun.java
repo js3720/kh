@@ -16,6 +16,18 @@ public class LoopRun{
 //        forEx.ex11();
 //        forEx.ex12();
 //        forEx.ex13();
-        forEx.ex14();
+//        forEx.ex14();
+//        forEx.ex15();
+//        forEx.ex15();
+//        forEx.ex16();
+//        forEx.ex17();
+//        forEx.ex18();
+//        forEx.ex19();
+//        forEx.ex20();
+//        forEx.ex21();
+        WhileExample whileEx = new WhileExample();
+//        whileEx.ex1();
+//        whileEx.ex2();
+        whileEx.ex3();
     }
 }
