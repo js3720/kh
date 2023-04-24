@@ -96,8 +96,12 @@ public class LoopPractice {
         Scanner sc = new Scanner(System.in);
         System.out.print("정수 입력 : ");
         int num = sc.nextInt();
-        for(int i=num; i>=1; i--){
-            for(int j=1; j<=num; j++){
+        //   *      첫번 째 반복할 때 (4)번째 별
+        //  **      두번 째 반복할 때 (3),4번째 별
+        // ***      세번 째 반복할 때 (2),3,4번째 별
+        //****      네번 째 반복할 때 (1),2,3,4번째 별
+        for(int i=num; i>=1; i--){      //i = 4부터 1까지 -1씩
+            for(int j=1; j<=num; j++){  //만약에 i보다 크거나같으면 별, 아니면 공백 출력
                 if(j>=i) System.out.print("*");
                 else System.out.print(" ");
             }
@@ -114,8 +118,7 @@ public class LoopPractice {
             }
             System.out.println();
         }
-        for(int i=num; i>=1; i--){
-            if(i==num) continue;
+        for(int i=num-1; i>=1; i--){
             for(int j=1; j<=i; j++){
                 System.out.print("*");
             }
@@ -128,7 +131,7 @@ public class LoopPractice {
         System.out.print("정수 입력 : ");
         int num = sc.nextInt();
         int star = 1;
-        int space = num;
+        int space = num-1;
 
         for(int i=1; i<=num; i++){
             for(int j=1; j<=space; j++){
@@ -136,9 +139,6 @@ public class LoopPractice {
             }
             for(int j=1; j<=star; j++){
                 System.out.print("*");
-            }
-            for(int j=1; j<=space; j++){
-                System.out.print(" ");
             }
             star+=2;
             space--;
@@ -149,21 +149,41 @@ public class LoopPractice {
         Scanner sc = new Scanner(System.in);
         System.out.print("정수 입력 : ");
         int num = sc.nextInt();
-
         for(int i=1; i<=num; i++){
-            if(i==1 || i==num){
-                for(int j=1; j<=num; j++) {
-                    System.out.print("*");
+            for(int j=1; j<=num; j++){
+                if(i==1 || i==num || j==1 || j==num){             // 첫번 째 low 혹은 마지막 low 이거나,
+                    System.out.print("*");                        // 첫번 째 col 혹은 마지막 col 이면, "*" 출력
                 }
-            }
-            else{
-                for(int j=1; j<=num; j++){
-                    if(j==1 || j==num) System.out.print("*");
-                    else System.out.print(" ");
-                }
+                else System.out.print(" ");                       // 아니면 " " 출력
             }
             System.out.println();
         }
+//        설명용
+//        for(int i=1; i<=num; i++){
+//            if(i==1 || i==num){                                 // 첫번 째 줄이랑 마지막 줄은 *로 꽉 채움
+//                for(int j=1; j<=num; j++) {
+//                    System.out.print("*");
+//                }
+//            }
+//            else{                                               // 첫번 째랑 마지막 줄이 아니면
+//                for(int j=1; j<=num; j++){
+//                    if(j==1 || j==num) System.out.print("*");   // 첫번 째 출력이랑 마지막 출력은 *로
+//                    else System.out.print(" ");                 // 나머지 출력은 " "으로
+//                }
+//            }
+//            System.out.println();
+//        }
     }
+    public void practice13(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("자연수 하나를 입력하세요 : ");
+        int num = sc.nextInt();
+        int count=0;
 
+        for(int i=1; i<=num; i++){
+            if(i%2==0 || i%3==0) System.out.print(i+" ");
+            if(i%2==0 && i%3==0) count++;
+        }
+        System.out.println("\ncount : "+count);
+    }
 }

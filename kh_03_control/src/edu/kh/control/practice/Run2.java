@@ -14,6 +14,7 @@ public class Run2 {
 //        LoopPrac.practice9();
 //        LoopPrac.practice10();
 //        LoopPrac.practice11();
-        LoopPrac.practice12();
+//        LoopPrac.practice12();
+        LoopPrac.practice13();
     }
 }
