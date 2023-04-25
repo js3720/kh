@@ -156,4 +156,82 @@ public class ArrayExample1 {
         System.out.println("arr3 길이 : "+arr2.length);
         System.out.println(Arrays.toString(arr2));
     }
+
+    public void ex6(){
+        // 점심 메뉴 뽑기 프로그램
+        String[] arr = {"김밥","서브웨이","햄버거","백반","국밥","파스타",};
+        System.out.println("오늘 점심 메뉴 : " + arr[(int)(Math.random()*6)]);
+    }
+
+    public void ex7(){
+        // 배열을 이용한 검색
+        // 입력 받은 정수가 배열에 있는지 없는지 확인
+        // 만약 있다면 몇번 인덱스에 존재하는지도 출력
+        Scanner sc = new Scanner(System.in);
+        int[] arr = {100,200,300,400,500,600,700,800,900,1000};
+//        int count = 0;          // 일치하는 값을 0개 찾음
+        boolean flag = false;   // 일치하는 값을 찾지 못한 상태
+
+        System.out.print("정수  입력 : ");
+        int input = sc.nextInt();
+        for(int i=0; i<arr.length; i++){
+            if(arr[i]==input){
+                System.out.printf("%d번 인덱스에 존재\n",i);
+//                count=1;
+                flag = true;
+            }
+        }
+//        if(count==0) System.out.println("존재하지 않습니다.");
+//        else System.out.println("동일한 값이 "+count+"개 존재합니다.");
+        if(!flag) System.out.println("존재하지 않습니다.");
+
+    }
+
+    public void ex8(){
+        Scanner sc = new Scanner(System.in);
+        String[] arr = {"사과","딸기","바나나","키위","멜론","아보카도"};
+        boolean flag = false;   // 일치하는 값을 찾지 못한 상태
+
+        System.out.print("과일  입력 : ");
+        String input = sc.nextLine();
+        for(int i=0; i<arr.length; i++){
+            if(arr[i].equals(input)){
+                System.out.printf("%d번 인덱스에 존재\n",i);
+                flag = true;
+            }
+        }
+        if(!flag) System.out.println("존재하지 않습니다.");
+    }
+
+    public void ex9(){
+        // 1. 문자열을 입력 받아 한 글자씩 잘라내어 char배열에 순서대로 저장
+        // 2. 문자 하나를 입력 받아 일치하는 문자가 char 배열에 몇개 존재하는지 확인
+        // 3. 단, 일치하는 문자가 없을 경우 "존재하지 않습니다." 출력
+
+        // char ch = sc.nextLine().charAt(0) 에서 제가 이해한건
+        // char 자료형이  입력 받을때 nextline 을 써야 되는데 그래서 charAt(0) 을 써서 입력 받은 문자열 말고 문자를
+
+        // char ch = char자료형;  // 문자 하나만 저장
+        // next() or nextLine() : 자료형이 String
+        // String 자료형을 어떻게 char자료형으로 바꿔주냐.
+        // String변수.charAt(String변수의 인덱스);
+        // String변수의 몇번째 인덱스의 값을 char형으로 가져올거냐
+
+        int count=0;
+        Scanner sc = new Scanner(System.in);
+        System.out.print("문자열 입력 : ");
+        String Str = sc.nextLine();
+        char[] chArr = new char[Str.length()];
+        for(int i=0; i<Str.length(); i++){
+            chArr[i]=Str.charAt(i);
+        }
+        System.out.print("검색할 문자 입력 : ");
+        char ch = sc.next().charAt(0);
+        for(int i=0; i<Str.length(); i++){
+            if(chArr[i]==ch) count++;
+        }
+        if(count==0) System.out.println("존재하지 않습니다.");
+        else System.out.println(count+"개 있음");
+    }
+
 }
