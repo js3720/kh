@@ -11,7 +11,7 @@ public class PracticeRun {
 //        pracServ.practice4();
 //        pracServ.practice5();
 //        pracServ.practice6();
-//        pracServ.practice7();
-        pracServ.prac4();
+        pracServ.practice7();
+
     }
 }
