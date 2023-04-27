@@ -22,7 +22,7 @@ public class JavaTest {
 
         // 숫자 연산
         System.out.println("------------------");
-        System.out.println("1 + 2"); // 1 + 2 출력
+        System.out.println("1 + 2"); // 1 + 2 출력.
         System.out.println(1+2); // 3 출력
 
         // ""안에 작성된 코드는 단순 문자열로 인식

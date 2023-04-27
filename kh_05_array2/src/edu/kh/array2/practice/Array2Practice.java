@@ -30,7 +30,7 @@ public class Array2Practice {
 
     public void practice3(){
         int[][] intArr = new int[4][4];
-        int num = intArr.length * intArr[0].length;
+        int num = intArr.length * intArr[0].length; // 행*열 -> 총 인덱스 개수 (현재 4*4 = 16)
         for(int row=0; row<intArr.length; row++){
             for(int col=0; col<intArr[row].length; col++){
                 intArr[row][col] = num--;
@@ -41,33 +41,28 @@ public class Array2Practice {
     }
 
     public void practice4(){
-        int[][] intArr = new int[4][4];
-        int[] rowSum = new int[4];
-        int[] colSum = new int[4];
-        int totalSum = 0;
-        for(int row=0; row<intArr.length; row++){
-            for(int col=0; col<intArr[row].length; col++){
-                if(row<intArr[row].length-1) {                          // 마지막행이 아니고
-                    if(col!=intArr[row].length-1){                      // 마지막 열이 아닐 때
-                        intArr[row][col] = (int)((Math.random()*10)+1);
-                        rowSum[col] += intArr[row][col];
-                        colSum[row] += intArr[row][col];
-                    }
-                    else{                                               // 마지막 열일 때
-                        intArr[row][col] = colSum[row];
-                        totalSum += intArr[row][col];
-                    }
+        int[][] arr = new int[4][4];
+        // 상수 사용법 : 변하지 않는 특정 값에 이름을 붙여줌
+        final int ROW_LAST_INDEX = arr.length-1;        //행 마지막 인덱스
+        final int COL_LAST_INDEX = arr[0].length-1;     //열 마지막 인덱스
+
+        for(int row=0; row<=ROW_LAST_INDEX; row++){
+            for(int col=0; col<=COL_LAST_INDEX; col++){
+                // 마지막 행, 마지막 열이 아닌 경우
+                if(row != ROW_LAST_INDEX && col != COL_LAST_INDEX){
+                    int random = (int)(Math.random()*10+1);
+                    arr[row][col] = random;
+                    // 각 행의 마지막 열에 난수를 누적
+                    arr[row][COL_LAST_INDEX] += arr[row][col];
+                    // 각 행의 마지막 행에 난수를 누적
+                    arr[ROW_LAST_INDEX][col] += arr[row][col];
+                    // 생성된 모든 난수를 마지막 행, 마지막 열에 누적
+                    arr[ROW_LAST_INDEX][COL_LAST_INDEX] += arr[row][col];
                 }
-                else{                                                   // 마지막 행이고
-                    if(col!=intArr[row].length-1){                      // 마지막 열이 아닐 때
-                        intArr[row][col] = rowSum[col];
-                        totalSum += intArr[row][col];
-                    }
-                    else{                                               // 마지막 열일 때
-                        intArr[row][col] = totalSum;
-                    }
-                }
-                System.out.printf("%4d",intArr[row][col]);              // 배열의 요소값 출력
+//                else if(!(row==ROW_LAST_INDEX && col==COL_LAST_INDEX)) {
+//                    arr[ROW_LAST_INDEX][COL_LAST_INDEX] += arr[row][col];
+//                }
+                System.out.printf("%4d",arr[row][col]);
             }
             System.out.println();
         }
@@ -81,16 +76,17 @@ public class Array2Practice {
             input1 = sc.nextInt();
             System.out.print("열 크기 : ");
             input2 = sc.nextInt();
-            if((input1>0 && input1<=10) && (input2>0 && input2<=10)) break;
-            else System.out.println("반드시 1~10 사이의 정수를 입력해야 합니다.");
-        }
-        char[][] chArr = new char[input1][input2];
-        for(int row=0; row<chArr.length; row++){
-            for(int col=0; col<chArr[row].length; col++){
-                chArr[row][col] = (char)((int)(Math.random()*26)+'A');
-                System.out.printf("%3c",chArr[row][col]);
+            if((input1>0 && input1<=10) && (input2>0 && input2<=10)) {
+                char[][] chArr = new char[input1][input2];
+                for(int row=0; row<chArr.length; row++){
+                    for(int col=0; col<chArr[row].length; col++){
+                        chArr[row][col] = (char)((int)(Math.random()*26)+'A');
+                        System.out.printf("%3c",chArr[row][col]);
+                    }
+                    System.out.println();
+                }
             }
-            System.out.println();
+            else System.out.println("반드시 1~10 사이의 정수를 입력해야 합니다.");
         }
     }
 
@@ -114,6 +110,24 @@ public class Array2Practice {
         }
     }
 
+    public void homeWork() {    // 문제 4번 출력결과랑 동일하게 나와야하는데 뭐가 문제인지 해결하기
+
+        int[][] arr = new int[4][4];
+        int rowsum = arr.length-1;                          // 3
+        int colsum = arr[0].length -1;                      // 3
+        for(int row=0; row<arr.length; row++) {             // row 0,1,2,3
+            for(int col=0; col<arr[row].length; col++) {    // col 0,1,2,3
+                if(!(row==rowsum || col==colsum)){          // 행 또는 열이 마지막인덱스가 아닐 경우에만 돌아가게 해줌 ----
+                    arr[row][col] = (int)(Math.random()*10+1);  // arr[0][0] = 1~10 랜덤값
+                    arr[rowsum][col] += arr[row][col];          // arr[3][0] += arr[0][0]
+                    arr[row][colsum] += arr[row][col];          // arr[0][3] += arr[0][0]
+                    arr[rowsum][colsum] += arr[row][col];        // arr[3][3] = arr[0][0]     +=로 바꿔줌----
+                }
+                System.out.printf("%3d" , arr[row][col] );  // 현재 요소 값 출력
+            }
+            System.out.println();
+        }
+    }
 
 
 }
