@@ -115,11 +115,37 @@ public class ClsService /*extends Student*/{
         System.out.println("--------------------------------");
         // 해결 방법 2. : 매개변수 생성자를 이용해서
         //               객체가 생성 될 때 부터 다른 값으로 필드를 초기화
-        User u3 = new User("jongsoo94","whadjfudnsep","김종수",28,'남');
+        User u3 = new User("jongsoo94","qjfTjqorhvmek");
+
         System.out.println(u3.getUserId());
         System.out.println(u3.getUserPw());
-        System.out.println(u3.getUserName());
-        System.out.println(u3.getUserAge());
-        System.out.println(u3.getUserGender());
+
+    }
+
+    public void ex4(){
+        User u1 = new User();
+        User u2 = new User("user02","1q2w3e4r");
+        User u3 = new User("user03","whadjfudnsep","박서준",28,'남');
+        User u4 = new User("user04","whadjfudnsep","고수",29,'남');
+        User u5 = new User("user05","whadjfudnsep","공유",30,'남');
+        System.out.printf("u1 : %s / %s / %s / %d / %c\n",
+                u1.getUserId(), u1.getUserPw(), u1.getUserName(),
+                u1.getUserAge(), u1.getUserGender() );
+
+        System.out.printf("u2 : %s / %s / %s / %d / %c\n",
+                u2.getUserId(), u2.getUserPw(), u2.getUserName(),
+                u2.getUserAge(), u2.getUserGender() );
+
+        System.out.printf("u3 : %s / %s / %s / %d / %c\n",
+                u3.getUserId(), u3.getUserPw(), u3.getUserName(),
+                u3.getUserAge(), u3.getUserGender() );
+
+        System.out.printf("u4 : %s / %s / %s / %d / %c\n",
+                u4.getUserId(), u4.getUserPw(), u4.getUserName(),
+                u4.getUserAge(), u4.getUserGender() );
+
+        System.out.printf("u5 : %s / %s / %s / %d / %c\n",
+                u5.getUserId(), u5.getUserPw(), u5.getUserName(),
+                u5.getUserAge(), u5.getUserGender() );
     }
 }

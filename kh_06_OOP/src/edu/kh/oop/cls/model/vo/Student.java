@@ -28,7 +28,7 @@ public class Student { // 클래스 선언부
     protected int v2 = 20;
     int v3 = 30;
     private int v4 = 40;
-    // static 예약어
+    // static 예약어 0
     public static String schoolName = "KH고등학교"; // 명시적 초기화
     private String name; // 캡슐화 원칙 때문에 private -> 간접 접근 방법 필요
     {
