@@ -12,4 +12,9 @@ public class Spark extends Car{ // 경차
 
     public double getDiscountOffer() {return discountOffer;}
     public void setDiscountOffer(double discountOffer) {this.discountOffer = discountOffer;}
+
+    @Override
+    public String toString(){
+        return super.toString()+" / "+discountOffer;
+    }
 }

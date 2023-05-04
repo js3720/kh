@@ -24,4 +24,9 @@ public class Car {
 
     public int getWheel() {return wheel;}
     public void setWheel(int wheel) {this.wheel = wheel;}
+
+    @Override // Object.toString() 오버라이딩
+    public String toString(){
+        return engine+" / "+fuel+" / "+wheel;
+    }
 }

@@ -104,4 +104,5 @@ public class PracticeService {
         String str = sc.nextLine();
         for(int i=0; i<14; i++) System.out.print(i<8 ? str.charAt(i) : "*");
     }
+
 }

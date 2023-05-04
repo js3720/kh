@@ -12,4 +12,9 @@ public class Tesla extends Car{ // 전기차
 
     public int getBatteryCapacity() {return batteryCapacity;}
     public void setBatteryCapacity(int batteryCapacity) {this.batteryCapacity = batteryCapacity;}
+
+    @Override
+    public String toString(){
+        return super.toString()+" / "+batteryCapacity;
+    }
 }
