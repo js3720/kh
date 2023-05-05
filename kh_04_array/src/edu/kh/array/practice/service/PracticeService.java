@@ -105,4 +105,143 @@ public class PracticeService {
         for(int i=0; i<14; i++) System.out.print(i<8 ? str.charAt(i) : "*");
     }
 
+    public void practice8(){
+        Scanner sc = new Scanner(System.in);
+        int input=0;
+        while(true){
+            System.out.print("정수 : ");
+            input = sc.nextInt();
+            if(input>=3 && input%2==1) break;
+            else System.out.println("다시 입력하세요.");
+        }
+        int[] arr = new int[input];
+        int num = 0;
+        for(int i=0; i<arr.length; i++){
+            if(i <= arr.length/2) arr[i] = ++num;
+            else arr[i] = --num;
+            System.out.print(num);
+            if(i!=arr.length-1) System.out.print(", ");
+        }
+    }
+
+    public void practice9(){
+        int[] arr = new int[10];
+        System.out.print("발생한 난수 : ");
+        for(int i=0; i<arr.length; i++){
+            arr[i] = (int)(Math.random()*10+1);
+            System.out.print(arr[i]+" ");
+        }
+    }
+
+    public void practice10(){
+        int[] arr = new int[10];
+        int max = 0;
+        int min = 0;
+        System.out.print("발생한 난수 : ");
+        for(int i=0; i<arr.length; i++){
+            arr[i] = (int)(Math.random()*10+1);
+            if(i==0){
+                max = arr[i];
+                min = arr[i];
+            }
+            else {
+                if(max<arr[i]) max=arr[i];
+                if(min>arr[i]) min=arr[i];
+            }
+            System.out.print(arr[i]+" ");
+        }
+        System.out.println("\n최대값 : "+max);
+        System.out.println("최소값 : "+min);
+    }
+
+    public void practice11(){
+        int[] arr = new int[10];
+        for(int i=0; i<arr.length; i++){
+            arr[i] = (int)(Math.random()*10+1);
+            for(int j=0; j<i; j++){
+                if(arr[i]==arr[j]) {
+                    i--;
+                    break;
+                }
+            }
+        }
+        for(int i=0; i<arr.length; i++){
+            System.out.print(arr[i]+" ");
+        }
+    }
+
+    public void practice12(){
+        int[] arr = new int[6];
+        for(int i=0; i<arr.length; i++){
+            arr[i] = (int)(Math.random()*45+1);
+            for(int j=0; j<i; j++){
+                if(arr[i]==arr[j]) {
+                    i--;
+                    break;
+                }
+            }
+        }
+        Arrays.sort(arr);
+        for(int i=0; i<arr.length; i++){
+            System.out.print(arr[i]+" ");
+        }
+    }
+
+    public void practice13(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("문자열 : ");
+        String str = sc.nextLine();
+        char[] arr = new char[str.length()];
+        int index =0;
+
+        for(int i=0; i<str.length(); i++){
+            if(i==0){
+                arr[index++] = str.charAt(i);
+            }
+            else{
+                for(int j=0; j<i; j++){
+                    if(arr[j]==str.charAt(i)) break;
+                    if(j==i-1)arr[index++]=str.charAt(i);
+                }
+            }
+        }
+        System.out.print("문자열에 있는 문자 : ");
+        for(int i=0; i<index; i++){
+            System.out.print(arr[i]);
+            if(i!=index-1) System.out.print(", ");
+        }
+        System.out.println("\n문자 개수 : "+ index);
+    }
+    public void practice14(){
+        Scanner sc = new Scanner(System.in);
+        String[] result = null;
+        String answer = "y";
+        int index = 0;
+        while((answer.equals("y") || answer.equals("Y")) || !(answer.equals("n") || answer.equals("n"))){
+            if(index==0)System.out.print("배열의 크기를 입력하세요 : ");
+            else System.out.print("더 입력하고 싶은 개수 : ");
+            int input = sc.nextInt();
+            sc.nextLine();
+
+            int maxLength = index+input;
+            String[] arr = new String[maxLength];
+            if(index>0){ // 2회차 이상 값 입력 시 이전 회차 결과값 배열(result)에 있던 값을 현재 회차 배열(arr)에 깊은 복사
+                for(int i=0; i<result.length; i++){
+                    arr[i] = result[i];
+                }
+            }
+            for(int i=index; i<maxLength; i++){ // 이번 회차 배열(arr)에 추가적인 문자열 입력
+                System.out.print((index+1)+"번 째 문자열 : ");
+                arr[index++] = sc.nextLine();
+            }
+            result = new String[arr.length]; // 이번 회차 배열(arr)값 을 결과값 배열(result)에 깊은복사
+            for(int i=0; i<arr.length; i++){
+                result[i] = arr[i];
+            }
+            System.out.print("더 값을 입력하시겠습니까?(Y/N) : ");
+            answer = sc.nextLine();
+        }
+        System.out.println(Arrays.toString(result));
+    }
+
 }
