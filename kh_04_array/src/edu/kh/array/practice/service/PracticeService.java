@@ -195,9 +195,7 @@ public class PracticeService {
         int index =0;
 
         for(int i=0; i<str.length(); i++){
-            if(i==0){
-                arr[index++] = str.charAt(i);
-            }
+            if(i==0) arr[index++] = str.charAt(i);
             else{
                 for(int j=0; j<i; j++){
                     if(arr[j]==str.charAt(i)) break;
@@ -212,6 +210,7 @@ public class PracticeService {
         }
         System.out.println("\n문자 개수 : "+ index);
     }
+
     public void practice14(){
         Scanner sc = new Scanner(System.in);
         String[] result = null;
