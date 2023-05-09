@@ -216,20 +216,19 @@ public class PracticeService {
         String[] result = null;
         String answer = "y";
         int index = 0;
-        while((answer.equals("y") || answer.equals("Y")) || !(answer.equals("n") || answer.equals("n"))){
+        while((answer.equals("y") || answer.equals("Y"))){
             if(index==0)System.out.print("배열의 크기를 입력하세요 : ");
             else System.out.print("더 입력하고 싶은 개수 : ");
             int input = sc.nextInt();
             sc.nextLine();
 
-            int maxLength = index+input;
-            String[] arr = new String[maxLength];
+            String[] arr = new String[index+input];
             if(index>0){ // 2회차 이상 값 입력 시 이전 회차 결과값 배열(result)에 있던 값을 현재 회차 배열(arr)에 깊은 복사
                 for(int i=0; i<result.length; i++){
                     arr[i] = result[i];
                 }
             }
-            for(int i=index; i<maxLength; i++){ // 이번 회차 배열(arr)에 추가적인 문자열 입력
+            for(int i=index; i<arr.length; i++){ // 이번 회차 배열(arr)에 추가적인 문자열 입력
                 System.out.print((index+1)+"번 째 문자열 : ");
                 arr[index++] = sc.nextLine();
             }
