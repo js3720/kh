@@ -1,4 +1,4 @@
-package edu.kj.exception.test;
+package edu.kh.exception.test;
 
 import java.util.Scanner;
 

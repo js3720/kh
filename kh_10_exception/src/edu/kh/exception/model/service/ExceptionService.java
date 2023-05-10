@@ -1,8 +1,7 @@
-package edu.kj.exception.model.service;
+package edu.kh.exception.model.service;
 
 import java.io.IOException;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.*;
 
 public class ExceptionService {
     // 예외 (Exception) : 소스 코드의 수정으로 해결 가능한 오류
@@ -147,6 +146,20 @@ public class ExceptionService {
         // 2) throws호 호출한 메소드로 예외를 위임하여 처리
     }
     private void methodD(){
-        throw new RuntimeException();
+        throw new RuntimeException(); // RuntimeException 강제 발생시킴
+
+        // CheckedException :
+        // - RuntimeException과 자식 예외를 제외한 나머지 예외
+        // - if문과 같은 단순 코드로 해결이 불가능하여
+        //   반드시 예외 처리 구문을 작성해야하는 예외
+
+        // UnCheckedException :
+        // - RuntimeException과 자식 예외를 지칭함
+        // - 프로그램 수행 중 개발자의 코딩 실수 또는 사용자의
+        //   잘못된 값 입력으로 흔하게 발생할 수 있는 예외
+
+        // -> 예외처리 구문이 아니라 if문 같은 단순 코드로 해결이 가능
+
+        // -> 예외 처리 구문을 반드시 작성할 필요가 없음
     }
 }

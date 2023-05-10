@@ -1,6 +1,6 @@
-package edu.kj.exception.run;
+package edu.kh.exception.run;
 
-import edu.kj.exception.model.service.ExceptionService;
+import edu.kh.exception.model.service.ExceptionService;
 
 public class ExceptionRun {
     public static void main(String[] args) {
