@@ -56,11 +56,11 @@ public class Member {
 //        // 소수
 //        int result = 1; // 결과 저장 변수
 //
-//        result = result * PRIME * age;
+//        result = result * PRIME * age;   // 25 jsk 123123   // 25 jsk 123124
 //
-//        result = result * PRIME * ( id==null? 0: id.hashCode() );
+//        result += result * PRIME * ( id==null? 0: id.hashCode() );
 //
-//        result = result * PRIME * ( pw==null? 0: pw.hashCode() );
+//        result += result * PRIME * ( pw==null? 0: pw.hashCode() );
 //
 //        return result;
 //    }
