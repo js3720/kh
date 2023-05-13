@@ -66,9 +66,9 @@ public class TCPServer {
 
             // 7. 스트림을 통해 읽고 쓰기
             // 7-1) 서버 -> 클라이언트에게 출력(메세지 전송)
-            Date now = new Date();
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            String time = sdf.format(now);
+            Date now = new Date();// 현재 시간을 가져오는 메서드
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); // 시간 관련 데이탸의 포맷을 저장하는 변수
+            String time = sdf.format(now);  // 현재 시간을  데이터포맷에 맞춰 문자얼로 반환받아 저장
             System.out.println(time+"[서버 접속 성공]");
             pw.flush(); // 스트림에 있는 내용을 모두 밀어내어 내용을 보내줘야함
 
