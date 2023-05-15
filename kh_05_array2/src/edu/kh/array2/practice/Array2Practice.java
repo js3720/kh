@@ -129,5 +129,4 @@ public class Array2Practice {
         }
     }
 
-
 }

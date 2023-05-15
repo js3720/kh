@@ -1,6 +1,11 @@
 package edu.kh.io.model.service;
 
+import edu.kh.io.dto.Student;
+
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class IOService {
 
@@ -46,11 +51,10 @@ public class IOService {
     // 2) 파일 출력 (문자 기반 스트림)
     public void output2(){
         FileWriter fw = null; // 프로그램 -> 파일로 쓰는 문자 기반 스트림
-        System.out.println("test");
-
         try{
-            fw = new FileWriter("test2.txt"); // 외부 파일과 연결하는 스트림 객체 생성
-            String str = "안녕하세요. Hello. 1234 !#";
+            fw = new FileWriter("test2.txt",true); // 외부 파일과 연결하는 스트림 객체 생성
+            // fw = new FileWriter("경로", 이어쓰기 옵션); -> byte기반 스트림도 사용 가능한 옵션
+            String str = "안녕하세요. Hello. 1234 !#\n";
             // fw.write(int c) : 한 문자 씩
             // fw.write(String s) : 한 줄 씩 출력
 
@@ -121,4 +125,97 @@ public class IOService {
         }
     }
 
+    // 5) 객체 출력 보조 스트림
+    public void objectOutput(){
+        // ObjectXXXStream : 객체를 파일 또는 네트워크를 통해 입/출력할 수 있는 스트림
+
+        // ObjectOutputStream -> 객체를 바이트 기반 스트림으로 출력할 수 있게 하는 스트림
+        // 조건 : 출력하려는 객체에 직렬화 가능 여부를 나타내는 Serializable 인터페이스를 상속 받아야 한다.
+        // ObjectInputStream :
+
+        ObjectOutputStream oos = null;
+        try{
+            oos = new ObjectOutputStream(new FileOutputStream("object/Student.txt"));
+            Student s = new Student("홍길동",3,5,7,'남');
+            oos.writeObject(s);
+            System.out.println("학생 출력 완료");
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try {
+                if( oos != null ) oos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    // 6) 객체 입력 보조 스트림
+    public void objectInput(){
+        ObjectInputStream ois = null;
+        try{
+            ois = new ObjectInputStream(new FileInputStream("object/Student.txt"));
+            Student s = (Student)ois.readObject(); // 직렬화된 객체 데이터를 읽어와 역직렬화 시켜 정상적인 객체 형태로 반환
+            System.out.println(s);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try{
+                if(ois != null) ois.close();
+            }
+            catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+    }
+
+    // 7) List Student 객체를 담아서 파일로 출력
+    public void listOutput(){
+        ObjectOutputStream oos = null;
+
+        try{
+            oos = new ObjectOutputStream(new FileOutputStream("object/studentList.ini"));
+            List<Student> list = new ArrayList<>();
+
+            list.add(new Student("A",1,1,1,'여'));
+            list.add(new Student("B",2,2,2,'여'));
+            list.add(new Student("C",3,3,3,'남'));
+            list.add(new Student("D",4,4,3,'남'));
+
+            oos.writeObject(list);
+            // writeObject(객체) : 출력하려는 객체는 직렬화가 가능해야만 한다!
+            // Serializable 인터페이스 구현 필수
+            // 컬렉션은 모두 직렬화가 가능하도록 Serializable 인터페이스 구현이 완료된 상태이다.
+            // -> 단, 컬렉션에 저장하는 객체가 직렬화 가능하지 않다면 출력이 되지 않는다 (NotSerializableException 발생)
+
+            System.out.println("학생 출력 완료");
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try{
+                if(oos != null) oos.close();
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+    }
+
+    // 8)
+    public void listInput(){
+        ObjectInputStream ois = null;
+        try{
+            ois = new ObjectInputStream(new FileInputStream("object/studentList.ini"));
+            List<Student> list = (List<Student>)ois.readObject(); // 직렬화된 객체 데이터를 읽어와 역직렬화 시켜 정상적인 객체 형태로 반환
+            for(Student s : list) System.out.println(s.getName());
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try{
+                if(ois != null) ois.close();
+            }
+            catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+    }
 }
