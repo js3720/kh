@@ -66,10 +66,10 @@ public class TCPServer {
 
             // 7. 스트림을 통해 읽고 쓰기
             // 7-1) 서버 -> 클라이언트에게 출력(메세지 전송)
-            Date now = new Date();// 현재 시간을 가져오는 메서드
+            Date now = new Date(); // 생성된 시간을 기록하고있는 시간 관련 객체
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); // 시간 관련 데이탸의 포맷을 저장하는 변수
             String time = sdf.format(now);  // 현재 시간을  데이터포맷에 맞춰 문자얼로 반환받아 저장
-            System.out.println(time+"[서버 접속 성공]");
+            pw.println(time + " [서버 접속 성공]"); //System.out.println(time+"[서버 접속 성공]");
             pw.flush(); // 스트림에 있는 내용을 모두 밀어내어 내용을 보내줘야함
 
             // 7-2) 클라이언트 -> 서버에게 입력(메시지 전송 받기)
@@ -77,7 +77,7 @@ public class TCPServer {
             System.out.println(clientIP + "가 보낸 메세지 : " + message);
 
         }catch (IOException e){
-
+            e.printStackTrace();
         }finally {
             // 8. 통신 종료
             //사용한 스트림, 소켓 자원을 모두 반환(close)
@@ -89,6 +89,7 @@ public class TCPServer {
                 //if문에 {}를 사용안하면 다음 한 줄(세미콜론 기준)이 if문 내부 코드가 된다.
             }
             catch (IOException e){
+                e.printStackTrace();
             }
         }
     }

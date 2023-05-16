@@ -129,4 +129,112 @@ public class Array2Practice {
         }
     }
 
+    public void practice7(){
+        String[] students = {"강건강", "남나나", "도대담", "류라라", "문미미", "박보배","송성실", "윤예의", "진재주", "차천축", "피풍표", "홍하하"};
+        int index = 0;
+        String[][] str1 = new String[3][2];
+        String[][] str2 = new String[3][2];
+        for(int num=0; num<2; num++){
+            System.out.println(num==0 ? "== 1분단 ==" : "== 2분단 ==");
+            for(int i=0; i<3; i++){
+                for(int j=0; j<2; j++){
+                    if(num==0){
+                        str1[i][j] = students[index++];
+                        System.out.print(str1[i][j]+" ");
+                    }
+                    else{
+                        str2[i][j] = students[index++];
+                        System.out.print(str2[i][j]+" ");
+                    }
+                }
+                System.out.println();
+            }
+        }
+    }
+
+    public void practice8(){
+        String[] students = {"강건강", "남나나", "도대담", "류라라", "문미미", "박보배","송성실", "윤예의", "진재주", "차천축", "피풍표", "홍하하"};
+        int index = 0;
+        String[][][] str = new String [2][3][2];
+        for(int num=0; num<2; num++){
+            System.out.println(num==0 ? "== 1분단 ==" : "== 2분단 ==");
+            for(int i=0; i<3; i++){
+                for(int j=0; j<2; j++){
+                    str[num][i][j] = students[index++];
+                    System.out.print(str[num][i][j]+" ");
+                }
+                System.out.println();
+            }
+        }
+        System.out.println("==========================");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("검색할 학생 이름을 입력하세요 : ");
+        String input = sc.next();
+        for(int num=0; num<2; num++){
+            for(int i=0; i<3; i++){
+                for(int j=0; j<2; j++){
+                    if(str[num][i][j].equals(input)){
+                        System.out.printf("검색하신 %s 학생은 %d분단 %d번째 줄 %s에 있습니다.",input,num+1,i+1,j==0 ? "왼쪽" : "오른쪽");
+                    }
+                }
+            }
+        }
+    }
+
+
+
+
+    public void mmu(){
+        // 2차원 배열 두개 3행 2열
+        String[] students = {"강건강", "남나나", "도대담", "류라라", "문미미", "박보배","송성실", "윤예의", "진재주", "차천축", "피풍표", "홍하하"};
+        String[][] str1 = new String[3][2];
+        String[][] str2 = new String[3][2];
+        int index = 0;
+
+        // 총 12번 돌아감
+        for(int dan=0; dan<2; dan++){ // [1분단] [2분단]
+            //
+            for(int row=0; row<str1.length; row++){ // [0행] [1행] [2행]
+                for(int col=0; col<str1[0].length; col++){ // [0행0열, 0행1열]  [1행0열, 1행1열]  [2행0열, 2행1열]
+                    if(dan==0){ // 1분단 일 때
+                        str1[row][col] = students[index++];
+                        //출력
+                    }
+                    else{ // dan==1 -> 2분단 일 때
+                        str2[row][col] = students[index++];
+                        //출력
+                    }
+                }
+            }
+        }
+        for(int dan=0; dan<2; dan++){ // [1분단] [2분단]
+            //
+            for(int row=0; row<str1.length; row++){ // [0행] [1행] [2행]
+                for(int col=0; col<str1[0].length; col++){ // [0행0열, 0행1열]  [1행0열, 1행1열]  [2행0열, 2행1열]
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
