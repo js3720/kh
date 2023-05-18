@@ -30,14 +30,14 @@ SELECT * FROM DEPARTMENT;
 -- <컬럼 값 산술 연산>
 -- 컬럼 값 : 테이블의 한 칸(== 한 셀)에 작성된 값(DATA)
 
--- SELECT문 작성 시 컬럼명에 산술 연산을 작성하면
--- 조회되는 결과 컬럼 값에 산술 연산이 반영된다.
+-- SELECT문 작성 시 컬럼명에 산술 연산을 작성하면 
+-- 조회되는 결과 컬럼 값에 산술 연산이 반영된다. 
 
--- EMPLOYEE 테이블에서 모든 사원의 사번, 이름, 급여 + 100만 을 조회0
-SELECT EMP_ID, EMP_NAME, SALARY+1000000 FROM EMPLOYEE;
+-- EMPLOYEE 테이블에서 모든 사원의 사번, 이름, 급여 + 100만 을 조회 
+SELECT EMP_ID, EMP_NAME, SALARY+1000000 FROM EMPLOYEE; 
 
--- EMPLOYEE 테이블에서 모든 사원의 이름, 급여, 연봉(급여*12개월)을 조회
-SELECT EMP_NAME, SALARY, SALARY*12 FROM EMPLOYEE;
+-- EMPLOYEE 테이블에서 모든 사원의 이름, 급여, 연봉(급여*12개월)을 조회 
+SELECT EMP_NAME, SALARY, SALARY*12 FROM EMPLOYEE; 
 
 -------------------------------------------------------
 
@@ -325,7 +325,7 @@ SELECT EMP_NAME, SALARY
 FROM EMPLOYEE
 WHERE SALARY>=2000000
 ORDER BY SALARY ASC;
--- ORDER BY 정렬 방식은 기본적으로 오름차순이기 때문에 ASC는 생래략 가능
+-- ORDER BY 정렬 방식은 기본적으로 오름차순이기 때문에 ASC는 생략 가능
 -- ** 정렬은 숫자, 문자, 날짜 모두 사용 가능 **
 
 SELECT EMP_NAME
@@ -338,13 +338,13 @@ FROM EMPLOYEE
 ORDER BY 2 DESC; --> SELECT로 조회되는 컬럼 중 두번째로 조회하는 것을 기준으로 내림차순 정렬
 
 -- 연봉 내림차순
-SELECT EMP_NAME, SALARY*12 AS 연봉
+SELECT EMP_NAME, SALARY*12 AS 연봉 
 FROM EMPLOYEE
 WHERE SALARY >= 5000000
---WHERE 연봉>=5000000 --> 해석순서가 별칭 해석 전이기 때문에 오류 발생
---ORDER BY SALARY*12 DESC; -- 컬럼명으로 정렬
---ORDER BY 2 DESC; -- 컬럼 순서로 정렬
-ORDER BY 연봉 DESC; -- 별칭으로 정렬
+--WHERE 연봉>=5000000 --> 해석순서가 별칭 해석 전이기 때문에 오류 발생 
+--ORDER BY SALARY*12 DESC; -- 컬럼명으로 정렬 
+--ORDER BY 2 DESC; -- 컬럼 순서로 정렬 
+ORDER BY 연봉 DESC; -- 별칭으로 정렬 
 
 -- 보너스 정렬
 SELECT EMP_NAME, BONUS

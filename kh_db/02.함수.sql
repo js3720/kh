@@ -90,7 +90,7 @@ SELECT TRUNC(-123.5), FLOOR(-123.5) FROM DUAL;
 SELECT SYSDATE FROM DUAL;
 
 -- SYSTIMESTAMP : SYSDATE + MS단위 (0.001초) 추가
-SELECT SYSTIMESTAMP FROM DUAL; 
+SELECT SYSTIMESTAMP FROM DUAL;
 
 -- MONTHS_BETWEEN(날짜, 날짜) : 두 날짜의 개월 수 차이 반환
 SELECT ROUND(MONTHS_BETWEEN(SYSDATE, '2022/02/21'))||'개월' "수강기간" FROM DUAL;
@@ -98,11 +98,11 @@ SELECT ROUND(MONTHS_BETWEEN(SYSDATE, '2022/02/21'))||'개월' "수강기간" FRO
 SELECT EMP_NAME "이름", HIRE_DATE "입사일", 
 '근무 '|| CEIL(MONTHS_BETWEEN(SYSDATE, HIRE_DATE))||'개월 차' "근무 개월 수",
 '근무 '|| CEIL((MONTHS_BETWEEN(SYSDATE, HIRE_DATE)/12))||'년 차' "근무 햇수"
-FROM EMPLOYEE;
+FROM EMPLOYEE; 
 
 --------------------------------------------------------------------------------
 
--- ADD_NONTHS(날짜, 숫자) : 날짜에 숫자만큼의 개월 수를 더함
+-- ADD_MONTHS(날짜, 숫자) : 날짜에 숫자만큼의 개월 수를 더함
 SELECT ADD_MONTHS(SYSDATE, 4)+7 FROM DUAL; -- 4개월 하고도 7일을 더함
 
 -- LAST_DAY(날짜) : 해당 달의 마지막 날짜를 구함
@@ -110,6 +110,7 @@ SELECT LAST_DAY(SYSDATE) FROM DUAL;
 SELECT LAST_DAY('2023-04-01') FROM DUAL;
 
 --------------------------------------------------------------------------------
+SELECT SYSDATE FROM DUAL;
 
 -- EXTRACT : 년,월,일 정보를 추출하여 리턴
 -- EXTRACT (YEAR FROM 날짜) : 년도만 추출
@@ -130,8 +131,8 @@ WHERE EXTRACT(MONTH FROM HIRE_DATE)=1;
 -- 문자열(CHAR), 숫자(NUMBER), 날짜(DATE) 끼리 형변환 가능
 
 /* 문자열로 변환 */
--- TO_CHAR(날짜, [포맷]) : 날짜형 데이터를 문자형 데이터로 변경
--- TO_CHAR(숫자, [포맷]) : 숫자형 데이터를 문자형 데이터로 변경
+-- TO_CHAR(날짜[, 포맷]) : 날짜형 데이터를 문자형 데이터로 변경
+-- TO_CHAR(숫자[, 포맷]) : 숫자형 데이터를 문자형 데이터로 변경
 
 --<패턴>
 -- 9 : 숫자 한칸을 의미, 여러개 작성 시 오른쪽 정렬
@@ -244,6 +245,7 @@ TO_CHAR((SALARY+NVL(SALARY,0)*NVL(BONUS,0))*12, 'L999,999,999')||'원'"연봉(�
 FROM EMPLOYEE;
 
 -- 숙제 있음
+
 -- EMPLOYEE 테이블에서
 -- 부서코드가 D5, D9인 직원들 중에서 2004년도에 입사한 직원의 
 -- 사번 사원명 부서코드 입사일 조회
@@ -251,24 +253,34 @@ SELECT EMP_ID, EMP_NAME, DEPT_CODE, HIRE_DATE
 FROM EMPLOYEE
 WHERE DEPT_CODE IN('D5','D6')
 AND TO_CHAR(HIRE_DATE,'YYYY')='2004';
+--AND EXTRACT(YEAR FROM HIRE_DATE)=2004;
 
 
 -- EMPLOYEE 테이블에서
 -- 직원명, 입사일, 입사한 달의 근무일수 조회
 -- 단, 입사한 날도 근무일수에 포함해서 +1 할 것
-SELECT EMP_NAME, HIRE_DATE, LAST_DAY(HIRE_DATE)-HIRE_DATE+1
+SELECT EMP_NAME, HIRE_DATE, LAST_DAY(HIRE_DATE)-HIRE_DATE+1 "입사한 달의 근무 일수"
 FROM EMPLOYEE;
 
 -- EMPLOYEE 테이블에서
--- 직원명, 부서코드, 생년월일, 나이 조회
+-- 직원명, 부서코드, 생년월일, 나이 조회 
 -- 단, 생년월일은 주민번호에서 추출해서, 
--- ㅇㅇ년 ㅇㅇ월 ㅇㅇ일로 출력되게 함.
+-- ㅇㅇ년 ㅇㅇ월 ㅇㅇ일로 출력되게 함. 
 -- 나이는 주민번호에서 추출해서 날짜데이터로 변환한 다음, 계산.
 -- (년도만을 이용한 나이 구하기,   만 나이 구하기 둘다 시도해보세요!)
-SELECT EMP_NAME"직원명", DEPT_CODE"부서코드",
-TO_CHAR(TO_DATE(SUBSTR(EMP_NO,1,6),'RRMMDD'),'RR"년"MM"월"DD"일"')"생년월일",
+SELECT EMP_NAME"직원명", DEPT_CODE"부서코드", 
+TO_CHAR(TO_DATE(SUBSTR(EMP_NO,1,6),'RRMMDD'),'RR"년"MM"월"DD"일"')"생년월일", 
 EXTRACT(YEAR FROM SYSDATE)-EXTRACT(YEAR FROM (TO_DATE(SUBSTR(EMP_NO,1,6),'RRMMDD')))"나이",
-FLOOR((SYSDATE-TO_DATE(SUBSTR(EMP_NO,1,6),'RRMMDD'))/365)"만 나이"
+FLOOR((SYSDATE-TO_DATE(SUBSTR(EMP_NO,1,6),'RRMMDD'))/365)"만 나이" 
+FROM EMPLOYEE; 
+
+-- 선생님 
+SELECT EMP_NAME, DEPT_CODE,
+   SUBSTR(EMP_NO, 1, 2 ) || '년' ||
+   SUBSTR(EMP_NO, 3, 2 ) || '월' ||
+   SUBSTR(EMP_NO, 5, 2 ) || '일' 생년월일,
+EXTRACT(YEAR FROM SYSDATE) - EXTRACT(YEAR FROM TO_DATE(SUBSTR(EMP_NO,1,6),'RRMMDD'))"나이",
+FLOOR(MONTHS_BETWEEN(SYSDATE, TO_DATE(SUBSTR(EMP_NO,1,6),'RRMMDD'))/12)"만 나이"
 FROM EMPLOYEE;
 --------------------------------------------------------------------------------
 
@@ -287,11 +299,11 @@ FROM EMPLOYEE;
 -- 직급코드가 J7인 직원은 급여의 10%를 인상하고
 -- 직급코드가 J6인 직원은 급여의 15%를 인상하고
 -- 직급코드가 J5인 직원은 급여의 20%를 인상하며
--- 그 외 직급의 직원은 급여의 5%만 인상한다.
--- 직원 테이블에서 직원명, 직급코드, 급여, 인상급여(위 조건)을 조회하세요
+-- 그 외 직급의 직원은 급여의 5%만 인상한다. 
+-- 직원 테이블에서 직원명, 직급코드, 급여, 인상급여(위 조건)을 조회하세요  
 SELECT EMP_NAME"직원명", DEPT_CODE"직급코드", SALARY||'원'"급여", 
-DECODE(DEPT_CODE, 'J7', SALARY*1.1, 'J6', SALARY*1.15, 'J5', SALARY*1.2, SALARY*1.05)||'원'"인상급여"
-FROM EMPLOYEE;
+DECODE(DEPT_CODE, 'J7', SALARY*1.1, 'J6', SALARY*1.15, 'J5', SALARY*1.2, SALARY*1.05)||'원'"인상급여" 
+FROM EMPLOYEE; 
 
 -- CASE WHEN 조건식 THEN 결과값
 --      WHEN 조건식 THEN 결과값
