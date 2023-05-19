@@ -182,7 +182,7 @@ SELECT TO_CHAR(TO_DATE('041030 143000', 'YYMMDD HH24MISS'), 'YYYY/MM/DD HH24"시
 
 -- EMPLOYEE 테이블에서 각 직원이 태어난 생년월일 조회
 
-SELECT EMP_NAME"이름", TO_DATE(SUBSTR(EMP_NO,1,INSTR(EMP_NO,'-')-1), 'RRMMDD')"생년월일" FROM EMPLOYEE
+SELECT EMP_NAME"이름", TO_DATE(SUBSTR(EMP_NO,1,INSTR(EMP_NO,'-')-1), 'RRMMDD')"생년월일" FROM EMPLOYEE;
 -- Y : 현재 세기 (21세기 == 20XX년 == 2000년대)
 -- R : 1세기 기준으로 절반(50년) 이상이면 이전 세기(1900년대)
 --                            미만이면 현재 세기(2000년대)
