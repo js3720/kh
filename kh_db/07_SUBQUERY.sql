@@ -333,10 +333,20 @@ AND EMP_NAME != '노옹철';
 
 -- 2. 2000년도에 입사한 사원의 부서와 직급이 같은 사원을 조회하시오
 --    사번, 이름, 부서코드, 직급코드, 고용일
+SELECT EMP_ID, EMP_NAME, DEPT_CODE, JOB_CODE, HIRE_DATE
+FROM EMPLOYEE
+JOIN JOB USING(JOB_CODE)
+WHERE (DEPT_CODE, JOB_CODE) IN (SELECT DEPT_CODE, JOB_CODE 
+                                FROM EMPLOYEE 
+                                WHERE EXTRACT(YEAR FROM HIRE_DATE)=2000);
 
 -- 3. 77년생 여자 사원과 동일한 부서이면서 동일한 사수를 가지고 있는 사원을 조회하시오
 --    사번, 이름, 부서코드, 사수번호, 주민번호, 고용일  
-
+SELECT EMP_ID, EMP_NAME, DEPT_CODE, MANAGER_ID, EMP_NO, HIRE_DATE
+FROM EMPLOYEE
+WHERE (DEPT_CODE, MANAGER_ID) IN (SELECT DEPT_CODE, MANAGER_ID 
+                                    FROM EMPLOYEE 
+                                    WHERE SUBSTR(EMP_NO,1,8) LIKE '77____-2%');
 --------------------------------------------------------------------------------
 
 -- 4. 다중행 다중열 서브쿼리
