@@ -413,3 +413,108 @@ WHERE HIRE_DATE =(SELECT MIN(HIRE_DATE) FROM EMPLOYEE SUB
 ORDER BY HIRE_DATE;
 
 -- 특정 부서 D5에서 가장 빠른 입사일
+SELECT MIN(HIRE_DATE) FROM EMPLOYEE
+WHERE DEPT_CODE ='D5';-- 1994-07-07 00:00:00
+
+--------------------------------------------------------------------------------
+
+-- 6. 스칼라 서브쿼리
+--     SELECT절에 사용되는 서브쿼리 결과로 1행(단일행)만 반환
+            --> SELECT절에 작성하는 단일행 서브쿼리
+--     sql에서 단일 값을 가르켜 '스칼라' 라고 함
+
+SELECT EMP_NAME, SALARY, (SELECT FLOOR(AVG(SALARY)) FROM EMPLOYEE)평균
+FROM EMPLOYEE;
+
+-- 각 직원들이 속한 직급의 급여 평균 조회
+SELECT EMP_NAME, SALARY, JOB_CODE, (SELECT FLOOR(AVG(SALARY)) FROM EMPLOYEE "SUB" WHERE SUB.JOB_CODE = MAIN.JOB_CODE) "평균"
+FROM EMPLOYEE "MAIN";
+
+-- 모든 사원의 사번, 이름, 관리자사번, 관리자명을 조회
+-- 단 관리자가 없는 경우 '없음'으로 표시
+SELECT EMP_ID, EMP_NAME, NVL(MANAGER_ID,'없음')"관리자 사번", NVL((SELECT EMP_NAME FROM EMPLOYEE "SUB" WHERE MAIN.MANAGER_ID = SUB.EMP_ID),'없음')"관리자명"
+FROM EMPLOYEE "MAIN";
+
+--------------------------------------------------------------------------------
+
+-- 7. 인라인 뷰(TNLINE-VIEW)
+--      FROM절에서 서브쿼리를 사용하는 경우로
+--      서브쿼리가 만든 결과의 집합(RESULT SET)을 테이블 대신 사용한다.
+
+-- 인라인뷰를 활용한 TOP-N 분석
+-- 전 직원 중 급여가 높은 상위 5명의
+-- 순위, 이름, 급여 조회
+
+-- 1) 급여 높은 순서로 조회
+SELECT EMP_NAME, SALARY
+FROM EMPLOYEE
+ORDER BY SALARY DESC;
+
+-- 2) 조회되는 행 앞에 1부터 순서대로 1씩 증가하는 번호 붙이기
+SELECT ROWNUM, EMP_NAME
+FROM EMPLOYEE;
+
+-- 3) ROWNUM을 조건에 사용하기
+SELECT ROWNUM, EMP_NAME
+FROM EMPLOYEE
+WHERE ROWNUM <=5;
+
+-- 4) 1,2,3번을 토대로 급여 상위 5명 조회 시도
+SELECT ROWNUM, EMP_NAME, SALARY
+FROM EMPLOYEE
+WHERE ROWNUM <=5
+ORDER BY SALARY DESC;
+
+--> SELECT 해석 순서를 고려하지 않아서 제대로 조회되지 않음
+--> 이 문제를 해결하기 위해서는 [인라인 뷰]가 필요
+
+-- 해결 1)
+SELECT EMP_NAME, SALARY
+FROM EMPLOYEE
+ORDER BY SALARY DESC;
+-- 해결 1의 조회 결과(RESULT SET)을 가상의 테이블(==VIEW) 취급을 할 예정
+
+-- 해결 2)
+SELECT ROWNUM, EMP_NAME, SALARY
+FROM (SELECT EMP_NAME, SALARY FROM EMPLOYEE ORDER BY SALARY DESC)
+WHERE ROWNUM <=5;
+
+-- 급여 평균이 3위 안에 드는 부서의 부서코드와 부서명, 평균급여를 조회
+SELECT ROWNUM, DEPT_CODE, DEPT_TITLE, "평균급여"
+FROM (SELECT DEPT_CODE, DEPT_TITLE, FLOOR(AVG(SALARY))"평균급여" 
+        FROM EMPLOYEE  
+        LEFT JOIN DEPARTMENT ON(DEPT_CODE = DEPT_ID) 
+        GROUP BY DEPT_CODE, DEPT_TITLE 
+        ORDER BY "평균급여" DESC)
+WHERE ROWNUM <=3;
+
+--------------------------------------------------------------------------------
+
+-- 8. WITH
+--      서브쿼리에 이름을 붙여주고 사용시 이름을 사용하게 함
+--      인라인 뷰로 사용될 서브쿼리에 주로 사용됨
+--      실행 속도도 빨라진다는 장점이 있다.
+
+-- 전 직원의 급여 순위
+SELECT ROWNUM, EMP_NAME, SALARY
+FROM (SELECT EMP_NAME, SALARY FROM EMPLOYEE ORDER BY SALARY DESC);
+
+-- TOP_SAL 라는 이름의 서브쿼리를 미리 생성
+WITH TOP_SAL AS (SELECT EMP_NAME, SALARY FROM EMPLOYEE ORDER BY SALARY DESC)
+SELECT ROWNUM, EMP_NAME, SALARY
+FROM TOP_SAL;
+
+--------------------------------------------------------------------------------
+
+-- 9. RANK() OVER / DENSE_RANK() OVER
+
+-- RANK() OVER : 동일한 순위 이후의 등수를 동일한 인원 수 만큼 건너뛰고 순위 계산
+--               EX) 공동 1위가 2명이면 다음 순위는 2위가 아니라 3위
+SELECT RANK() OVER(ORDER BY SALARY DESC), EMP_NAME, SALARY
+FROM EMPLOYEE;
+
+-- DENSE_RANK() OVER : 동일한 순위 이후의 등수를 이후의 순위로 계산
+--              EX) 공동 1위가 2명이여도 다음 순위는 2위
+SELECT DENSE_RANK() OVER(ORDER BY SALARY DESC), EMP_NAME, SALARY
+FROM EMPLOYEE;
+
