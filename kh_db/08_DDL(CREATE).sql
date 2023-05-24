@@ -522,7 +522,7 @@ WHERE GRADE_CODE = 10;
 
 SELECT * FROM USER_GRADE3; -- 부모 행 삭제 확인(10 없어짐)
 SELECT * FROM USER_USED_FK3; -- 10을 참조하던 자식 행 삭제 확인(종속 관계의 행이 모두 삭제됨)
--- ON DELETE CASECADE 옵션으로 인해 참조키를 사용한 행이 삭제됨을 확인
+-- ON DELETE CASCADE 옵션으로 인해 참조키를 사용한 행이 삭제됨을 확인
 
 --------------------------------------------------------------------------------
 
@@ -655,7 +655,7 @@ SELECT * FROM USER_CONSTRAINTS C1
 JOIN USER_CONS_COLUMNS C2 USING(CONSTRAINT_NAME)
 WHERE C1.TABLE_NAME ='EMPLOYEE_COPY';
 
---NOT NULL, CHECK 제약 조건만 복사된 EMPLOYEE_COPY 테이블에
+--NOT NULL 제약 조건만 복사된 EMPLOYEE_COPY 테이블에
 --EMP_ID 컬럼에 PRIMARY KEY 제약조건 추가
 ALTER TABLE EMPLOYEE_COPY ADD
 CONSTRAINT PK_EMP_COPY PRIMARY KEY(EMP_ID);
