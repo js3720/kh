@@ -253,3 +253,52 @@ DROP VIEW V_DCOPY2;
     -- 인덱스가 자동으로 생성되는 경우
     --> PK 또는 UNIQUE 제약조건이 설정되는 경우
 */
+
+SELECT * FROM EMPLOYEE_COPY4;
+
+-- EMPLOYEE_COPY4 테이블의 CMP_NAME 컬럼에 INDEX 생성
+CREATE INDEX ECOPY4_NAME_IDX
+ON EMPLOYEE_COPY4(EMP_NAME);
+-- Index ECOPY4_NAME_IDX이(가) 생성되었습니다.
+
+SELECT * FROM EMPLOYEE_COPY4;
+--> 인덱스를 사용하지 않은 검색
+
+-- *** 인덱스를 이용한 조회(검색) 방법 ***
+--> WHERE절에 인덱스가 추가된 컬럼이 언급되면 자동으로 INDEX가 활용됨
+SELECT * FROM EMPLOYEE_COPY4
+WHERE EMP_NAME != '0';
+--> 데이터가 너무 적어서 차이가 거의 없음 ...
+
+-- 인덱스 확인용 테이블 생성
+CREATE TABLE TB_IDX_TEST(
+    TEST_NO NUMBER PRIMARY KEY,
+    TEST_ID VARCHAR2(20) NOT NULL
+);
+
+-- TB_IDX_TEST 테이블에 샘플데이터 100만개 삽입 (PL/SQL 사용)
+BEGIN
+    FOR I IN 1..1000000
+    LOOP
+        INSERT INTO TB_IDX_TEST VALUES( I , 'TEST' || I );
+    END LOOP;
+    
+    COMMIT;
+END;
+/
+
+SELECT COUNT(*) FROM TB_IDX_TEST;
+
+-- 인덱스 사용X
+SELECT * FROM TB_IDX_TEST
+WHERE TEST_ID = 'TEST500000'; 0.023
+
+-- 인덱스 사용O
+SELECT * FROM TB_IDX_TEST
+WHERE TEST_NO = 500000; -- 0.001
+
+-- 테스트용 테이블 삭제
+DROP TABLE TB_IDX_TEST
+
+-- 인덱스 삭제
+DROP INDEX ECOPY4_NAME_IDX;

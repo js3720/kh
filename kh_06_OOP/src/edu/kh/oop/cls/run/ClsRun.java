@@ -10,6 +10,5 @@ public class ClsRun {
 //        service.ex2(); // static 확인 예제 호출
 //        service.ex3(); // 생성자 확인 예제
         service.ex4(); // 매개변수 생성자 확인 예제
-
     }
 }

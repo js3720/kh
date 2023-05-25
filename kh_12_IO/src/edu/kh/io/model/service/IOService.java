@@ -224,7 +224,6 @@ public class IOService {
         try(
                 //try-with-resource 문을 사용하면 자동으로 자원 반납해줌, 메서드 종료시
                 ObjectInputStream ois = new ObjectInputStream(new FileInputStream("object/studentList.ini"));
-                ObjectInputStream oi2 = new ObjectInputStream(new FileInputStream("object/studentList.ini"));
             ){
             List<Student> list = (List<Student>)ois.readObject(); // 직렬화된 객체 데이터를 읽어와 역직렬화 시켜 정상적인 객체 형태로 반환
             for(Student s : list) System.out.println(s.getName());

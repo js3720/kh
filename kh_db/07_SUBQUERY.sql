@@ -58,7 +58,7 @@ WHERE SALARY >= (SELECT AVG(SALARY) FROM EMPLOYEE);
 --    단일행 서브쿼리 앞에는 비교 연산자 사용
 --    <,>,<=,>=,=,!=,^=,<>
 
--- 전 직원의 급여 평규 ㄴ보다 많은 급여를 받는 직원의
+-- 전 직원의 급여 평균 보다 많은 급여를 받는 직원의
 -- 이름, 직급, 부서, 급여를 직급 순으로 정렬하여 조회
 SELECT EMP_NAME, JOB_CODE, DEPT_CODE, SALARY
 FROM EMPLOYEE

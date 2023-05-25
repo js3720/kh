@@ -6,8 +6,8 @@ public class Car {
     private int wheel;
 
     public Car() { // 기본 생성자
-        super(); // 부모생성자(Object) -> 안적어주어도 컴파일러가 자동으로 수행하기 때문에 생략 가능
-    }
+        super();
+    }// 부모생성자(Object) -> 안적어주어도 컴파일러가 자동으로 수행하기 때문에 생략 가능
 
     public Car(String engine, String fuel, int wheel) {
         super();

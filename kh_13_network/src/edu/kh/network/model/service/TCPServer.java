@@ -61,7 +61,7 @@ public class TCPServer {
 
             // 6. 보조 스트림을 통해 성능 개선
             br = new BufferedReader(new InputStreamReader(is));
-            // InputStreamReader : 문자기분 스트림과 바이트기반 스트림 연결에 사용되는 스트림
+            // InputStreamReader : 문자기반 스트림과 바이트기반 스트림 연결에 사용되는 스트림
             pw = new PrintWriter(os);
 
             // 7. 스트림을 통해 읽고 쓰기
