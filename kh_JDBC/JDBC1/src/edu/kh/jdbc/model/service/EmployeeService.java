@@ -19,7 +19,7 @@ public class EmployeeService {
     }
 
     public Employee selectOne(int input) {
-        Employee emp = dao.selectone(input);
+        Employee emp = dao.selectOne(input);
         return emp;
     }
 }

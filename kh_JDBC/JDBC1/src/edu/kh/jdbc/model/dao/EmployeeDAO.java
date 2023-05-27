@@ -109,7 +109,7 @@ public class EmployeeDAO {
         return empList;
     }
 
-    public Employee selectone(int input) {
+    public Employee selectOne(int input) {
         Employee emp = null; // 결과 저장용 변수
         try{
             // 1) Oracle JDBC Driver 메모리 로드 ** 꼭 써줘야함 **
