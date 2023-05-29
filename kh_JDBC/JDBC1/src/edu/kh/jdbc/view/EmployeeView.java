@@ -32,6 +32,7 @@ public class EmployeeView {
                 System.out.println("4. 사번으로 사원 정보 수정");
                 System.out.println("5. 사번으로 사원 정보 삭제");
                 System.out.println("6. 입력 받은 급여 이상으로 받는 모든 직원 조회");
+                System.out.println("7. 부서코드, 보너스율을 입력 받아 해당 부서의 보너스를 모두 수정");
                 System.out.println("0. 프로그램 종료");
                 System.out.println("====================================");
                 System.out.print("메뉴 선택 >> ");
@@ -41,10 +42,11 @@ public class EmployeeView {
                 switch(menuNum){
                     case 1 : selectAll();break;
                     case 2 : selectOne();break;
-                    case 3 : break;
-                    case 4 : break;
-                    case 5 : break;
-                    case 6 : break;
+                    case 3 : insertEmployee();break;
+                    case 4 : updateEmployee();break;
+                    case 5 : deleteEmployee();break;
+                    case 6 : selectSalary();break;
+                    case 7 : updateBonus();break;
                     case 0 : System.out.println("프로그램을 종료합니다...");break;
                     default:  System.out.println("잘못 입력하셨습니다, 다시 입력 해주세요.");break;
                 }
@@ -78,6 +80,8 @@ public class EmployeeView {
     public void printList(List<Employee> empList){
         if( empList.isEmpty() ) System.out.println("조회 결과가 없습니다.");
         else {
+            System.out.println("사번 이름\t주민등록번호\t\t이메일\t\t\t휴대폰번호\t부서코드\t직업코드\t급여등급\t급여\t\t보너스\t관리자\t입사일\t\t퇴사일\t퇴직여부");
+            System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
             for( Employee emp : empList) System.out.println(emp);
         }
     }
@@ -88,9 +92,9 @@ public class EmployeeView {
      */
     public int inputEmpId(){
         System.out.print("사번을 입력하세요 : ");
-        int empNo = sc.nextInt();
+        int empId = sc.nextInt();
         sc.nextLine();
-        return empNo;
+        return empId;
     }
 
     /**
@@ -108,6 +112,123 @@ public class EmployeeView {
             empList.add(emp);
         }
         printList(empList);
+    }
+
+    /**
+     * 입력 받은 급여 이상으로 받는 모든 직원 조회 View
+     */
+    public void selectSalary(){
+        System.out.println("[입력 받은 급여 이상으로 받는 모든 직원 조뢰]");
+        System.out.print("급여를 입력하세요 : ");
+        int input = sc.nextInt();
+        sc.nextLine();
+
+        List <Employee> empList = service.selectSalary(input);
+        printList(empList);
+        System.out.println("총 인원 : "+empList.size()+"명");
+    }
+
+    /**
+     * 새로운 사원 정보 추가 View
+     */
+    public  void insertEmployee(){
+        System.out.println("[새로운 사원 정보 추가]");
+        System.out.print("사번 : ");
+        int empId = sc.nextInt();
+        System.out.print("이름 : ");
+        String empName = sc.next();
+        System.out.print("주민등록번호 : ");
+        String empNo = sc.next();
+        System.out.print("이메일 : ");
+        String email = sc.next();
+        System.out.print("전화번호 : ");
+        String phone = sc.next();
+        System.out.print("부서코드(D1 ~ D9) : ");
+        String deptCode = sc.next();
+        System.out.print("직급코드(J1 ~ J7 : ");
+        String jobCode = sc.next();
+        System.out.print("급여 : ");
+        int salary = sc.nextInt();
+        System.out.print("보너스율 : ");
+        double bonus = sc.nextDouble();
+        sc.nextLine();
+        Employee emp = new Employee(empId,empName,empNo,email,phone,deptCode,jobCode,salary,bonus);
+        int result = service.insertEmployee(emp);
+        System.out.println(result >0 ? "사원 정보가 추가되었습니다." : "사원 정보 추가 실패");
+    }
+
+    /**
+     * 사번으로 사원 정보 삭제 View
+     */
+    public void deleteEmployee(){
+
+        //EMPLOYEE2 테이블에서
+        // 사번을 입력 받고 일치하는 사번을 가진 사원 정보 삭제(DELETE)
+
+        // 조건 1 : PreparedStatement 사용
+        // 조건 2 : 삭제 성공 시 --> "삭제되었습니다"
+        //         삭제 실패 시 --> "일치하는 사번의 사원이 없습니다. 출력"
+
+        System.out.println("[사번으로 사원 정보 삭제]");
+        int empId = inputEmpId();
+        // DELETE(DML) 수행 시 결과 행의 개수가 반환됨
+        int result = service.deleteEmployee(empId);
+        System.out.println(result >0 ? "삭제 되었습니다" : "일치하는 사번의 사원이 없습니다");
+    }
+
+    /**
+     * 사번으로 사원 정보 수정 View
+     */
+    public void updateEmployee(){
+        System.out.println("[사번으로 사원 정보 수정]");
+
+        int empId = inputEmpId(); // 사번 입력 받는 메소드 호출 후 결과를 반환 받기
+
+        // 이메일, 전화번호, 급여 입력 받기
+        System.out.print("변경된 이메일 입력 : ");
+        String email = sc.next();
+
+        System.out.print("변경된 전화번호 입력(-제외) : ");
+        String phone = sc.next();
+
+        System.out.print("변경된 급여 : ");
+        int salary = sc.nextInt();
+        sc.nextLine();
+
+        Employee emp = new Employee();
+        emp.setEmpId(empId);
+        emp.setEmail(email);
+        emp.setPhone(phone);
+        emp.setSalary(salary);
+
+        // 수정 == UPDATE == DML == 성공한 행의 개수가 반환 == int 자료형 사용
+        int result = service.updateEmployee(emp);
+        System.out.println(result >0 ? "사원 정보가 수정되었습니다." : "일치하는 사번의 사원이 없습니다.");
+    }
+
+
+    /**
+     * 부서코드, 보서스율 입력받아 부서의 보너스를 모두 수정하는 View
+     */
+    public void updateBonus(){
+        System.out.println("[부서코드, 보너스율을 입력 받아 해당 부서의 보너스를 모두 수정]");
+
+        System.out.print("부서 코드를 입력하세요 : ");
+        String deptCode = sc.next();
+        System.out.print("보너스율을 입력하세요 : ");
+        double bonus = sc.nextDouble();
+        sc.nextLine();
+
+        Employee emp = new Employee();
+        emp.setDeptCode(deptCode);
+        emp.setBonus(bonus);
+
+        int result = service.updateBonus(emp);
+        if(result> 0) {
+            System.out.printf("%s 부서의 보너스율이 %.1f으로 변경되었습니다.\n", deptCode, bonus);
+        }else {
+            System.out.println("일치하는 부서코드가 존재하지 않습니다.");
+        }
     }
 
 }

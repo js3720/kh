@@ -37,6 +37,18 @@ public class Employee {
         this.entYn = entYn;
     }
 
+    public Employee(int empId, String empName, String empNo, String email, String phone, String deptCode, String jobCode, int salary, double bonus) {
+        this.empId = empId;
+        this.empName = empName;
+        this.empNo = empNo;
+        this.email = email;
+        this.phone = phone;
+        this.deptCode = deptCode;
+        this.jobCode = jobCode;
+        this.salary = salary;
+        this.bonus = bonus;
+    }
+
     public int getEmpId() {
         return empId;
     }
@@ -158,11 +170,11 @@ public class Employee {
                 (email.length()<12 ? "\t\t" : "\t") + phone +
                 (phone !=null ? "\t" : "\t\t") + deptCode +
                 (deptCode !=null ? "\t\t" : "\t") + jobCode +
-                "\t" + salLevel +
-                "\t" + salary +
+                (jobCode !=null ? "\t\t" : "\t") + salLevel +
+                (salLevel !=null ? "\t\t" : "\t") + salary +
                 "\t" + bonus +
                 (Double.toString(bonus).length() >3 ? "\t" : "\t\t") + managerId +
-                "\t" + hireDate +
+                "\t\t" + hireDate +
                 "\t" + entDate +
                 (entDate !=null ? "\t" : "\t\t") + entYn;
     }
