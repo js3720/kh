@@ -190,4 +190,73 @@ public class MemberView { // 회원 관련 화면 입출력
         }
     }
 
+    /**
+     * 비밀번호 변경 메소드
+     * @param loginMember
+     */
+    public void updatePw(Member loginMember) {
+        String newPw;
+        String updatePw2;
+        System.out.println("[비밀번호 변경]");
+
+        // 현재 비밀번호 --> DB Update 조건(WHERE)
+        System.out.print("현재 비밀번호 : ");
+        String currentPw = sc.next();
+
+        // currentPw.equals(loginMember.getMemberPw())
+        while(true){
+            System.out.print("새 비밀번호 : ");
+            newPw = sc.next();
+            System.out.print("새 비밀번호 확인 : ");
+            updatePw2 = sc.next();
+
+            if(newPw.equals(updatePw2)) break;
+            else System.out.println("\n새 비밀번호가 일치하지 않습니다. 다시 입력해주세요.\n");
+        }
+        try{
+            int result = service.updatePw(loginMember.getMemberNo(), currentPw, newPw);
+            if(result>0){
+                System.out.println("\n[비밀번호가 수정되었습니다.]\n");
+                loginMember.setMemberPw(newPw);
+            }
+            else System.out.println("\n[비밀번호 변경에 실패하였습니다.]\n");
+        }catch (Exception e){
+            System.out.println("\n<비밀번호 변경 과정에서 예외 발생>\n");
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 회원 탈퇴 메소드
+     * @param loginMember
+     * @return
+     */
+    public boolean secession(Member loginMember) {
+        System.out.println("[회원 탈퇴]");
+
+        // 1. 현재 비밀번호 입력 받기
+        System.out.print("현재 비밀번호 : ");
+        String memberPw = sc.next();
+
+        // 2. 탈퇴여부 한번더 물어보기
+        System.out.print("정말 탈퇴하시겠습니까?(Y/N) : ");
+        char ch = sc.next().toUpperCase().charAt(0);
+
+        // 3. Y입력 시 탈퇴 service 수행
+        if(ch == 'Y'){
+            try{
+                int result = service.secession(loginMember.getMemberNo(), memberPw);
+                if(result>0){
+                    System.out.println("\n[탈퇴 되었습니다.]\n");
+                    return true;
+                }
+                else System.out.println("\n[비밀번호가 일치하지 않습니다.]\n");
+            }catch(Exception e){
+                System.out.println("\n<회원 탈퇴 과정에서 예외 발생>\n");
+                e.printStackTrace();
+            }
+        }
+        else System.out.println("\n[회원 탈퇴 취소]\n");
+        return false;
+    }
 }

@@ -1,5 +1,6 @@
 package edu.kh.jdbc.main.view;
 
+import edu.kh.jdbc.board.view.BoardView;
 import edu.kh.jdbc.member.model.service.MemberService;
 import edu.kh.jdbc.member.view.MemberView;
 import edu.kh.jdbc.member.model.vo.Member;
@@ -17,6 +18,8 @@ public class MainView { // 메인메뉴 (메뉴선택용/ 입력화면)
     // 회원 관련 기능 화면을 모아둔 객체를 참조할 변수
     private MemberView memberView = new MemberView();
 
+    // 게시판 관련 기능 화면을 모아둔 객체를 참조할 변수
+    private BoardView boardView = new BoardView();
 
     /**
      * 메인 메뉴 출력 메소드
@@ -44,7 +47,6 @@ public class MainView { // 메인메뉴 (메뉴선택용/ 입력화면)
                     }
                 }
                 else{ // 로그인이 되어있는 경우
-                    System.out.println(loginMember);
                     System.out.println("\n******************* 회원 메뉴 *******************\n");
                     // - 로그인한 회원 정보 조회
                     // - 회원 목록 조회
@@ -56,19 +58,21 @@ public class MainView { // 메인메뉴 (메뉴선택용/ 입력화면)
                     System.out.println("3. 내 정보 수정(이름, 성별)");
                     System.out.println("4. 비밀번호 변경");
                     System.out.println("5. 회원 탈퇴");
+                    System.out.println("6. * 게시판 메뉴 화면 *");
                     System.out.println("9. 로그아웃");
                     System.out.println("0. 프로그램 종료");
                     System.out.print("메뉴를 선택해주세요 >> ");
                     menuNum = sc.nextInt();
-                    sc.nextLine(); // 개행문자 제거
+                    sc.nextLine(); // 개행문자 제거````````````````````````
                     System.out.println(); // 개행
 
                     switch(menuNum){
                         case 1 : memberView.myInfo(loginMember);break;
                         case 2 : memberView.selectAll();break;
                         case 3 : memberView.updateMyInfo(loginMember);break;
-                        case 4 : break;
-                        case 5 : break;
+                        case 4 : memberView.updatePw(loginMember);break;
+                        case 5 : if(memberView.secession(loginMember)){loginMember = null;}break;
+                        case 6 : boardView.boardMenu(loginMember);break;
                         case 9 : loginMember = null; break;
                         case 0 : System.out.println("\n[프로그램을 종료합니다.]\n");break;
                         default : System.out.println("메뉴에 작성된 번호를 입력해주세요.");break;

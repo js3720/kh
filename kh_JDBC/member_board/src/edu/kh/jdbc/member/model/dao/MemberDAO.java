@@ -197,6 +197,13 @@ public class MemberDAO {
         return memberList;
     }
 
+    /**
+     * 내 정보 수정 DAO
+     * @param conn
+     * @param updateMember
+     * @return
+     * @throws Exception
+     */
     public int updateMyInfo(Connection conn, Member updateMember) throws Exception{
         int result = 0;
         try{
@@ -207,6 +214,52 @@ public class MemberDAO {
             pstmt.setString(1, updateMember.getMemberName());
             pstmt.setString(2, updateMember.getMemberGender()+"");
             pstmt.setInt(3, updateMember.getMemberNo());
+
+            result = pstmt.executeUpdate();
+
+        }finally {
+            close(pstmt);
+        }
+        return result;
+    }
+
+    /**
+     * 비밀번호 변경 DAO
+     * @param conn
+     * @param memberNo
+     * @param currentPw
+     * @param newPw
+     * @return result
+     * @throws Exception
+     */
+    public int updatePw(Connection conn, int memberNo, String currentPw, String newPw) throws  Exception{
+        int result = 0;
+        try{
+            String sql = prop.getProperty("updatePw");
+
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setString(1, newPw);
+            pstmt.setInt(2, memberNo);
+            pstmt.setString(3, currentPw);
+
+            result = pstmt.executeUpdate();
+
+        }finally {
+            close(pstmt);
+        }
+        return result;
+    }
+
+    public int secession(Connection conn, int memberNo, String memberPw) throws Exception{
+        int result = 0;
+        try{
+            String sql = prop.getProperty("secession");
+
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setInt(1, memberNo);
+            pstmt.setString(2, memberPw);
 
             result = pstmt.executeUpdate();
 

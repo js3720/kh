@@ -134,4 +134,44 @@ public class MemberService {
 
         return result;
     }
+
+    /**
+     * 비밀번호 변경 Service
+     * @param MemberNo
+     * @param currentPw
+     * @param newPw
+     * @return result
+     * @throws Exception
+     */
+    public int updatePw(int MemberNo, String currentPw, String newPw) throws Exception{
+        Connection conn = getConnection();
+
+        int result = dao.updatePw(conn, MemberNo, currentPw, newPw);
+
+        if(result > 0) commit(conn);
+        else rollback(conn);
+
+        close(conn);
+
+        return result;
+    }
+
+    /**
+     * 회원 탈퇴 Service
+     * @param memberNo
+     * @param memberPw
+     * @return
+     */
+    public int secession(int memberNo, String memberPw) throws Exception{
+        Connection conn = getConnection();
+
+        int result = dao.secession(conn, memberNo, memberPw);
+
+        if(result > 0) commit(conn);
+        else rollback(conn);
+
+        close(conn);
+
+        return result;
+    }
 }
