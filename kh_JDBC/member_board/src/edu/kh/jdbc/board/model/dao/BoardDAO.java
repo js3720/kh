@@ -160,6 +160,13 @@ public class BoardDAO {
         return replyList;
     }
 
+    /**
+     * 조회수 증가 DAO
+     * @param conn
+     * @param boardNo
+     * @return result
+     * @throws Exception
+     */
     public int increaseReadCount(Connection conn, int boardNo) throws Exception{
         int result = 0; // 결과 저장용 변수
 
@@ -178,6 +185,13 @@ public class BoardDAO {
         return result;
     }
 
+    /**
+     * 게시글 삭제 DAO
+     * @param conn
+     * @param boardNo
+     * @return result
+     * @throws Exception
+     */
     public int deleteBoard(Connection conn, int boardNo) throws Exception{
         int result = 0;
         try{
@@ -189,5 +203,139 @@ public class BoardDAO {
             close(pstmt);
         }
         return result;
+    }
+
+    /**
+     * 게시글 수정 DAO
+     * @param conn
+     * @param board
+     * @return result
+     * @throws Exception
+     */
+    public int updateBoard(Connection conn, Board board) throws Exception{
+        int result = 0;
+        try{
+            String sql = prop.getProperty("updateBoard");
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1,board.getBoardTitle());
+            pstmt.setString(2,board.getBoardContent());
+            pstmt.setInt(3,board.getBoardNo());
+            result = pstmt.executeUpdate();
+        }finally {
+            close(pstmt);
+        }
+        return result;
+    }
+
+    /**
+     * 댓글 작성 DAO
+     * @param conn
+     * @param reply
+     * @return result
+     * @throws Exception
+     */
+    public int insertReply(Connection conn, Reply reply) throws Exception{
+        int result = 0;
+        try{
+            String sql = prop.getProperty("insertReply");
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1,reply.getReplyContent()); // 댓글내용
+            pstmt.setInt(2,reply.getMemberNo()); // 회원번호
+            pstmt.setInt(3,reply.getBoardNo()); // 게시글번호
+
+            result = pstmt.executeUpdate();
+        }finally {
+            close(pstmt);
+        }
+        return result;
+    }
+
+    /**
+     * 댓글 수정 DAO
+     * @param conn
+     * @param reply
+     * @return result
+     * @throws Exception
+     */
+    public int updateReply(Connection conn, Reply reply) throws Exception{
+        int result = 0;
+        try{
+            String sql = prop.getProperty("updateReply");
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1,reply.getReplyContent());
+            pstmt.setInt(2,reply.getReplyNo());
+            result = pstmt.executeUpdate();
+        }finally {
+            close(pstmt);
+        }
+        return result;
+    }
+
+    /**
+     * 댓글 삭제 DAO
+     * @param conn
+     * @param inputNo
+     * @return result
+     * @throws Exception
+     */
+    public int deleteReply(Connection conn, int inputNo) throws Exception{
+        int result = 0;
+        try{
+            String sql = prop.getProperty("deleteReply");
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1,inputNo);
+            result = pstmt.executeUpdate();
+        }finally {
+            close(pstmt);
+        }
+        return result;
+    }
+
+    public int insertBoard(Connection conn, Board board) throws Exception{
+        int result = 0;
+        try{
+            String sql = prop.getProperty("insertBoard");
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1,board.getBoardTitle());
+            pstmt.setString(2,board.getBoardContent());
+            pstmt.setInt(3,board.getMemberNo());
+            result = pstmt.executeUpdate();
+        }finally {
+            close(pstmt);
+        }
+        return result;
+    }
+
+    public List<Board> searchBoard(Connection conn, int menuNum, String keyword) throws Exception{
+        List<Board> boardList = new ArrayList<>();
+
+        try{
+            String sql = prop.getProperty("searchBoard1") +prop.getProperty("condition"+menuNum)+ prop.getProperty("searchBoard2");
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setString(1,keyword);
+
+            if(menuNum == 3) pstmt.setString(2,keyword);
+
+            rs = pstmt.executeQuery();
+
+            while(rs.next()){
+                int boardNo = rs.getInt("BOARD_NO");
+                String boardTitle = rs.getString("BOARD_TITLE");
+                Date createDate = rs.getDate("CREATE_DATE");
+                int readCount = rs.getInt("READ_COUNT");
+                String memberName = rs.getString("MEMBER_NM");
+                int replyCount = rs.getInt("REPLY_COUNT");
+
+                boardList.add(new Board(boardNo, boardTitle, createDate, readCount, memberName, replyCount));
+            }
+
+        }
+        finally {
+            close(rs);
+            close(pstmt);
+        }
+
+        return boardList;
     }
 }

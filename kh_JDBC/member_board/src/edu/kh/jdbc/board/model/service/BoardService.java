@@ -8,10 +8,6 @@ import edu.kh.jdbc.board.model.vo.Reply;
 import java.sql.Connection;
 import java.util.List;
 
-
-
-import java.util.List;
-
 public class BoardService {
 
     private BoardDAO dao = new BoardDAO();
@@ -36,6 +32,12 @@ public class BoardService {
         return boardList;
     }
 
+    /**
+     * 게시글 상세 조회 Service
+     * @param boardNo
+     * @return board
+     * @throws Exception
+     */
     public Board selectOne(int boardNo) throws Exception {
         // 1) Connection 생성
         Connection conn = getConnection();
@@ -70,6 +72,12 @@ public class BoardService {
         return board;
     }
 
+    /**
+     * 게시글 삭제 Service
+     * @param boardNo
+     * @return result
+     * @throws Exception
+     */
     public int deleteBoard(int boardNo) throws Exception{
         Connection conn = getConnection();
         int result = dao.deleteBoard(conn, boardNo);
@@ -80,5 +88,99 @@ public class BoardService {
         close(conn);
 
         return result;
+    }
+
+    /**
+     * 게시글 수정 Service
+     * @param board
+     * @return result
+     * @throws Exception
+     */
+    public int updateBoard(Board board) throws Exception{
+        Connection conn = getConnection();
+        int result = dao.updateBoard(conn,board);
+
+        if(result>0) commit(conn);
+        else rollback(conn);
+
+        close(conn);
+
+        return result;
+    }
+
+    /**
+     * 댓글 작성 Service
+     * @param reply
+     * @return result
+     * @throws Exception
+     */
+    public int insertReply(Reply reply) throws Exception{
+        Connection conn = getConnection();
+        int result = dao.insertReply(conn,reply);
+
+        if(result>0) commit(conn);
+        else rollback(conn);
+
+        close(conn);
+
+        return result;
+    }
+
+    /**
+     * 댓글 수정 Service
+     * @param reply
+     * @return result
+     * @throws Exception
+     */
+    public int updateReply(Reply reply) throws Exception{
+        Connection conn = getConnection();
+        int result = dao.updateReply(conn,reply);
+
+        if(result>0) commit(conn);
+        else rollback(conn);
+
+        close(conn);
+
+        return result;
+    }
+
+    /**
+     * 댓글 삭제 Service
+     * @param inputNo
+     * @return return
+     * @throws Exception
+     */
+    public int deleteReply(int inputNo) throws Exception {
+        Connection conn = getConnection();
+        int result = dao.deleteReply(conn,inputNo);
+
+        if(result>0) commit(conn);
+        else rollback(conn);
+
+        close(conn);
+
+        return result;
+    }
+
+    public int insertBoard(Board board) throws Exception{
+        Connection conn = getConnection();
+        int result = dao.insertBoard(conn, board);
+
+        if(result>0) commit(conn);
+        else rollback(conn);
+
+        close(conn);
+
+        return result;
+    }
+
+    public List<Board> searchBoard(int menuNum, String keyword) throws Exception{
+        Connection conn = getConnection();
+
+        List<Board> boardList = dao.searchBoard(conn, menuNum, keyword);
+
+        close(conn);
+
+        return boardList;
     }
 }

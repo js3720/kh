@@ -105,6 +105,6 @@ public class Board {
 
     @Override
     public String toString() {
-        return boardNo +"\t"+ boardTitle +"\t"+ memberName +"\t"+ createDate +"\t"+ readCount +"\t"+ replyCount +"\n"+ boardContent + "\n";
+        return boardNo +"\t"+ boardTitle +"\t\t"+ memberName +"\t"+ createDate +"\t\t"+ readCount +"\t\t"+ replyCount +"\n";
     }
 }
