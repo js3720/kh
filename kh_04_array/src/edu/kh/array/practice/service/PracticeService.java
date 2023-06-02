@@ -133,6 +133,7 @@ public class PracticeService {
         }
     }
 
+    // 난수를 10개 발생시켜 배열에 넣고, 최대값 최소값을 구하시오
     public void practice10(){
         int[] arr = new int[10];
         int max = 0;
