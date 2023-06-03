@@ -181,5 +181,62 @@ public class Array2Practice {
         }
     }
 
+    public void practice9(){
+        Scanner sc = new Scanner(System.in);
+        String[][] arr = new String[6][6];
+        System.out.print("행 인덱스 입력 : ");
+        int row = sc.nextInt();
+        System.out.print("열 인덱스 입력 : ");
+        int col = sc.nextInt();
+        sc.nextLine();
+
+        for(int i=0; i<arr.length; i++){
+            for(int j=0; j<arr[0].length; j++){
+                if(i==0 && j==0) arr[i][j] = " ";
+                else if(i==0) arr[i][j] = (j-1)+"";
+                else if(j==0) arr[i][j] = (i-1)+"";
+                else if(i==row+1 && j==col+1) arr[row+1][col+1]="X";
+                else arr[i][j] = " ";
+                System.out.print(arr[i][j]+" ");
+            }
+            System.out.println();
+        }
+    }
+
+    public void practice10(){
+        Scanner sc = new Scanner(System.in);
+        String[][] arr = new String[6][6];
+        int row = 0;
+        int col = 0;
+        for(int i=0; i<arr.length; i++){
+            for(int j=0; j<arr[0].length; j++){
+                if(i==0 && j==0) arr[i][j] = " ";
+                else if(i==0) arr[i][j] = (j-1)+"";
+                else if(j==0) arr[i][j] = (i-1)+"";
+                else arr[i][j] = " ";
+            }
+        }
+        while(true){
+            System.out.print("행 인덱스 입력 : ");
+            row = sc.nextInt();
+            System.out.print("열 인덱스 입력 : ");
+            col = sc.nextInt();
+            sc.nextLine();
+
+            if(row==99 || col==99) {
+                System.out.println("프로그램 종료");
+                break;
+            }
+
+            for(int i=0; i<arr.length; i++){
+                for(int j=0; j<arr[0].length; j++){
+                    if(i==row+1 && j==col+1) arr[row+1][col+1]="X";
+                    System.out.print(arr[i][j]+" ");
+                }
+                System.out.println();
+            }
+            System.out.println();
+        }
+    }
 
 }
