@@ -321,7 +321,19 @@ WHERE (DEPT_CODE, JOB_CODE) = (SELECT DEPT_CODE, JOB_CODE
                     AND ENT_YN ='Y');
 
 -- 숙제 --
--- 1. 노옹철 사원과 같은 부서, 같은 직급인 사원을 조회하시오 (단, 노옹철 사원은 제외)
+
+-- 1.
+SELECT EMP_ID, EMP_NAME, PHONE, HIRE_DATE
+FROM EMPLOYEE
+WHERE DEPT_CODE = (SELECT DEPT_CODE FROM EMPLOYEE WHERE EMP_NAME = '전지연')
+AND EMP_NAME != '전지연';
+
+-- 2.
+SELECT EMP_ID, EMP_NAME, PHONE, SALARY, JOB_NAME
+FROM (SELECT * FROM EMPLOYEE WHERE HIRE_DATE >= '2000-01-01' AND ROWNUM = 1 ORDER BY SALARY DESC)
+JOIN JOB USING(JOB_CODE);
+
+-- 3. 노옹철 사원과 같은 부서, 같은 직급인 사원을 조회하시오 (단, 노옹철 사원은 제외)
 SELECT EMP_ID, EMP_NAME, JOB_CODE, DEPT_TITLE, JOB_NAME
 FROM EMPLOYEE
 JOIN DEPARTMENT ON(DEPT_CODE = DEPT_ID)
@@ -331,7 +343,7 @@ WHERE (DEPT_CODE, JOB_CODE) IN (SELECT DEPT_CODE, JOB_CODE
                                 WHERE EMP_NAME = '노옹철')
 AND EMP_NAME != '노옹철';
 
--- 2. 2000년도에 입사한 사원의 부서와 직급이 같은 사원을 조회하시오
+-- 4. 2000년도에 입사한 사원의 부서와 직급이 같은 사원을 조회하시오
 --    사번, 이름, 부서코드, 직급코드, 고용일
 SELECT EMP_ID, EMP_NAME, DEPT_CODE, JOB_CODE, HIRE_DATE
 FROM EMPLOYEE
@@ -340,13 +352,38 @@ WHERE (DEPT_CODE, JOB_CODE) IN (SELECT DEPT_CODE, JOB_CODE
                                 FROM EMPLOYEE 
                                 WHERE EXTRACT(YEAR FROM HIRE_DATE)=2000);
 
--- 3. 77년생 여자 사원과 동일한 부서이면서 동일한 사수를 가지고 있는 사원을 조회하시오
+-- 5. 77년생 여자 사원과 동일한 부서이면서 동일한 사수를 가지고 있는 사원을 조회하시오
 --    사번, 이름, 부서코드, 사수번호, 주민번호, 고용일  
 SELECT EMP_ID, EMP_NAME, DEPT_CODE, MANAGER_ID, EMP_NO, HIRE_DATE
 FROM EMPLOYEE
 WHERE (DEPT_CODE, MANAGER_ID) IN (SELECT DEPT_CODE, MANAGER_ID 
                                     FROM EMPLOYEE 
                                     WHERE SUBSTR(EMP_NO,1,8) LIKE '77____-2%');
+                                    
+-- 6. 부서별 입사일이 가장 빠른 사원의
+--    사번, 이름, 부서명(NULL이면 '소속없음'), 직급명, 입사일을 조회하고
+-- 입사일이 빠른 순으로 조회하시오. 단, 퇴사한 직원은 제외하고 조회
+SELECT EMP_ID, EMP_NAME, NVL(DEPT_TITLE,'소속없음'),JOB_NAME, HIRE_DATE
+FROM EMPLOYEE
+LEFT JOIN DEPARTMENT ON(DEPT_ID = DEPT_CODE)
+JOIN JOB USING(JOB_CODE)
+WHERE HIRE_DATE IN (SELECT MIN(HIRE_DATE) FROM EMPLOYEE WHERE ENT_YN = 'N' GROUP BY DEPT_CODE)
+ORDER BY HIRE_DATE;
+
+-- 7. 직급별 나이가 가장 어린 직원의
+--    사번, 이름, 직급명, 나이, 보너스 포함 연봉을 조회하고
+--    나이순으로 내림차순 정렬하세요. 단 연봉은 원 단위 기호로 출력
+SELECT EMP_ID, EMP_NAME, JOB_NAME, 
+FLOOR((SYSDATE-TO_DATE(19||SUBSTR(EMP_NO,1,2),'RRRR'))/365)"나이", 
+TO_CHAR((SALARY*(1+NVL(BONUS,'0')))*12,'L999,999,999')"보너스포함연봉"
+FROM EMPLOYEE
+JOIN JOB USING(JOB_CODE)
+WHERE (JOB_CODE, EMP_NO) IN 
+        (SELECT JOB_CODE, MAX(EMP_NO)
+        FROM EMPLOYEE
+        GROUP BY JOB_CODE)
+ORDER BY EMP_NO;
+
 --------------------------------------------------------------------------------
 
 -- 4. 다중행 다중열 서브쿼리

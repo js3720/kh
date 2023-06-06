@@ -37,11 +37,11 @@ public class BingoGameRun {
             while(true){
                 System.out.print("정수를 입력하세요 : ");
                 num = sc.nextInt();
-                if(bingoNum.contains(num+"")) {
+                if(bingoNum.contains(num+"")){
                     bingoNum.remove(num+"");
                     break;
                 }
-                else if(num<1 && num>(boardSize*boardSize)) System.out.println("빙고판에 없는 번호입니다, 다시 입력해주세요.");
+                else if(num<1 || num>(boardSize*boardSize)) System.out.println("빙고판에 없는 번호입니다, 다시 입력해주세요.");
                 else System.out.println("이미 확인된 번호입니다, 다시 입력해주세요.");
             }
             int[] colCount = new int[boardSize]; // 행 빙고 판별용
