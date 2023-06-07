@@ -57,8 +57,8 @@ public class BingoGameRun {
                         colCount[j]++;                                      // "ㅡ"
                         rowCount[i]++;                                      // "ㅣ"
                     }
-                    if(i==j && board[i][j].equals("★")) diagonalCount1++;   // "\"
                 }
+                if(board[i][i].equals("★")) diagonalCount1++;               // "\"
                 if(board[i][boardSize-i-1].equals("★")) diagonalCount2++;   // "/"
                 System.out.println();
             }

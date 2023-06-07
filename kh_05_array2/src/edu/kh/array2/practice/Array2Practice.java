@@ -206,8 +206,6 @@ public class Array2Practice {
     public void practice10(){
         Scanner sc = new Scanner(System.in);
         String[][] arr = new String[6][6];
-        int row = 0;
-        int col = 0;
         for(int i=0; i<arr.length; i++){
             for(int j=0; j<arr[0].length; j++){
                 if(i==0 && j==0) arr[i][j] = " ";
@@ -218,9 +216,9 @@ public class Array2Practice {
         }
         while(true){
             System.out.print("행 인덱스 입력 : ");
-            row = sc.nextInt();
+            int row = sc.nextInt();
             System.out.print("열 인덱스 입력 : ");
-            col = sc.nextInt();
+            int col = sc.nextInt();
             sc.nextLine();
 
             if(row==99 || col==99) {
