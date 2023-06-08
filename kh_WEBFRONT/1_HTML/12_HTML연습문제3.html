@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>12_HTML연습문제3</title>
+    <script>
+        function setValues() {
+            document.getElementById("email").value += document.getElementById("site").options[document.getElementById("site").selectedIndex].text;
+        }
+    </script>
+    
 </head>
 <body>
     <form>
@@ -27,12 +33,12 @@
                 <tr>
                     <th>Email</th>
                     <td>
-                        <input type="email" name="email">
-                        <select name="site">
+                        <input type="email" name="email" id="email">
+                        <select name="site" id="site" size="1" onchange="setValues();">
                             <option selected>직접입력</option>
-                            <option>@gmail.com</option>
-                            <option>@naver.com</option>
-                            <option>@daum.net</option>
+                            <option value="1">@gmail.com</option>
+                            <option value="2">@naver.com</option>
+                            <option value="3">@daum.net</option>
                         </select>
                     </td>
                 </tr>
@@ -40,28 +46,24 @@
                     
                 </tr>
             </table>
-            
-            
-            
-            
         </fieldset>
 
         <fieldset>
             <legend>추가 정보</legend>
             프로필 사진 <input type="file" name="profile"><br><br>
-            성별 : <input type="radio" name="gender" value="남자" id="M"><label for="M">남자</label>
+            성별 : <input type="radio" checked name="gender" value="남자" id="M"><label for="M">남자</label>
                 <input type="radio" name="gender" value="여자" id="F"><label for="F">여자</label><br><br>
             생년월일 : <input type="date" name="birthday"><br><br>
             취미<br>
-            <input type="checkbox" name="hobby" id="야구"><label for="야구">야구</label>
-            <input type="checkbox" name="hobby" id="농구"><label for="농구">농구</label>
-            <input type="checkbox" name="hobby" id="축구"><label for="축구">축구</label><br>
-            <input type="checkbox" name="hobby" id="공부"><label for="공부">공부</label>
-            <input type="checkbox" name="hobby" id="음악감상"><label for="음악감상">음악감상</label><br>
-            <input type="checkbox" name="hobby" id="기타"><label for="기타">기타</label>
-            <input type="text"><br><br>
+            <input type="checkbox" name="hobby" value="야구" id="야구"><label for="야구">야구</label>
+            <input type="checkbox" name="hobby" value="농구" id="농구"><label for="농구">농구</label>
+            <input type="checkbox" name="hobby" value="축구" id="축구"><label for="축구">축구</label><br>
+            <input type="checkbox" checked name="hobby" value="공부" id="공부"><label for="공부">공부</label>
+            <input type="checkbox" name="hobby" value="음악감상" id="음악감상"><label for="음악감상">음악감상</label><br>
+            <input type="checkbox" name="hobby" value="기타" id="기타"><label for="기타">기타</label>
+            <input type="text" name="hobby"><br><br>
             자기소개<br>
-            <textarea rows="10" cols="100"></textarea><br>
+            <textarea rows="10" cols="100" name="introduction"></textarea><br>
         </fieldset>
         <br>
         <button type="submit">회원가입</button>
