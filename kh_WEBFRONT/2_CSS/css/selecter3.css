@@ -21,6 +21,7 @@ div[class $= "class2"]{
     font-size: 24px;
 }
 
+/* *= : 특정 값이 포함된 요소 선택*/
 div[name *= "2"]{
     border:3px solid yellow;
 }
