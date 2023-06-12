@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>11_CSS연습문제</title>
-    <link rel="stylesheet" href="#">
+    <link rel="stylesheet" href="css/ex_layout.css">
 </head>
 <body>
     <div style="width:100%; height: 100%; margin-top: 20px;">
@@ -17,7 +17,7 @@
             </div>
         </div>
         <div style=" width:50%; float:right;">
-            <div style="float:right; width: 50px;">
+            <div style="float:right; width: 60px;">
                 <a href="#"><img src="https://lh3.googleusercontent.com/ogw/AOLn63F3WjW7d2DfjWYSfvfC_jhUnkxii5V86pikA91C=s32-c-mo" style="border-radius: 20px;"></a>
             </div>
             <div style="float:right; width: 50px;">
@@ -26,7 +26,7 @@
             <div style="float:right; width: 80px; padding: 2px;">
                 <a href="https://www.google.co.kr/imghp?hl=ko&ogbl" style="text-decoration-line:none; color: black;">Images</a>
             </div>
-            <div style="float:right; width: 80px; padding: 2px;">
+            <div style="float:right; width: 50px; padding: 2px;">
                 <a href="https://mail.google.com/" style="text-decoration-line:none; color: black;">Gmail</a>
             </div>
         </div>
@@ -36,12 +36,13 @@
                 <div style="padding-left: 40%; padding-bottom: 20px;">
                     <img style="padding-left: 100px;" src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png">
                 </div>
-                <div style="padding-left: 39%; position: relative;">
-                    <input type="search" placeholder=" 🔍︎" style="font-size:20px; width:500px; height:40px; border-radius: 20px; border: 2px solid rgb(226, 226, 226);">
-                    <button type="button" style="position: absolute; top:20%; left:55%; background-color:transparent; border:none;">
+                <div style="position: relative; width:500px; height:40px; border-radius: 30px; border: 2px solid rgb(226, 226, 226); margin-left: 39.2%; padding-top:10px; box-shadow: 1px 1px 1px 1px rgb(235, 234, 234) ;">
+                    <i style="margin-left: 10px;">🔍︎</i>
+                    <input type="search" style="font-size:20px; border: none; outline: none; width: 80%;">
+                    <button type="button" style="position: absolute; top:30%; right: 10%; background-color:transparent; border:none;">
                         <img style="width:20px; height:20px; border: none; background: none;" src="https://lh3.googleusercontent.com/RvIdfvyE80vvpFQZwjT3P4gFVsxmjm9xXYemQR7Nbwa3_0orr4QZ_Ut3Z6pwUnI-MfW0GpGdyBu3Q6KhvGyWccHbUOp8rmNFsOHjQwkn">
                     </button>
-                    <button type="button" style="position: absolute; top:20%; left:56.5%; background-color:transparent; border:none;">
+                    <button type="button" style="position: absolute; top:30%; right:3%; background-color:transparent; border:none;">
                         <img style="width:20px; height:20px; border: none; background: none;" src="https://lh3.googleusercontent.com/7xq3YJV4CxroJg1WexwngBBP4ibiD4gSsMuf0Zt0SfkOxfamH5TIaWD1WqrRx7oTbQ946Bed4BiumcenOTriCxQZl7dEOyZjSiVQt05T">
                     </button>
                 </div>
@@ -58,22 +59,41 @@
             </div>
         </div>
 
-        <div style="width: 110%; margin-top: 25.5%;">
-            <div style="height: 50px; background-color: rgb(233, 233, 233); border-bottom: 1px solid rgb(167, 167, 167);">
-                <a href="#" style="text-decoration-line: none; color: black;">South Korea</a>
+        <div style="width: 100%; margin-top: 25.5%;">
+            <div style="height: 40px; background-color: rgb(241, 241, 241); padding-top: 10px; border-bottom: 1px solid rgb(219, 219, 219);">
+                <fieldset style=" border: none; padding-top: 10px;">
+                    <a href="#" style="text-decoration-line: none; color: black;">South Korea</a>
+                </fieldset>
             </div>
-            <div style="height: 50px; background-color: rgb(233, 233, 233);">
-                <table >
-                    <tr>
-                        <td><a href="#" style="text-decoration-line: none; color: black;">About</a></td>
-                        <td><a href="#" style="text-decoration-line: none; color: black;">Advertising</a></td>
-                        <td><a href="#" style="text-decoration-line: none; color: black;">Business</a></td>
-                        <td><a href="#" style="text-decoration-line: none; color: black;">How Serach works</a></td>
-                        <td><a href="#" style="text-decoration-line: none; color: black;">Privacy</a></td>
-                        <td><a href="#" style="text-decoration-line: none; color: black;">Terms</a></td>
-                        <td><a href="#" style="text-decoration-line: none; color: black;">Settings</a></td>
-                    </tr>
-                </table>
+            <div style="height: 40px; background-color: rgb(241, 241, 241);">
+                <fieldset style=" border: none; padding-top: 10px;">
+                    <div style="width:50%; float:left;">
+                        <div style="margin-left: 1%; width:100px; float:left;">
+                            <a href="#" style="text-decoration-line: none; color: black;">About</a>
+                        </div>
+                        <div style="margin-left: 0.5%; width:100px; float:left;">
+                            <a href="#" style="text-decoration-line: none; color: black;">Advertising</a>
+                        </div>
+                        
+                        <div style="margin-left: 1%; width:100px; float:left;">
+                            <a href="#" style="text-decoration-line: none; color: black;">Business</a>
+                        </div>
+                        <div style="margin-left: 0.5%; width:150px; float:left;">
+                            <a href="#" style="text-decoration-line: none; color: black;">How Serach works</a>
+                        </div>
+                    </div>
+                    <div style=" width:50%; float:right;">
+                        <div style="margin-left: 1%; width:100px; float:right; margin-right: 1%;">
+                            <a href="#" style="text-decoration-line: none; color: black; float:right;">Privacy</a>
+                        </div>
+                        <div style="margin-left: 1%; width:100px; float:right;">
+                            <a href="#" style="text-decoration-line: none; color: black; float:right;">Terms</a>
+                        </div>
+                        <div style="margin-left: 1%; width:100px; float:right;">
+                            <a href="#" style="text-decoration-line: none; color: black; float:right;">Settings</a>
+                        </div>
+                    </div>
+                </fieldset>
             </div>
         </div>
     </div>

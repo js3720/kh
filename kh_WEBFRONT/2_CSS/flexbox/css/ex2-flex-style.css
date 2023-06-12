@@ -1,0 +1,39 @@
+.flex-container{
+    height: 98vh;
+    width: 98vw;
+    border: none;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.con1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-div{
+    height: 45px;
+    width: 450px;
+    border: 3px solid black;
+    border-radius: 12px;
+    display: flex;
+}
+
+.search-bar{
+    margin-top: 5px;
+    margin-left: 5px;
+    height: 30px;
+    width: 380px;
+    font-size: 15px;
+    border:none;
+    outline: none;
+}
+
+.search-icon{
+    margin-top: 5px;
+    height: 15px;
+    width: 15px;
+}

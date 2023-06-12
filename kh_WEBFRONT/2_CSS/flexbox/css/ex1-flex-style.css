@@ -1,0 +1,117 @@
+div{
+    box-sizing: border-box; /* content + padding + boder 합으로 width / height 지정 해줌 */
+    border: none;
+}
+
+.flex-container{
+    height: auto;
+    border: none;
+}
+
+.con0{
+    height:1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.con1{
+    display: flex;
+    height: auto;
+    width: 100vw;
+    border: none;
+    justify-content: flex-end;
+}
+.con2{
+    display: flex;
+    border: none;
+    justify-content: center;
+    align-items:center;
+    padding: 20px;
+}
+
+.con3{
+    width:500px;
+    height:300px;
+    display: flex;
+    border: none;
+    justify-content: center;
+    align-items:center;
+    flex-wrap: wrap;
+}
+
+.con4{
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+}
+
+.content{
+    padding: 20px;
+}
+
+.search-bar{
+    width:500px;
+    height: 45px;
+    border-radius: 30px; 
+    border: 1px solid rgb(226, 226, 226);
+    box-shadow: 1px 1px 1px 1px rgb(235, 234, 234);
+    padding-left: 5px;
+}
+
+.search{
+    border: none;
+    outline: none;
+    font-size: 20px;
+    width: 400px;
+}
+
+.item{
+    width: 75px;
+    height: 75px;
+}
+.item1{ padding:5px; }
+.item2{ padding-left:10px; }
+.item3{ 
+    padding-left:10px; 
+    padding-right: 10px;
+}
+
+.profile{ border-radius: 20px; }
+
+a{
+    text-decoration-line:none;
+    color: black;
+}
+
+i{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.btn{
+    background-color:transparent;
+    border: none;
+}
+
+.btn2{
+    background-color:transparent;
+    border-radius: 15px;
+    padding: 5px;
+    border: 1px solid rgb(2, 127, 177);
+    color: rgb(2, 127, 177);
+}
+
+.con4:hover{
+    cursor:pointer;
+}
+
+.mic{
+    padding-top: 5px;
+    width:30px; 
+    height:30px; 
+    border: none; 
+    background: none;
+}
+
