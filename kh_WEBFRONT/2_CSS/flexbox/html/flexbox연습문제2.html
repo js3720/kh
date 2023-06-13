@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,104 +8,97 @@
 </head>
 <body>
     <div class="flex-container"><!--페이지 전체 감싸는 div-->
-
-        <div class="con1"> <!-- con1 -->
-            <div><!--로고-->
-                <a href="#"><img width="200px" height="100px" src="https://t1.daumcdn.net/daumtop_chanel/op/20200723055344399.png"></a>
-            </div>
-            <div class="search-div"><!--검색창-->
-                <div>
-                    <input class="search-bar" type="text">
-                </div>
-                <div><!--키보드-->
-                    <img src="#">
-                </div>
-                <div><!--돋보기-->
-                    <img src="#">
-                </div>
+        <div class="con1"> <!-- top부분 -->
+            <!--로고-->
+            <a href="#"><img width="210px" height="100px" src="https://t1.daumcdn.net/daumtop_chanel/op/20200723055344399.png"></a>
+            <!--검색창-->
+            <div class="search-div">
+                    <input class="search-bar" type="search">
+                    <img class="search-icon" width="35px" height="35px" src="2023-06-13-02-37-34.png">
+                    <img class="search-icon" width="35px" height="35px" src="2023-06-13-02-38-32.png">
             </div>
         </div>
 
-        <div> <!-- con2 -->
-            <div> <!--인기검색어-->
-                <div class="key-word">검색어1</div>
-                <div class="key-word">검색어2</div>
-                <div class="key-word">검색어3</div>
-                <div class="key-word">검색어4</div>
-                <div class="key-word">검색어5</div> 
-            </div>
-            <div> <!-- [<] -->
-                <button><</button>
-            </div>
-            <div><!-- [>] -->
-                <button>></button>
-            </div>
+        <div class="con2"><!--인기검색어-->
+            <div class="key-word key-word-margin">로또당첨번호</div>
+            <div class="key-word">필리핀 화산 분출</div>
+            <div class="key-word">고두심 전속계약</div>
+            <div class="key-word">산사태 예보 48시간</div>
+            <div class="key-word">정려원 화보</div>
+            <button class="top-btn btn-margin"><</button> <!-- [<]버튼 -->
+            <button class="top-btn">></button> <!-- [>]버튼 -->
+            
         </div>
-
-        <div> <!-- con3 -->
-            <div class="list">목록1</div> <!-- 메뉴 목록 -->
-            <div class="list">목록2</div>
-            <div class="list">목록3</div>
-            <div class="list">목록4</div>
-            <div class="list">목록5</div>
-            <div class="list">목록6</div>
-            <div class="list">목록7</div>
-            <div class="list">목록8</div>
-            <div class="list">목록9</div>
-            <div class="list">목록10</div>
-            <div class="list">목록11</div>
-            <div class="list">목록12</div>
-            <div class="list">목록13</div>
-            <div class="plus">더보기</div>
+        
+        <div class="con1"> <!-- 네비게이션 부분 -->
+            <div class="list">카페</div> <!-- 메뉴 목록 -->
+            <div class="list">메일</div>
+            <div class="list">뉴스</div>
+            <div class="list">지도</div>
+            <div class="list">증권</div>
+            <div class="list">쇼핑</div>
+            <div class="list">카카오TV</div>
+            <div class="list">웹툰</div>
+            <div class="list">캘린더</div>
+            <div class="list">스토리</div>
+            <div class="list">사전</div>
+            <div class="list">게임</div>
+            <div class="list">같이가치</div>
+            <div class="list">더보기v<img src=""></div>
         </div>
 
         <div> <!-- content 내용 전체 감싸는 div -->
-
             <div> <!-- 배너광고 -->
-                <img src="#">
+                <img src="2023-06-13-01-22-05.png">
             </div>
 
-            <div> <!-- 테마관련 헤더부분 -->
-                <div> <!-- 테마 메뉴 -->
-                    <div class="thema">테마1</div>
-                    <div class="thema">테마2</div>
-                    <div class="thema">테마3</div>
-                    <div class="thema">테마4</div>
-                    <div class="thema">테마5</div>
-                    <div class="thema">테마6</div>
+            <div> <!-- content nav 부분 -->
+                <div class="nav"> <!-- 테마 메뉴 -->
+                    <div class="thema">뉴스</div>
+                    <div class="thema">연예</div>
+                    <div class="thema">스포츠</div>
+                    <div class="thema">영화</div>
+                    <div class="thema">자동차</div>
+                    <div class="thema">부동산</div>
                 </div>
-                <div> <!-- 테마 변경 버튼 -->
-                    <div> [<] </div>
-                    <div> [>] </div>
+                <div class="nav-btn"> <!-- 테마 변경 버튼 -->
+                    <button class="thema-btn">></button> <!-- [>]버튼 -->
+                    <button class="thema-btn"><</button> <!-- [<]버튼 -->
                 </div>
             </div>
 
-            <div>
+            <div class="con1">
                 <table>
                     <tr>
                         <td>
                             <div>
                                 <div>
-                                    사진
+                                    <a href="#"> <img class="content-img" src="#"> </a>
                                 </div>
-                                <div>
-                                    글
+                                <div class="content-text">
+                                    단연코 "올해 최고의 샷" 테<br>
+                                    일러의 초장거리 이글퍼트
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div>
                                 <div>
-                                    사진
+                                    <a href="#"> <img class="content-img" src="#"> </a>
                                 </div>
-                                <div>
-                                    글
+                                <div class="content-text">
+                                    ML 컴백 앞둔 Ryu.."이글스<br>
+                                    복귀" 약속도 여전
                                 </div>
                             </div>
                         </td>
                         <td colspan="2">
-                            <div>
-                                글
+                            <div class="content-text">
+                                <a href="#">"이강인 뛰어넘었다" 3골 4도움 이승원, "U-20 월드컵 브론..."</a><br>
+                                <a href="#">"충격적인 몰락... "KIM이 대체" 원조 나폴리 괴물→1년 만에...</a><br>
+                                <a href="#">"이 점수차가 말이 돼?" 미국 대표팀. 118-36으로 캐나다 압...</a><br>
+                                <a href="#">3강서 밀려난 롯데의 "6월 대위기"기세도 꺾였다</a><br>
+                                <a href="#">오스마르, "AT 마드리드, 이강인 영입하면 한국팬들 모두가...</a>
                             </div>
                         </td>
                     </tr>
@@ -113,26 +106,32 @@
                         <td>
                             <div>
                                 <div>
-                                    사진
+                                    <a href="#"> <img class="content-img" src="#"> </a>
                                 </div>
-                                <div>
-                                    글
+                                <div class="content-text">
+                                    "전율이 흐릅니다! 강민호의"<br>
+                                    극적인 끝내기 투런포
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div>
                                 <div>
-                                    사진
+                                    <a href="#"> <img class="content-img" src="#"> </a>
                                 </div>
-                                <div>
-                                    글
+                                <div class="content-text">
+                                    "들어갔다면 연장" 김효주의<br>
+                                    절묘한 어프로치 한타차...
                                 </div>
                             </div>
                         </td>
                         <td colspan="2">
-                            <div>
-                                글
+                            <div class="content-text">
+                                <a href="#">"이강인 뛰어넘었다" 3골 4도움 이승원, "U-20 월드컵 브론..."</a><br>
+                                <a href="#">"충격적인 몰락... "KIM이 대체" 원조 나폴리 괴물→1년 만에...</a><br>
+                                <a href="#">"이 점수차가 말이 돼?" 미국 대표팀. 118-36으로 캐나다 압...</a><br>
+                                <a href="#">3강서 밀려난 롯데의 "6월 대위기"기세도 꺾였다</a><br>
+                                <a href="#">오스마르, "AT 마드리드, 이강인 영입하면 한국팬들 모두가...</a>
                             </div>
                         </td>
                     </tr>
@@ -140,40 +139,43 @@
                         <td>
                             <div>
                                 <div>
-                                    사진
+                                    <a href="#"> <img class="content-img" src="#"> </a>
                                 </div>
-                                <div>
-                                    글
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                <div>
-                                    사진
-                                </div>
-                                <div>
-                                    글
+                                <div class="content-text">
+                                    치열한 하위권의 순위싸움<br><br>
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div>
                                 <div>
-                                    사진
+                                    <a href="#"> <img class="content-img" src="#"> </a>
                                 </div>
-                                <div>
-                                    글
+                                <div class="content-text">
+                                    "6출루 4안타" 3할 타율 복귀<br>
+                                    [이정후HL]
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div>
                                 <div>
-                                    사진
+                                    <a href="#"> <img class="content-img" src="#"> </a>
                                 </div>
+                                <div class="content-text">
+                                    예상하지 못한 곳에서 나오<br>
+                                    는 이정은 6의 캐디[2003 ...
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
                                 <div>
-                                    글
+                                    <a href="#"> <img class="content-img" src="#"> </a>
+                                </div>
+                                <div class="content-text">
+                                    배드민턴 안세영, 세계 1위<br>
+                                    꺾었다... 올해 5번째 우승
                                 </div>
                             </div>
                         </td>

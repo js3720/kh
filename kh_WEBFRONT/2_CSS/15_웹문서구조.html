@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹 문서 구조</title>
+    <link rel="stylesheet" href="css/structure.css">
+    <script src="https://kit.fontawesome.com/6547a634b8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <!-- 클릭 시 메인페이지로 이동하는 로고 -->
+            <div>
+                <a href="#">
+                    <img src="../images/kh-logo.jpg" id="home-logo">
+                </a>
+            </div>
+            <!-- header의 두번째 자식 div-->
+            <div>
+                <div class="search-area">
+                    <!-- form 내부 input 태그 값을 서버 또는 페이지로 전달 -->
+                    <form action="#" name="search-form">
+                        <!-- form 내부에서 input을 종류별로 묶는 용도로 많이 사용 -->
+                        <fieldset>
+                            <input type="search" id="query" name="query" placeholder="검색어를 입력해주세요." autocomplete="off">
+                            <button type="submit" id="search-btn" class="fa-solid fa-magnifying-glass"></button>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <div></div>
+        </div>
+        <div class="nav"></div>
+        <div class="content">
+            <div class="content-1"></div>
+            <div class="content-2"></div>
+        </div>
+        <div class="footer"></div>
+    </div>
+</body>
+</html>
