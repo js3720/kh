@@ -1,28 +1,28 @@
 * {box-sizing: border-box;}
 
-/* div{border: 1px solid black;} */
+/* section{border: 1px solid black;} */
 
-.container{
+main{
     width: 1140px;
     margin: auto;   
 }
 
-.header{
+header{
     height: 200px;
     display: flex; /* flex 형식으로 변경 -> 내부 요소를 유연하게 정렬/배치 */
 }
 
-.header > div:nth-of-type(1){
+header > section:nth-of-type(1){
     flex-basis : 15%
 }
-.header > div:nth-of-type(2){
+header > section:nth-of-type(2){
     flex-basis : 70%
 }
-.header > div:nth-of-type(3){
+header > section:nth-of-type(3){
     flex-basis : 15%
 }
 
-.header > div:nth-child(1){
+header > section:nth-child(1){
     display:flex;
     justify-content: center;
     align-items: center;
@@ -33,24 +33,24 @@
     height: auto; /* 둘중 하나만 지정 시 나머지 방향의 크기가 같게 조정됨 */
 }
 
-.header > div:nth-of-type(2){
+header > section:nth-of-type(2){
     display:flex;
     justify-content: center;
     align-items: center;
 }
 
-.search-area{
+article{
     width: 500px;
 }
 
-.search-area{
+article{
     padding: 0px;
     margin: 0;
     border: 2px solid #455ba8;
     border-radius: 5px;
 }
 
-.search-area fieldset{
+article fieldset{
     padding: 2px;
     margin: 0;
     border: 2px solid #455ba8;
@@ -78,9 +78,9 @@
     border : 0;
 }
 
-div, li{border: 1px solid black;}
+nav, li{border: 1px solid black;}
 
-.nav{
+nav{
     width: 1140px;
     height: 50px;
     position: sticky;
@@ -95,18 +95,18 @@ div, li{border: 1px solid black;}
     border-bottom: 2px solid black;
 }
 /* nav 스타일 */
-.nav > ul{
+nav > ul{
     display: flex;
     list-style: none;
     padding: 0;
     margin: 0;
     height: 100%;
 }
-.nav li{
+nav li{
     flex : 0 1 150px; /* 팽창, 수축, 기본값 */
     border: none;
 }
-.nav a{
+nav a{
     display: block;
     height: 100%;
     text-align: center;
@@ -124,7 +124,7 @@ div, li{border: 1px solid black;}
     border-radius: 5px;
     transition-duration: 0.1s;
 }
-.nav a:hover{
+nav a:hover{
     background-color: #455ba8;
     color: white;
 }
@@ -159,12 +159,12 @@ form[name="login-form"]{
     display: flex;
 }
 
-#id-pw-area > div:first-child{
+#id-pw-area > section:first-child{
     flex-basis: 75%;
     display: flex;
     flex-direction: column;
 }
-#id-pw-area > div:last-child{
+#id-pw-area > section:last-child{
     flex-basis: 25%;
     display: flex;
     justify-content: center;
@@ -212,8 +212,8 @@ form[name="login-form"]{
     padding: 0 10px;
 }
 
-/* footer 스타일*/
-.footer{
+/* .footer 스타일*/
+footer{
     height: 200px;
     display: flex;
     flex-direction: column;
@@ -221,17 +221,17 @@ form[name="login-form"]{
     align-items: center;
     background-color: #a3add342;
 }
-.footer p{
+footer p{
     font-size: 15px;
     font-weight: bold;
 }
-.footer > div{
+footer > section{
     border: 0;
 }
-.footer a{
+footer a{
     text-decoration: black;
     color: black;
 }
-.footer span{
+footer span{
     margin: 0 10px;
 }

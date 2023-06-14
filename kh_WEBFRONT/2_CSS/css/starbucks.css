@@ -6,12 +6,17 @@ div{border: none;}
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 20%;
-    right: 20%;
+    top: 12%;
+    right: 21%;
+}
+
+.fixed-box > div > a> img{
+    border-radius: 5%;
+    margin: 3px;
 }
 
 .container{
-    width: 100vw;
+    width: 99vw;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -19,12 +24,20 @@ div{border: none;}
     align-items: center;
 }
 .container-1{
-    width: 50%;
+    width: 100%;
     margin: auto;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .header{
     height: 120px;
+    width: 50%;
     display: flex; /* flex 형식으로 변경 -> 내부 요소를 유연하게 정렬/배치 */
 }
 
@@ -45,21 +58,21 @@ div{border: none;}
 .nav{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
 }
 
 .nav1{
     height: 40px;
     width: 54%;
-    margin-left: 18%;
-    font-size: 12px;
+    margin-left: 22%;
+    font-size: 13px;
     padding-left: 50px;
 }
 .nav2{
     height: 40px;
-    width: 85%;
+    width: 88%;
     margin-top: 10px;
-    font-size: 13px;
+    font-size: 15px;
     padding-left: 50px;
 }
 
@@ -79,7 +92,7 @@ div{border: none;}
 }
 
 .see-more{
-    width: 138px;
+    width: 145px;
     height: 38px;
     border: 2px solid white;
     border-radius: 5%;
@@ -137,26 +150,63 @@ div{border: none;}
 .a-1{
     text-decoration-line:none; 
     color: white;
+    font-size: 12px;
 }
+.a-1:hover{
+    text-decoration-line: underline;
+}
+
 .a-2{
     text-decoration-line:none; 
     color: black;
 }
+.a-2:hover{
+    text-decoration-line: underline;
+}
+
+.a-3{
+    text-decoration-line:none; 
+    color: black;
+}
+.a-3:hover{
+    transition: 0.3;
+    text-decoration-line: underline;
+    color: rgb(107, 179, 0);
+}
+
 .a-margin{
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
 .p-1{
+    font-weight: 700;
     margin-right: 15px;
 }
 .p-2{
+    font-weight: 700;
     margin-left: 100px;
 }
 
 .nav-btn{
-    height: 25px;
-    width: 25px;
+    height: 30px;
+    width: 30px;
+    border: 1px solid rgb(173, 173, 173);
+    border-radius: 10%;
+    text-align: center;
+    padding-top: 7px;
+}
+.nav-btn:hover{
+    cursor: pointer;
+}
+
+.con-btn{
+    text-align: center;
+    margin-top: 5px;
+}
+
+.con-btn:hover{
+    cursor: pointer;
 }
 
 .con-btn1{
@@ -175,7 +225,7 @@ div{border: none;}
     height: 35px;
     width: 35px;
     border-radius: 50%;
-    font-size: 25px;
+    font-size: 20px;
     color: rgb(15, 15, 15);
     background-color: white;
     border: 1px solid rgb(15, 15, 15);
@@ -195,7 +245,7 @@ div{border: none;}
     height: 100%;
     flex-basis: 10%;
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
     padding-left: 50px;
 }
@@ -211,7 +261,7 @@ div{border: none;}
     display: flex;
     justify-content:end;
     align-items: center;
-    border-bottom: 1px solid rgb(85, 131, 115);
+    border-bottom: 1px solid rgb(112, 131, 124);
 }
 .footer-2-2{
     height: 40%;
@@ -246,7 +296,9 @@ div{border: none;}
     border: 2px solid #005c3d;
     border-radius: 7px;
     margin-bottom: 20px;
-    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    padding-top: 5px;
 }
 
 .footer-btn2{
@@ -258,8 +310,9 @@ div{border: none;}
     border: 2px solid white;
     border-radius: 7px;
     margin-bottom: 20px;
-    margin-left: 10px;
-    margin-right: 5px;
+    margin-right: 15px;
+    text-align: center;
+    padding-top: 5px;
 }
 
 .footer-btn3{
@@ -270,8 +323,24 @@ div{border: none;}
     background-repeat: repeat;
     border: 2px solid white;
     border-radius: 7px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     margin-left: 10px;
+
+    text-align: center;
+    padding-top: 5px;
+}
+
+.footer-btn1:hover, .footer-btn2:hover, .footer-btn3:hover{
+    transition: 0.5s;
+    .a-0{
+        text-decoration-line: underline;
+    }
+}
+.see-more:hover{
+    transition: 0.5s;
+    .a-0{
+        text-decoration-line: underline;
+    }
 }
 
 .footer-text{
@@ -281,8 +350,16 @@ div{border: none;}
     align-items:start;
     justify-content: center;
 }
+
+.small{
+    font-size: 12px;
+}
+
 .footer-2-1 > div:nth-of-type(1){
     margin-right: 150px;
+}
+.footer-2-2 > div:nth-of-type(1){
+    margin-right: 120px;
 }
 
 .footer-text > div{
