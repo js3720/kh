@@ -1,5 +1,6 @@
 body{
     background-color: black;
+    word-break: keep-all;
 }
 /* 헤더부분 */
 header{
@@ -50,7 +51,7 @@ header > section:nth-of-type(1){
     opacity: 80%;
 }
 
-#lang{
+#top-lang{
     height: 27px;
     color: white;
     border: 0;
@@ -150,7 +151,7 @@ header > section:nth-of-type(2) > article:nth-of-type(3) > form{
 /* header와 main이 겹치는 부분 */
 header > section:nth-of-type(3){
     height: 144px;
-    width: 88%;
+    width: 90%;
     display: flex;
     justify-content:center;
     align-items: center;
@@ -392,7 +393,7 @@ main > section:nth-last-of-type(1){
 }
 
 .FAQ{
-    width: 1076px;
+    width: 60%;
     height: 36px;
     padding: 24px;
     background-color: #2D2D2D;
@@ -400,7 +401,7 @@ main > section:nth-last-of-type(1){
     justify-content: space-between;
     align-items: center;
     border:1px solid black;
-    margin: 3px 0px;
+    margin: 5px 0px;
     
     font-size: 24px;
     font-weight: 500;
@@ -412,7 +413,7 @@ main > section:nth-last-of-type(1){
 }
 
 .FAQ-con > section:last-of-type{
-    width: 1076px;
+    width: 80%;
     height: 102px;
     display: flex;
     flex-direction: column;
@@ -426,6 +427,7 @@ main > section:nth-last-of-type(1){
 }
 .FAQ-con > section:last-of-type > form{
     display: flex;
+    flex-flow: row wrap;
     justify-content: center;
     align-items: center;
 }
@@ -468,8 +470,8 @@ main > section:nth-last-of-type(1){
 
 footer{
     height: 635px;
+    width: 100%;
     background-color: black;
-    border: 1px solid white;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -477,25 +479,81 @@ footer{
 }
 
 footer > section{
-    width: 1077px;
+    width: 62.5%;
     font-size: 16px;
-    color: white;
-    border: 1px solid white;
+    color: rgba(255, 255, 255, 0.8);
 }
 footer > section:nth-of-type(1){
     height: 45px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
 }
-.tel{ color: white; }
+.tel{ color: rgba(255, 255, 255, 0.8); }
 
 footer > section:nth-of-type(2){
-    height: 201px;
+    height: 215px;
 }
 footer > section:nth-of-type(3){
-    height: 43px;
+    height: auto;
 }
 footer > section:nth-of-type(4){
     height: 43px;
 }
 footer > section:nth-of-type(5){
     height: 170px;
+}
+
+nav{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+nav > ul{
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: center;
+    list-style: none;
+    line-height: 1.3125rem;
+    font-size: 0px;
+}
+nav > ul > li{
+    width: 25%;
+}
+
+nav > ul > li > a{
+    color: rgba(255, 255, 255, 0.8);
+    font-size:  0.875rem;
+    font-weight: 400;
+}
+
+.lang{
+    height: 27px;
+    border: 1px solid white;
+    border-radius: 5px;
+    margin: 10px 0px;
+}
+.lang:hover{
+    outline: 2px double white;
+}
+.lang_list{
+    width: 119px;
+    background-color: rgb(0, 0, 0);
+    display: none;
+}
+
+footer > section:nth-of-type(4) > p{
+    font-size: 14px;
+}
+footer > section:nth-of-type(5) > p{
+    font-size: 16px;
+}
+#ftc{
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.8);
 }
