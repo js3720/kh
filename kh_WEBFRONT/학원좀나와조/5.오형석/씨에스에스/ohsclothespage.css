@@ -1,0 +1,323 @@
+*{box-sizing:border-box; 
+}
+
+
+
+
+a{
+    font-family: 'Hi Melody', cursive;
+}
+
+span{
+    font-family: 'Hi Melody', cursive;
+}
+
+body{
+    margin:0; /* 바디태그의 기본 마진 8을 제거 */
+}
+
+main{
+    width:100%;
+    margin:auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    background-color: white;
+}
+
+#section1 article{
+   display:flex;
+   flex-basis:33.33%;
+}
+
+.loginselect{
+   display:flex;
+   justify-content:flex-start;
+}
+
+.icon3{
+    display:flex;
+    justify-content:flex-end;
+}
+
+header>section{
+    display:flex;
+    width:100%;
+    justify-content: center;
+    align-items:center;
+    height:85px;
+}
+
+header>section>article{
+    display:flex;
+    width:420.3px;
+    height:100%; /* 일단 */
+    justify-content: center;
+    align-items:center;
+}
+
+#nav{
+    height:30px;
+    justify-content:space-evenly;
+}
+
+#nav a{
+    margin-left:100px;
+    text-decoration:none;
+    color:black;
+}
+
+section.content{
+        display:flex;
+        width:1200px;
+        height:2400px;
+        justify-content: center;
+        align-items:center;
+}
+
+
+.content2 article1{
+    display:flex;
+    height:200px;
+}
+
+.content2 article2{
+    display:flex;
+    flex-basis:10%;
+}
+
+.content2 article3{
+    display:flex;
+    flex-basis:60%;
+}
+
+.content2 article4{
+    display:flex;
+    flex-basis:20%;
+}
+
+.content1 {
+    display:flex;
+}
+
+.content>section{
+    display:flex;
+   flex-direction: column;
+   width:50%;
+}
+
+.content1 article{
+    display:flex;
+    flex-basis:25%;
+}
+
+.content>section article img{
+    width:100%;
+}
+
+.content2{
+    display:flex;
+    height:90%;
+}
+
+.content2 article{
+    display:flex;
+}
+    
+#imgarticle{
+    display:flex;
+    flex-direction: row;
+}
+
+#imgarticle article{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    background-color: black;
+    width:450px;
+    height:60px;
+    color:white;
+    border-radius:5px;
+    cursor:grab;
+}
+
+.content2 img{
+    width:50px;
+    height:50px;
+}
+
+.content5 {
+    display:flex;
+    width:100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content5 article{
+    display:flex;
+    flex-basis:25%;
+    justify-content:center;
+}
+
+.content5 img{
+    display:flex;
+    width:100%;
+    justify-content:space-evenly;
+    align-items: center;
+}
+
+#sizeguide{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#sizeguide span{
+    display:flex;
+    flex-basis:16.66%;
+    justify-content: center;
+
+}
+
+
+.content6{
+    display:flex;
+    width:100%;
+
+}
+
+
+
+.content6 span{
+    display:flex;
+    flex-basis:25%;
+    justify-content: center;
+    align-items: center;
+}
+
+footer{
+    display:flex;
+    flex-direction:column;
+    height:300px;
+}
+
+footer section{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+   
+} 
+
+
+
+ footer article{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis:33.33%;
+ }
+ 
+ footer section.s1{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+    
+footer section a{
+   
+    font-size:12px;
+
+}
+
+footer section article{
+    width:125px;
+}
+
+
+footer section.s2{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+} 
+
+footer section.s3{
+    display:flex;
+    flex-direction:column;
+}
+
+footer section.s3{
+    display:flex;
+    flex-direction:column;
+}
+
+.s3{
+    display:flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.s3>article{
+    display:flex;
+    margin-top:30px;
+}
+
+.s3 img{
+    justify-content: center;
+    align-content: center;
+}
+
+img:hover{
+    cursor:grab;
+}
+
+select {
+    font-family: 'Hi Melody', cursive;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+  
+    color: #444;
+    background-color: #fff;
+  
+    padding: 0.6em 1.4em 0.5em 0.8em;
+    margin: 0;
+  
+    border-bottom: 1px solid #aaa;
+    border-radius: 0.5em;
+    box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+
+    width:100px;
+    height:30px;
+}
+
+select:hover {
+    border-color: #888;
+    cursor:grab;
+  }
+  
+  select:focus {
+    border-color: #aaa;
+    box-shadow: 0 0 1px 3px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 0 3px -moz-mac-focusring;
+    color: #222;
+    outline: none;
+  }
+  
+  select:disabled {
+    opacity: 0.5;
+}
+

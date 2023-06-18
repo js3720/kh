@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <header>
+        <a href="main.html"><img width="188px" height="86px" src="netflix_images/Netflix_Logo.png" alt="Netflix_Logo"></a>
+    </header>
+
+    <main>
+        <form>
+            <section>로그인</section>
+            <section><input type="text" class="login-input" id="loginId" placeholder="이메일 주소 또는 전화번호"></section>
+            <section><input type="text" class="login-input" id="loginPw" placeholder="비밀번호"></section>
+            <section><input type="submit" value="로그인" id="login-btn"></section>
+            <section>
+                <article>
+                    <input type="checkbox" id="saveLoginInformation">
+                    <label for="saveLoginInformation">로그인 정보 저장</label>
+                </article>
+                <a href="#" id="help">도움이 필요하신가요?</a>
+            </section>
+            <section>
+                <p> Netflix 회원이 아닌가요? <a href="main.html" id="signUp">지금 가입하세요.</a></p>
+            </section>
+            <section>
+                <p>이 페이지는 Google reCAPTCHA의 보호를 받아<br>
+                    사용자가 로봇이 아님을 확인합니다. <a href="#" id="more">자세히 알아보기.</a></p>
+            </section>
+        </form>
+    </main>
+
+    <footer>
+        <section>
+            <p>질문이 있으신가요? 문의 전화: <a class="tel" href="tel:080-001-9587">080-001-9587</a> </p>
+        </section>
+        <section>
+            <nav>
+                <ul>
+                    <li><a href="#">자주 묻는 질문</a></li>
+                    <li><a href="#">고객 센터</a></li>
+                    <li><a href="#">이용 약관</a></li>
+                    <li><a href="#">개인정보 처리방침</a></li>
+                    <li><a href="#">쿠키 설정</a></li>
+                    <li><a href="#">회사 정보</a></li>
+                </ul>
+            </nav>
+        </section>
+        <section>
+            <section class="lang">
+                <button class="lang-btn">
+                    <img class="lang-btn-img" width="124px" src="netflix_images/lang_box.png">
+                </button>
+                <article class="lang_list">
+                    <a href="#">한국어</a>
+                    <a href="#">English</a>
+                </article>
+            </section>
+        </section>
+        <section>
+            <p>
+                넷플릭스서비시스코리아 유한회사 통신판매업신고번호: 제2018-서울종로-0426호 전화번호: 080-001-9587<br>
+                대표: 레지널드 숀 톰프슨<br>
+                이메일 주소: korea@netflix.com<br>
+                주소: 대한민국 서울특별시 종로구 우정국로 26, 센트로폴리스 A동 20층 우편번호 03161<br>
+                사업자등록번호: 165-87-00119<br>
+                클라우드 호스팅: Amazon Web Services Inc.<br>
+                <a id="ftc" href="http://www.ftc.go.kr/bizCommPop.do?wrkr_no=1658700119">공정거래위원회 웹사이트</a>
+            </p>
+        </section>
+    </footer>
+</body>
+</html>

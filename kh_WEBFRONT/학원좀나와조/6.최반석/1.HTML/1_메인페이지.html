@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인페이지</title>
+    <link rel="stylesheet" href="../2.CSS/메인페이지.css">
+    <script src="https://kit.fontawesome.com/d76028de4f.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/d76028de4f.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container"> <!-- 전체 -->
+        <div class="header">
+            <div class="bar-1"> <!-- 상단 바 -->
+                <a href="#"><i class="fa-sharp fa-solid fa-music"></i></a>
+                <span>|</span>
+                <a href="#"><i class="fa-solid fa-message"></i></i></a>
+                <span>|</span>
+                <a href="#"><i class="fa-solid fa-house"></i></a>
+                <span>|</span>
+                <a href="#" style="margin-right: 50px;"><i class="fa-solid fa-dog"></i></a>
+            </div>
+
+            <div class="bar-2"> <!-- 메인 바 -->
+                <ul>
+                    <i class="fa-solid fa-paw"></i>
+                    <i class="fa-solid fa-paw"></i>
+                    <li><a href="../1.HTML/1_메인페이지.html">홈페이지</a></li>
+                    <li><a href="../1.HTML/3_게시판페이지.html">애견 게시판</a></li>
+                    <li><a href="../1.HTML/5_나의 강아지.html">마이페이지</a></li>
+                    <li><a href="#">강아지 입양</a></li>
+                    <li><a href="#">제휴 업체</a></li>
+                    <i class="fa-solid fa-paw"></i>
+                    <i class="fa-solid fa-paw"></i>
+                </ul>
+            </div>
+
+            <div class="logo"> <!-- 그림 + 로고 -->
+                <img href="1.HTML/1_메인페이지.html" src="../images/강아지 배너.png" width="1140px" height="300px">
+            </div>
+
+            
+
+        </div>
+
+        <div class="content"> <!-- 메인 -->
+            <div class="content-1"> <!-- 배너 + 로그인 버튼 + 열혈회원-->
+                <div class="banner" style="background-color: rgb(240, 250, 153);"> <!-- 배너 -->
+                    <div class="before"> <!-- before -->
+                       <img src="../images/20.jpg" class="trans-rotate-y-3d" width="130%" height="70%">
+                    </div>
+
+                    <div class="now"> <!-- now -->
+                        인기강아지
+                        <br>
+                        <br>
+                        <img src="/../images/4.jpg" width="100%">
+                        <br>
+                        <br>
+                        <button type="submit" style="border-radius: 10px;"><a href="#">←</a></button>
+                        <button style="border-radius: 10px;"><a href="#">1</a></button>
+                        <button style="border-radius: 10px;"><a href="#">2</a></button>
+                        <button style="border-radius: 10px;"><a href="#">3</a></button>
+                        <button style="border-radius: 10px;"><a href="#">4</a></button>
+                        <button style="border-radius: 10px;"><a href="#">5</a></button>
+                        <button type="submit" style="border-radius: 10px;"><a href="#">→</a></button>
+                    </div>
+
+                    <div class="after"> <!-- after -->
+                        <img src="../images/14.jpg" class="trans-rotate-y-3d-1" width="130%" height="70%" style="margin-left: -58px;">
+                    </div>
+                </div>
+
+                <div class="member-menu">
+                    <div class="login">  <!-- 로그인 버튼 -->
+                        <button type="button" class="login-btn"><a style="background-color: lightblue; transition-delay: 0.1s; " href="../1.HTML/2_로그인페이지.html">로그인</a></button>
+                    </div>
+
+                    <div class="member"> <!-- 열혈회원 text -->
+                        열혈 회원 순위
+                    </div>
+
+                    <div class="member-list"> <!-- 회원 목록 -->
+                        <div class="member-list-1">
+                            <ul>
+                                <li><a href="#">1. 코코</a></li>
+                                <li><a href="#">2. 보리</a></li>
+                                <li><a href="#">3. 콩이</a></li>
+                                <li><a href="#">4. 두부</a></li>
+                                <li><a href="#">5. 초코</a></li>
+                            </ul>
+
+                        </div>
+
+                        <div class="member-list-2">
+                            <ul>
+                                <li><a href="#">6. 루디</a></li>
+                                <li><a href="#">7. 퐁키</a></li>
+                                <li><a href="#">8. 모서리</a></li>
+                                <li><a href="#">9. 로미</a></li>
+                                <li><a href="#">10. 마루</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="content-2"> <!-- 검색창 -->
+                <fieldset style="border: none;">
+
+                    <input type="search" id="query" name="query" 
+                        placeholder="검색어를 입력해주세요." autocomplete="off">
+
+                    <!-- 검색 버튼 -->    
+                    <button type="submit"  id="search-btn" class="fa-solid fa-magnifying-glass"></button>
+
+                </fieldset>
+            </div>
+
+            <div class="content-3"> <!-- 게시판 간략 -->
+                <div class="board-1" style="border: 2px solid lightblue; border-radius: 20px; margin: 0px 5px;"> <!-- 게시판1 -->
+                        <div class="board-1-name"> <!-- 게시판 1 이름 -->
+                            강아지 자랑 게시판
+                        </div>
+
+                        <div class="board-1-list"> <!-- 게시판1 목록 -->
+                            <ul>
+                                <li><a href="#">훗1</a></li>
+                                <li><a href="#">훗2</a></li>
+                                <li><a href="#">훗3</a></li>
+                                <li><a href="#">훗4</a></li>
+                                <li><a href="#">훗5</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="board-1-btn"> <!-- 1 더보기 버튼 -->
+                            <a href="1.HTML/3_게시판페이지.html">더보기→</a>
+                        </div>
+                </div>
+
+                <div class="board-2" style="border: 2px solid lightblue; border-radius: 20px; margin: 0px 5px;"> <!-- 게시판2 -->
+                    <div class="board-2-name"> <!-- 게시판 2 이름 -->
+                        강아지 고민 게시판
+                    </div>
+
+                    <div class="board-2-list"> <!-- 게시판 2 목록 -->
+                        <ul>
+                            <li><a href="#">강아지가 초콜릿을 먹었어요.</a></li>
+                            <li><a href="#">강아지가 양파를 먹었어요.</a></li>
+                            <li><a href="#">강아지가 치킨뼈를 먹었어요.</a></li>
+                            <li><a href="#">강아지가 포도를 먹었어요.</a></li>
+                            <li><a href="#">강아지가 마늘을 먹었어요.</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="board-2-btn"> <!-- 2 더보기 버튼 -->
+                            <a href="#">더보기→</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer"> 
+            <p>Copyright &copy; KH Information Educational Institute M-Class</p>
+
+        <div>
+            <a href="#">프로젝트 소개</a>
+            <span>|</span>
+            <a href="#">이용약관</a>
+            <span>|</span>
+            <a href="#">개인정보처리방침</a>
+            <span>|</span>
+            <a href="#">고객센터</a>
+        </div>
+        </div>
+
+
+
+    </div>
+    
+</body>
+</html>

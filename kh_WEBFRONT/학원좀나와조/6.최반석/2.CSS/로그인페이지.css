@@ -1,0 +1,237 @@
+@font-face {
+    font-family: 'EF_hyunydororong';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/EF_hyunydororong.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}    
+
+*{
+    box-sizing: border-box;
+    background-color: ivory;
+}
+
+
+.container{
+    width: 1140px;
+    margin: auto;
+}
+
+.header{
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+.bar-1{
+    flex-basis: 10%;
+    text-align: end;
+    
+}
+
+.header span{
+    padding: 0 10px;
+}
+
+.bar-2{
+    flex-basis: 20%;
+    margin: auto;
+    width: 900px;
+    border-radius: 50px ;
+    padding-bottom: 50px;
+    border-radius: 50px;
+    margin-top: 30px;
+    position: sticky;
+    top: 0;
+}
+
+.bar-2 > ul{
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    border-radius: 50px;
+}
+
+.bar-2 li{
+    flex: 0 1 150px;
+    margin: 10px;
+    font-family: 'EF_hyunydororong';
+}
+
+.bar-2 i{
+    padding: 20px;
+    flex: 0 1 40px;
+}
+
+
+.bar-2 a {
+    display: block;
+    height: 100%;
+    text-align: center;
+    padding: 15px 0;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 50px;
+    transition-duration: 0.5s;
+    background-color: lightblue;
+    
+}
+
+.bar-2 a:hover{
+    background-color: pink;
+}
+
+.logo{
+    flex-basis: 70%;
+    cursor: pointer;    
+}
+
+.content{
+    height: 760px;
+    display: flex;
+    margin-top: 100px;
+    margin-left: 300px;
+}
+
+.content-1{
+    flex-basis: 80%;
+}
+
+form[name="login-form"]{
+    height: 250px;
+    padding: 10px;
+    background-color: #ddd;
+    border-radius: 50px;
+    margin-top: 50px;
+
+    display: flex;
+
+    flex-direction: column; 
+
+    justify-content: center;
+}
+
+#id-pw-area{
+    margin: 0;
+    padding: 0;
+    border: 1px solid #ddd;
+    display: flex;
+    
+}
+
+/* id/pw input이 담긴 영역 */
+#id-pw-area > div:first-child{
+    flex-basis: 75%;
+    display: flex;
+    flex-direction: column;
+    height: 120px;
+}
+
+#id-pw-area > div:last-child{
+    flex-basis: 25%;
+    display: flex;
+    justify-content: center;
+    margin-left: 80px;
+}
+
+#id-pw-area input{
+    border: 0;
+    border-right: 1px solid #ddd;
+    flex-basis: 50%;
+    padding: 5px;
+    outline: 0;
+    margin: 0;
+}
+
+#id-pw-area input:first-child{
+    border-bottom: 1px solid #ddd;
+}
+
+#id-pw-area input:focus{
+    border: 2px solid #455ba8;
+}
+
+/* 로그인 버튼 */
+#id-pw-area button{
+    width: 100%;
+    border: 0;
+    background-color: lightblue;
+    cursor: pointer;;
+}
+
+#id-pw-area button:hover{
+    background-color: #455ba8;
+    color: white;
+}
+
+/* 회원가입, ID/PW 찾기 영역 */
+#signup-find-area{
+    margin-top: 30px;
+    padding-left: 5px;
+    background-color: #ddd;
+    text-align: center;
+
+}
+
+#signup-find-area > a{
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+    background-color: #ddd;
+}
+
+#signup-find-area > span{
+    padding: 0 10px;
+    background-color: #ddd;
+        /* 상하 좌우 */
+}
+
+
+
+
+
+
+.footer{
+    height: 200px;
+    background-color: #ddd;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.footer * {
+    background-color: #ddd;
+}
+
+
+.footer > p {
+    font-weight: bold;
+}   
+
+.footer div > *{
+    font-size: 14px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+
+.footer span{
+    padding: 0 10px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover{
+    font-weight: bold;
+}
+
+

@@ -1,0 +1,364 @@
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+*{
+    box-sizing: border-box;
+    background-color: ivory;
+}
+
+@font-face {
+    font-family: 'EF_hyunydororong';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/EF_hyunydororong.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}    
+
+.container{
+    width: 1140px;
+    margin: auto;
+}
+
+.header{
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+.bar-1{
+    flex-basis: 10%;
+    text-align: end;
+    
+}
+
+.header span{
+    padding: 0 10px;
+}
+
+.bar-2{
+    flex-basis: 20%;
+    margin: auto;
+    width: 900px;
+    border-radius: 50px ;
+    padding-bottom: 50px;
+    border-radius: 50px;
+    margin-top: 30px;
+    
+}
+
+.bar-2 > ul{
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    border-radius: 50px;
+}
+
+.bar-2 li{
+    flex: 0 1 150px;
+    margin: 10px;
+    font-family: 'EF_hyunydororong';
+}
+
+.bar-2 i{
+    padding: 20px;
+    flex: 0 1 40px;
+}
+
+
+.bar-2 a {
+    display: block;
+    height: 100%;
+    text-align: center;
+    padding: 15px 0;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 50px;
+    transition-duration: 0.5s;
+    background-color: lightblue;
+    
+}
+
+.bar-2 a:hover{
+    background-color: pink;
+}
+
+.logo{
+    flex-basis: 70%;
+    cursor: pointer;
+      
+}
+
+.content{
+    height: 1500px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 150px;
+}
+
+.board-name{
+    flex-basis: 5%;
+    font-weight: bold;
+    padding-top: 15px;
+    font-size: 30px;
+    padding-left: 60px;
+    font-family: 'EF_hyunydororong'
+    
+}
+
+.board-bar{
+    flex-basis: 5%;
+    display: flex;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 20px;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: lightsteelblue;
+    border-radius: 20px;
+    position: sticky;
+    top: 0;
+    
+}
+
+.board-bar > div{
+    flex-basis: 20%;
+    background-color: lightsteelblue;
+    
+}
+
+.board-bar a{
+    background-color: lightsteelblue;
+    border-radius: 10px;
+    font-family: 'EF_hyunydororong';
+}
+
+.board-bar div:nth-child(1) *{
+    color: coral;
+    text-decoration: underline;
+    
+    
+}
+
+.board-bar a:hover{
+    color: dimgray;
+}
+
+
+
+.board-list{
+    flex-basis: 75%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.board-list > div{
+    flex-basis: 33.33%;
+    display: flex;
+}
+
+
+.board-list-1 > div{
+    flex-basis: 25%;
+}
+
+.board-list-2 > div{
+    flex-basis: 25%;
+}
+
+.board-list-3 > div{
+    flex-basis: 25%;
+}
+
+.board-list-1-1{
+    display: flex;
+    flex-direction: column;
+}
+.board-list-1-2{
+    display: flex;
+    flex-direction: column;
+}
+.board-list-1-3{
+    display: flex;
+    flex-direction: column;
+}
+.board-list-1-4{
+    display: flex;
+    flex-direction: column;
+}
+.board-list-2-1{
+    display: flex;
+    flex-direction: column;
+}
+.board-list-2-2{
+    display: flex;
+    flex-direction: column;
+}
+.board-list-2-3{
+    display: flex;
+    flex-direction: column;
+}
+.board-list-2-4{
+    display: flex;
+    flex-direction: column;
+}
+
+.board-list-3-1{
+    display: flex;
+    flex-direction: column;
+}
+.board-list-3-2{
+    display: flex;
+    flex-direction: column;
+}
+.board-list-3-3{
+    display: flex;
+    flex-direction: column;
+}
+.board-list-3-4{
+    display: flex;
+    flex-direction: column;
+}
+.board-picture{
+    flex-basis: 80%;
+    justify-content: center; 
+}
+.board-picture > img{
+    cursor: pointer;
+}
+
+.board-picture:hover{
+    padding-bottom: 10px;
+}
+
+.board-title{
+    flex-basis: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+.title-1{
+    flex-basis: 50%;
+    padding-top: 5px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.title-1:hover{
+    font-weight: bold;
+}
+
+.time{
+    flex-basis: 50%;
+    text-align: end;
+    padding-top: 0px;
+    padding-right: 10px;
+}
+
+.board-btn{
+    flex-basis: 5%;
+    text-align: end;
+    padding-top: 20px;
+    padding-right: 50px;
+}
+
+.board-search{
+    flex-basis: 5%;
+}
+
+.search-area{
+    width: 500px;
+    margin-left: 320px;
+}
+
+.search-area fieldset{
+    padding: 2px;
+    margin: 0;
+    border: 2px solid black;
+    border-radius: 5px;
+    display: flex;
+}
+
+#query{
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+
+    width: 92%;
+
+    border: none;
+
+    outline: 0;
+}
+
+#search-btn{
+    width: 8%;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: black;
+    background-color: white;
+    border: 0;
+}
+
+.board-page{
+    flex-basis: 5%;
+    text-align: center;
+}
+
+.board-page > button{
+    cursor: pointer;
+}
+
+.board-page > button:hover{
+    background-color: #455ba8;
+}
+
+
+
+.footer{
+    height: 200px;
+    background-color: #ddd;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer * {
+    background-color: #ddd;
+}
+
+.footer > p {
+    font-weight: bold;
+}   
+
+.footer div > *{
+    font-size: 14px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+
+.footer span{
+    padding: 0 10px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    font-weight: bold;
+}
+
+

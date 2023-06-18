@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 작성</title>
+    <link rel="stylesheet" href="../2.CSS/게시글작성.css">
+    <script src="https://kit.fontawesome.com/d76028de4f.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="bar-1"> <!-- 상단 바 -->
+                <a href="#"><i class="fa-sharp fa-solid fa-music"></i></a>
+                <span>|</span>
+                <a href="#"><i class="fa-solid fa-message"></i></i></a>
+                <span>|</span>
+                <a href="#"><i class="fa-solid fa-house"></i></a>
+                <span>|</span>
+                <a href="#" style="margin-right: 50px;"><i class="fa-solid fa-dog"></i></a>
+            </div>
+
+            <div class="bar-2"> <!-- 메인 바 -->
+                <ul>
+                    <i class="fa-solid fa-paw"></i>
+                    <i class="fa-solid fa-paw"></i>
+                    <li><a href="../1.HTML/1_메인페이지.html">홈페이지</a></li>
+                    <li><a href="../1.HTML/3_게시판페이지.html">애견 게시판</a></li>
+                    <li><a href="../1.HTML/5_나의 강아지.html">마이페이지</a></li>
+                    <li><a href="#">강아지 입양</a></li>
+                    <li><a href="#">제휴 업체</a></li>
+                    <i class="fa-solid fa-paw"></i>
+                    <i class="fa-solid fa-paw"></i>
+                    
+                </ul>
+            </div>
+
+            <div class="logo"> <!-- 그림 + 로고 -->
+                <img src="../images/강아지 배너.png" width="1140px" height="300px">
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="content-1"> <!-- 게시글 작성 -->
+                게시글 작성
+            </div>
+
+            <div class="board-pw"> <!-- 비밀번호 -->
+                게시글 저장<input type="checkbox" id="save" name="save" style="margin-right: 50px;">
+                비밀번호 입력 : <input type="password" style="font-size: 15px; background-color: white;">
+            </div>
+
+            <div class="write">
+                <div class="write-title"> <!-- 제목입력 -->
+                    제목 입력 : <input type="text" size="70" maxlength="10" placeholder="아이디 입력" style="font-size: 20px; background-color: white;">
+                </div>
+
+                <div class="add-file">   <!-- 파일추가 -->
+                    <div>파일추가 : <input type="file" style="margin-left: 100px; font-size: 20px; background-color: white;" ></div>
+                    <div><button style="height: 50px; width: 100px; border-radius: 10px; font-size: 20px; background-color: #ddd; cursor: pointer;">파일삭제</button></div>
+                </div>
+
+                <div class="write-content">   <!-- 내용입력 -->
+                    <textarea rows="20" cols="91" style="resize:none; font-size: 20px; background-color: white;"
+                    placeholder="내용입력" ></textarea>
+                </div>
+
+                <div class="write-btn">   <!-- 이전/ 완료 버튼 -->
+                    <div class="write-btn-1"><button style="height: 50px; width: 100px; border-radius: 10px; font-size: 20px; background-color: #ddd;"><a style="background-color: #ddd;" href="../1.HTML/3_게시판페이지.html">이전</a></button></div>
+                    <div class="write-btn-2"></div>
+                    <div class="write-btn-3"><button style="height: 50px; width: 100px; border-radius: 10px; font-size: 20px; background-color: #ddd;"><a style="background-color: #ddd;" href="../1.HTML/3_게시판페이지.html">완료</a></button></div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="footer"> 
+            <p>Copyright &copy; KH Information Educational Institute M-Class</p>
+
+            <div>
+                <a href="#">프로젝트 소개</a>
+                <span>|</span>
+                <a href="#">이용약관</a>
+                <span>|</span>
+                <a href="#">개인정보처리방침</a>
+                <span>|</span>
+                <a href="#">고객센터</a>
+            </div>
+        </div>
+
+
+
+    </div>
+    
+</body>
+</html>

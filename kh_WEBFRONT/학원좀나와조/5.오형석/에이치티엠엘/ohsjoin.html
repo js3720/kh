@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ohsjoin</title>
+
+    <link rel="stylesheet" href="../씨에스에스/ohsjoin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hi+Melody&family=Moirai+One&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <main>
+
+        <header>
+            <selection>
+                <img src="../이미지/humanmadelogo.svg" style="width:150px;">
+                
+            </selection>
+        </header>
+
+    <selection class="content">
+
+        <selectionmargin></selectionmargin>
+
+        <selection class="content1">
+            
+            <img src="../이미지/id.png" style="width:50px; height:45px;">
+             <input type="text" size ="50" maxlength="10" 
+            placeholder="아이디">
+        
+        </selection>
+        
+        <selection class="content1">
+            <img src="../이미지/password.jpg" style="width:50px;">
+            <input type="password" size = "50" maxlength="10" 
+            placeholder="비밀번호">
+        </selection>
+        
+        <selection class="content1">
+
+            <div>
+            <img src="../이미지/email.jpg" style="width:32px; height:35px;">
+            </div>
+            
+            <input type = "email" size = "50" 
+            placeholder="[선택] 비밀번호 분실시 확인용 이메일"> 
+       
+        </selection>
+        
+        <selectionmargin></selectionmargin>
+
+        <selection class="content1">
+            
+            <div>
+                <img src="../이미지/name.png" style="width:30px; height:30px;">
+            </div>
+           
+            <input type="text" size ="50" maxlength="10" 
+            placeholder="이름">
+            
+        </selection>
+
+        <selection class="content1">
+
+            <div>
+            <img src="../이미지/birth.png" style="width:28px; height:28px;">
+            </div>
+
+            <input type="text" size ="50" maxlength="10" 
+            placeholder="생년월일 8자리 (-포함)">
+
+        </selection>
+        
+        <selection class="content1" >
+            
+            <div>
+                <img src="../이미지/gender3.jpg" style="width:35px; height:35px;">
+            </div>
+
+            <div1>
+            <label for="man"><button id="btnbtn" class="btnone" >
+                <div style="width:10px; margin-top:4px;">남</div>
+                <input type="radio" name="gender" id="man"></button>
+            </label>
+            </div1>
+
+            <div1>
+            <label for="woman"><button id="btnbtn" class="btnone" >
+                <div style="width:10px; margin-top:7px;">여</div>
+                <input type="radio" name="gender" id="woman"></button>
+            </label>
+            </div1>
+
+        </selection>
+            
+
+        <selection class="content1" >
+            
+                <div>
+                <img src="../이미지/foreign.jpg" style="width:40px; height:40px;">
+                </div>
+
+               
+
+                <label for="korean">
+                   
+                    <button id="btnbtn" class="btntwo" >
+                        <div style="width:38px; margin-top:4px;">내국인</div>
+                        <input type="radio" name="nationality" id="korean"></button>
+                
+                </label>
+               
+ 
+                <label for="foreigner">
+                    
+                    <button id="btnbtn" class="btntwo" >
+                        <div style="width:38px; margin-top:4px;">외국인</div>
+                        <input type="radio" name="nationality" id="foreigner"></button>
+                
+                </label>
+        
+            </selection>
+        
+        <selection class="content1">
+            
+            <div>
+            <img src="../이미지/phone4.png" style="width:30px; height:30px;">
+            </div>
+            
+            <input type="text" size="50" placeholder="전화번호(-포함)">
+
+        </selection>
+
+        <selectionmargin></selectionmargin> 
+
+      
+    </selection>
+
+    <selection class="content2">
+
+        <article >
+         <input type="radio" >    
+         <a style="font-size:17px; font-weight:bold; font-family: 'Hi Melody', cursive;
+                    margin-top:5px; margin-left:5px;">
+            [필수] 인증 약관 전체동의</a>
+         <img src="../이미지/v.jfif">
+        </article>
+
+    </selection>
+    <footer>
+        <article >
+            <button id="btn">
+            <a href="ohslogin.html"
+            style="font-family: 'Hi Melody', cursive;">
+            회원가입</a>
+            </button>
+        </article>
+    </footer>
+ 
+       <script>
+            document.getElementById("btn").addEventListener("click", function(){
+                alert("회원 가입 완료");
+            })
+        </script> 
+
+
+
+
+
+    </main>
+
+
+
+
+
+</body>
+</html>

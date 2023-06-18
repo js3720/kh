@@ -1,0 +1,396 @@
+*{box-sizing:border-box; }
+
+
+
+body{
+    margin:0; /* 바디태그의 기본 마진 8을 제거 */
+}
+
+main{
+    width:100%;
+    margin:auto;
+
+}
+
+header{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    position:sticky;
+    top:0;
+    background-color: white;
+    border-bottom: 0.2px solid lightgray;
+}
+
+#section1 article{
+   display:flex;
+   flex-basis:33.33%;
+}
+
+.loginselect{
+   display:flex;
+   justify-content:flex-start;
+}
+
+.icon3{
+    display:flex;
+    justify-content:flex-end;
+}
+
+header>section{
+    display:flex;
+    width:100%;
+    justify-content: center;
+    align-items:center;
+    height:85px;
+}
+
+header>section>article{
+    display:flex;
+    width:420.3px;
+    height:100%; /* 일단 */
+    justify-content: center;
+    align-items:center;
+}
+
+#nav{
+    height:30px;
+    justify-content:space-evenly;
+}
+
+#nav a{
+    margin-left:100px;
+    text-decoration:none;
+    color:black;
+}
+
+.content2{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.content2 section{
+    display:flex;
+    
+}
+
+.content2 article{
+    display:flex;
+    flex-direction: column;
+    flex-basis:25%;
+    justify-content: space-between;
+    align-content:space-between;
+}
+.content2 article a.a{
+    display:flex;
+    margin-left:70px;
+    margin-botton:30px;
+}
+
+
+.content2 article>img{
+    display:flex;
+    flex-basis:100%;
+    justify-content: center;
+    align-content: center;
+}
+
+.content2 article:hover{
+    cursor: pointer;
+   
+ /*    display:flex;
+
+     relative 내부 요소 중
+       position이 absolute(4방향) top/ bottom등을 사용할 수 있다.
+   
+    position:absolute;
+ */
+} 
+
+.icon3>input{
+    border:0px;
+    width:300px;
+    margin-right: 20px;
+
+}
+
+.icon3>input:hover{
+    border-bottom: 1px solid black;
+}
+
+.icon3>input:focus{
+    border:1px solid red;
+    border-radius: 10px;
+    height:30px;
+}
+
+
+.content3 {
+    height:100px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer a{
+    color:rgba(0, 0, 0, 0.5);
+    line-height : 40px;
+    font-weight:bold;
+}
+
+.content3>button{
+    border:0;
+    font-weight:bold;
+    background-color:black;
+    color:white;
+    height:50px;
+    width:120px;
+
+    cursor:pointer;
+ 
+}
+
+.content4{
+    height:80px;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    font-size:25px;
+}
+
+a{
+    /* font-family:'Ink Free'; */
+    font-family: 'Hi Melody', cursive;
+}
+
+span{
+    /* font-family:'Ink Free'; */
+    font-family: 'Hi Melody', cursive;
+}
+
+
+.content5{
+    display:flex;
+
+    
+}
+
+.content5 img{
+    display:flex;
+    flex-basis:33%;
+}
+
+#div1{
+    display:flex;
+    flex-direction:row;
+}
+
+
+
+img:hover{
+    transform: scale(1.02,1.02);
+    background-color:transparent;
+}
+
+#banner>img:hover{
+    transform: scale(1,1);
+}
+
+.soldout:hover{
+    position:relative;
+    
+
+}
+
+#div1>a{
+    display:flex;
+    flex-basis:33%;
+    margin-left:18px;
+
+}
+
+ footer{
+    display:flex;
+    flex-direction:column;
+    height:300px;
+}
+
+footer section{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+   
+} 
+
+ footer article{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis:33.33%;
+ }
+ 
+ footer section.s1{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+    
+footer section a{
+   
+    font-size:12px;
+
+}
+
+footer section article{
+    width:125px;
+}
+
+
+footer section.s2{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+} 
+
+
+
+footer section.s3{
+    display:flex;
+    flex-direction:column;
+}
+
+footer section.s3{
+    display:flex;
+    flex-direction:column;
+}
+
+.s3{
+    display:flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.s3>article{
+    display:flex;
+    margin-top:30px;
+}
+
+.s3 img{
+    justify-content: center;
+    align-content: center;
+}
+
+img:hover{
+    cursor:grab;
+}
+
+.givemargin{
+    margin-top:80px;
+}
+
+  select {
+    font-family: 'Hi Melody', cursive;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+  
+    color: #444;
+    background-color: #fff;
+  
+    padding: 0.6em 1.4em 0.5em 0.8em;
+    margin: 0;
+  
+    border: 1px solid #aaa;
+    border-radius: 0.5em;
+    box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+}
+
+select:hover {
+    border-color: #888;
+  }
+  
+  select:focus {
+    border-color: #aaa;
+    box-shadow: 0 0 1px 3px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 0 3px -moz-mac-focusring;
+    color: #222;
+    outline: none;
+  }
+  
+  select:disabled {
+    opacity: 0.5;
+}
+  
+.icon3 option{
+    height:50px;
+}
+
+.blind {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+ 
+header1 {
+  }
+  
+header1 a{
+    text-decoration: none;
+    color:black;
+}
+  
+  .side_toggle_btn::before {
+    content: "▒";
+    display: inline-block;
+    width: 50px;
+    line-height: 50px;
+    font-size: 24px;
+    text-align: center;
+    border-bottom:0px;
+   
+  }
+  
+  .side_input:checked + .side_toggle_btn::before {
+    content: "ㅡ";
+  }
+  
+  .side_input:checked ~ .side_list {
+    right: 0;   /* left 대신 right로 수정 */
+  }
+  
+  .side_list {
+    position: absolute;
+    right: -200px;  
+    top: 50px;
+    bottom: 0;
+
+    width: 200px;
+    font-size: 24px;
+    transition: 0.3s ease-in;
+
+  
+  }
+  
+  .side_link {
+    display: block;
+    text-align: center;
+    padding: 10px 0;
+    
+    background-color:white;
+    border:1px solid black;
+    border-radius:10px;
+  }
+
+  .side_link:hover{
+    border:2px solid rgb(227 31 25);
+  }

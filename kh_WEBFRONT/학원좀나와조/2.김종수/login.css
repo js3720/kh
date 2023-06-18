@@ -1,0 +1,262 @@
+* {box-sizing: border-box;}
+
+body{
+    width: 99%;
+    height: 115vh;
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+        ), url(netflix_images/login_background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+header{
+    padding-left: 2%;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main > form{
+    width: 450px;
+    height: 660px;
+    background-color: black;
+    opacity: 80%;
+    border-radius: 5px;
+    margin-bottom: 326px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+main > form > section{
+    width: 317px;
+    height: 50px;
+}
+main > form > section:nth-of-type(1){ /* 로그인 text */
+    font-size: 32px;
+    color: white;
+    margin: 60px 0px 28px;
+}
+
+.login-input{
+    width: 80%;
+    margin-left: 30px;
+    background-color:#333333;
+    color: white;
+    outline: none;
+    border: 1px solid #333333;
+}
+main > form > section:nth-of-type(2){ /* 이메일 주소 또는 전화번호 */
+    font-size: 32px;
+    color: white;
+    background-color: #333333;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+main > form > section:nth-of-type(3){ /* 비밀번호 */
+    font-size: 32px;
+    color: white;
+    background-color: #333333;
+    border-radius: 5px;
+    margin-bottom: 35px;
+}
+
+#login-btn{ /* 로그인 버튼 */
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    background-color: red;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+}
+
+main > form > section:nth-of-type(5){ /* 로그인 정보 저장, 도움 링크 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: #B3B3B3;
+    border-radius: 5px;
+}
+
+#help{
+    color: #B3B3B3;
+    text-decoration-line: none;
+}
+#help:hover{
+    text-decoration-line:underline;
+}
+
+main > form > section:nth-of-type(6){
+    margin-top: 60px;
+}
+main > form > section:nth-of-type(6) > p{ /* 회원가입 링크 */
+    font-size: 16px;
+    color: #B3B3B3;
+}
+#signUp{
+    color: white;
+    font-weight: bold;
+    text-decoration-line: none;
+}
+#signUp:hover{
+    text-decoration-line:underline;
+}
+main > form > section:nth-of-type(7){
+    margin-bottom: 100px;
+}
+main > form > section:nth-of-type(7) > p{ /* 자세히 알아보기 */
+    font-size: 13px;
+    color: #B3B3B3;
+    margin-top: -5px;
+}
+#more{
+    color: #448ef4;
+    text-decoration-line: none;
+}
+#more:hover{
+    text-decoration-line:underline;
+}
+
+/* footer 영역 */
+footer{
+    margin: -10px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    bottom: 0;
+    height: 413px;
+    width: 101%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    opacity: 80%;
+}
+
+footer > section{
+    width: 62.5%;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+}
+footer > section:nth-of-type(1){
+    height: 45px;
+    width: 40%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.tel{ 
+    color: #B3B3B3;
+    text-decoration-line: none;
+}
+.tel:hover{ 
+    text-decoration-line:underline;
+}
+
+footer > section:nth-of-type(2){
+    height: 80px;
+    width: 40%;
+}
+footer > section:nth-of-type(3){
+    height: 56px;
+    width: 40%;
+    display: flex;
+    align-items: center;
+}
+footer > section:nth-of-type(4){
+    height: 170px;
+    width: 40%;
+}
+
+
+nav{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+nav > ul{
+    height: 60px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: center;
+    list-style: none;
+    line-height: 1.3125rem;
+    --grid-layout-gap: 0.75rem;
+    --grid-item--min-width: 18.375rem;
+}
+nav > ul > li{
+    width: 25%;
+}
+
+nav > ul > li > a{
+    color: #B3B3B3;
+    font-size:  0.875rem;
+    font-weight: 400;
+}
+
+.lang{
+    position: relative;
+    display: inline-block;
+}
+.lang-btn{
+    border : 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    padding: 0px 2px;
+    margin: 0;
+    background-color: #0F0F0F;
+}
+.lang-btn-img{
+    padding: 0;
+    margin: 0;
+}
+.lang_list{
+    display: none;
+    position: absolute;
+    min-width: 130px;
+    background-color: black;
+    border-radius: 10px;
+    margin-left: 2px;
+}
+.lang_list > a{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    padding: 3px 20px;
+    border-radius: 5px;
+}
+.lang_list > a:hover{
+    background-color: #1E90FF;
+}
+.lang:hover > .lang_list{ 
+    display: block;
+}
+.lang:hover > .lang-btn{
+    border : 3px double rgba(255, 255, 255, 0.8);
+    outline: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+footer > section:nth-of-type(4) > p{
+    font-size: 12px;
+}
+#ftc{
+    font-size: 12px;
+    color:#B3B3B3;
+}
