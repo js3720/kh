@@ -9,28 +9,29 @@
 <body>
     <header>
         <a href="main.html"><img width="188px" height="86px" src="netflix_images/Netflix_Logo.png" alt="Netflix_Logo"></a>
+        <a href="main.html">로그아웃</a>
     </header>
 
     <main>
         <form>
             <section><img src="netflix_images/check1.png" alt="checkmark"></section>
-            <section><input type="text" class="login-input" id="loginId" placeholder="이메일 주소 또는 전화번호"></section>
-            <section><input type="text" class="login-input" id="loginPw" placeholder="비밀번호"></section>
-            <section><input type="button" value="로그인" id="login-btn"></section>
+            <section><p>1/3단계</p></section>
             <section>
-                <article>
-                    <input type="checkbox" id="saveLoginInformation">
-                    <label for="saveLoginInformation">로그인 정보 저장</label>
-                </article>
-                <a href="#" id="help">도움이 필요하신가요?</a>
+                <p>원하는 멤버십을<br>선택하세요.</p>
             </section>
-            <section>
-                <p> Netflix 회원이 아닌가요? <a href="#" id="signUp">지금 가입하세요.</a></p>
+            <section class="check">
+                <article><img src="netflix_images/check2.png" alt="checkmark2" class="step1_img"></article>
+                <article><p class="step1_text">無약정, 無위약금. 해지도 쿨하게 언제든지.</p></article>
             </section>
-            <section>
-                <p>이 페이지는 Google reCAPTCHA의 보호를 받아<br>
-                    사용자가 로봇이 아님을 확인합니다. <a href="#" id="more">자세히 알아보기.</a></p>
+            <section class="check">
+                <article><img src="netflix_images/check2.png" alt="checkmark2" class="step1_img"></article>
+                <article><p class="step1_text">하나의 요금으로 즐기는 끝없는 콘텐츠의 세계.</p></article>
             </section>
+            <section class="check">
+                <article><img src="netflix_images/check2.png" alt="checkmark2" class="step1_img"></article>
+                <article><p class="step1_text">모든 디바이스에서 무제한 시청.</p></article>
+            </section>
+            <section><button id="step1-btn"><a href="membership-2.html">다음</a></button></section>
         </form>
     </main>
 
@@ -43,6 +44,7 @@
                 <ul>
                     <li><a href="#">자주 묻는 질문</a></li>
                     <li><a href="#">고객 센터</a></li>
+                    <li><a href="#">넷플릭스 스토어</a></li>
                     <li><a href="#">이용 약관</a></li>
                     <li><a href="#">개인정보 처리방침</a></li>
                     <li><a href="#">쿠키 설정</a></li>

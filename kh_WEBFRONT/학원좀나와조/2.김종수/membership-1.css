@@ -8,6 +8,17 @@ body{
 
 header{
     padding-left: 2%;
+    border-bottom: 1px solid #ececec;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header > a:last-of-type{
+    font-size: 19px;
+    margin-right: 35px;
+    color: black;
+    text-decoration: black;
+    text-decoration-line: none;
 }
 
 main{
@@ -20,106 +31,77 @@ main{
 main > form{
     width: 450px;
     height: 660px;
-    background-color: black;
-    opacity: 80%;
     border-radius: 5px;
     margin-bottom: 326px;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
 }
 
 main > form > section{
     width: 317px;
-    height: 50px;
+    height: auto;
 }
-main > form > section:nth-of-type(1){ /* 로그인 text */
+main > form > section:nth-of-type(1){ /* 체크마크 */
     font-size: 32px;
     color: white;
     margin: 60px 0px 28px;
+    display: flex;
+    justify-content:center;
 }
 
-.login-input{
-    width: 80%;
-    margin-left: 30px;
-    background-color:#333333;
-    color: white;
-    outline: none;
-    border: 1px solid #333333;
-}
-main > form > section:nth-of-type(2){ /* 이메일 주소 또는 전화번호 */
-    font-size: 32px;
-    color: white;
-    background-color: #333333;
-    border-radius: 5px;
-    margin-bottom: 15px;
-}
-main > form > section:nth-of-type(3){ /* 비밀번호 */
-    font-size: 32px;
-    color: white;
-    background-color: #333333;
-    border-radius: 5px;
-    margin-bottom: 35px;
+main > form > section:nth-of-type(2) > p{ /* 단계 */
+    padding: 0;
+    margin: 0;
+    font-size: 13px;
+    text-align: center;
+    color: black;
 }
 
-#login-btn{ /* 로그인 버튼 */
+main > form > section:nth-of-type(3) > p{ /*원하는 멤버십 선택 text */
+    padding: 0;
+    margin: 0;
+    font-size: 32px;
+    color: black;
+    text-align: center;
+}
+
+.check{
+    display: flex;
+    padding: 0;
+    margin: 25px 0px 0px;
+}
+.step1_img{
+    margin:0px 10px;
+}
+.step1_text{
+    margin: 0;
+    font-size: 18px;
+    word-break: keep-all;
+}
+
+main > form > section:last-of-type { /*원하는 멤버십 선택 text */
+    height: 65px;
+    margin-top: 40px;
+}
+
+#step1-btn{ /* 다음 버튼 */
     width: 100%;
     height: 100%;
     border-radius: 5px;
     background-color: red;
-    font-size: 16px;
-    font-weight: 600;
+    border: none;
+}
+#step1-btn > a{
+    padding: 7% 42.1%;
     color: white;
-}
-
-main > form > section:nth-of-type(5){ /* 로그인 정보 저장, 도움 링크 */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 13px;
-    color: #B3B3B3;
-    border-radius: 5px;
-}
-
-#help{
-    color: #B3B3B3;
+    font-size: 24px;
+    text-align: center;
+    text-decoration: white;
     text-decoration-line: none;
 }
-#help:hover{
-    text-decoration-line:underline;
-}
 
-main > form > section:nth-of-type(6){
-    margin-top: 60px;
-}
-main > form > section:nth-of-type(6) > p{ /* 회원가입 링크 */
-    font-size: 16px;
-    color: #B3B3B3;
-}
-#signUp{
-    color: white;
-    font-weight: bold;
-    text-decoration-line: none;
-}
-#signUp:hover{
-    text-decoration-line:underline;
-}
-main > form > section:nth-of-type(7){
-    margin-bottom: 100px;
-}
-main > form > section:nth-of-type(7) > p{ /* 자세히 알아보기 */
-    font-size: 13px;
-    color: gray;
-    margin-top: -5px;
-}
-#more{
-    color: #448ef4;
-    text-decoration-line: none;
-}
-#more:hover{
-    text-decoration-line:underline;
-}
 
 /* footer 영역 */
 footer{
@@ -148,9 +130,9 @@ footer > section{
 }
 footer > section:nth-of-type(1){
     height: 45px;
-    width: 45px;
+    width: 40%;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
 }
 .tel{ 

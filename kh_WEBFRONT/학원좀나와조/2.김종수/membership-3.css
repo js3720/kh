@@ -1,0 +1,228 @@
+* {box-sizing: border-box;}
+
+body{
+    width: 99vw;
+    height: 100%;
+    position: relative;
+}
+
+header{
+    padding-left: 2%;
+    border-bottom: 1px solid #ececec;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header > a:last-of-type{
+    font-size: 19px;
+    margin-right: 35px;
+    color: black;
+    text-decoration: black;
+    text-decoration-line: none;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px gray;
+}
+
+main > form{
+    width: 964px;
+    height: 652px;
+    border-radius: 5px;
+    margin-bottom: 326px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main > form > section{
+    width: 500px;
+    height: auto;
+    font-size: 18px;
+}
+main > form > section:nth-of-type(1){ /* 자물쇠마크 */
+    font-size: 32px;
+    color: white;
+    margin: 60px 0px 28px;
+    display: flex;
+    justify-content:center;
+}
+
+main > form > section:nth-of-type(2) > p{ /* 단계 */
+    padding: 0;
+    margin: 0;
+    font-size: 13px;
+    text-align: center;
+    color: black;
+}
+
+main > form > section:nth-of-type(3) > p{ /*결제 방법 선택 */
+    padding: 0;
+    margin: 0;
+    font-size: 32px;
+    color: black;
+    text-align: center;
+}
+
+.pay_text{
+    display: flex;
+    flex-direction: column;
+    padding: 0px 20px;
+    margin: 15px 0px 0px;
+    text-align: center;
+    justify-content: center;
+}
+.step3_text{
+    margin: 0;
+    font-size: 18px;
+    word-break: keep-all;
+}
+
+main > form > section:nth-of-type(6){ /* 종단간 암호화 */
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+/* footer 영역 */
+footer{
+    margin: -10px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    bottom: 0;
+    left: 0;
+    height: 343px;
+    width: 101%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #F3F3F3;
+    opacity: 80%;
+}
+
+footer > section{
+    width: 62.5%;
+    font-size: 16px;
+    color:gray;
+}
+footer > section:nth-of-type(1){
+    height: 45px;
+    width: 40%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.tel{ 
+    color: gray;
+    text-decoration-line: none;
+}
+.tel:hover{ 
+    text-decoration-line:underline;
+}
+
+footer > section:nth-of-type(2){
+    height: 80px;
+    width: 40%;
+}
+footer > section:nth-of-type(3){
+    height: 56px;
+    width: 40%;
+    display: flex;
+    align-items: center;
+}
+footer > section:nth-of-type(4){
+    height: 110px;
+    width: 40%;
+}
+
+
+nav{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+nav > ul{
+    height: 60px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: center;
+    list-style: none;
+    line-height: 1.3125rem;
+    --grid-layout-gap: 0.75rem;
+    --grid-item--min-width: 18.375rem;
+}
+nav > ul > li{
+    width: 25%;
+}
+
+nav > ul > li > a{
+    color: #B3B3B3;
+    font-size:  0.875rem;
+    font-weight: 400;
+}
+
+.lang{
+    position: relative;
+    display: inline-block;
+}
+.lang-btn{
+    border : 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    padding: 0px 2px;
+    margin: 0;
+    background-color: white;
+}
+.lang-btn-img{
+    padding: 0;
+    margin: 0;
+}
+.lang_list{
+    display: none;
+    position: absolute;
+    min-width: 130px;
+    background-color: white;
+    border-radius: 10px;
+    margin-left: 2px;
+}
+.lang_list > a{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    padding: 3px 20px;
+    border-radius: 5px;
+}
+.lang_list > a:hover{
+    background-color: #1E90FF;
+    color: white;
+}
+.lang:hover > .lang_list{ 
+    display: block;
+}
+.lang:hover > .lang-btn{
+    border : 3px double rgba(255, 255, 255, 0.8);
+    outline: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+footer > section:nth-of-type(4) > p{
+    font-size: 12px;
+}
+#ftc{
+    font-size: 12px;
+    color:#B3B3B3;
+}
