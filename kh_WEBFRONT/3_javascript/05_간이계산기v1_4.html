@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습문제1</title>
+    <script>
+        function calculate(btn){
+            let num1 = Number(document.getElementById("num1").value);
+            let num2 = Number(document.getElementById("num2").value);
+
+            // span 태그에 결과 출력
+            // document.getElementById("result").innerText = eval(num1+op+num2);
+
+            document.getElementById("result").innerText = num2==0 ? "0으로 나눌 수 없습니다" : new Function("return "+ num1 + btn.innerText + num2)();
+            document.getElementById("num1").value="";
+            document.getElementById("num2").value="";
+        }
+    </script>
+</head>
+<body>
+    <h1>간이 계산기 만들기</h1>
+    첫번째 값 : <input type="text" id="num1"><br>
+    두번째 값 : <input type="text" id="num2"><br>
+
+    <button id="plus" onclick="calculate(this)">+</button>
+    <button id="mius" onclick="calculate(this)">-</button>
+    <button id="mult" onclick="calculate(this)">*</button>
+    <button id="divi" onclick="calculate(this)">/</button>
+    <button id="ferc" onclick="calculate(this)">%</button><br><br>
+
+    계산 결과 : <span id="result"></span>
+    
+</body>
+</html>

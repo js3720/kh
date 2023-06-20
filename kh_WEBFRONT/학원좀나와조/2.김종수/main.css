@@ -449,7 +449,7 @@ input[name="FAQ-list"]:checked + label{
 
 /*****************************************/
 
-/* .FAQ-box{
+.FAQ-box{
     position: relative;
     display: inline-block;
     width: 100%;
@@ -459,7 +459,7 @@ input[name="FAQ-list"]:checked + label{
 .FAQ-plus{
     display: none;
     min-width: 60%;
-    width: 63.4%;
+    width: 62.4%;
     background-color: #2D2D2D;
     font-size: 24px;
     font-weight: 500;
@@ -478,7 +478,7 @@ input[name="FAQ-list"]:checked + label{
 
 .FAQ:hover + .FAQ-plus{ 
     display:inline-block;
-} */
+}
 
 /*****************************************/
 

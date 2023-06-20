@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습문제1</title>
+    <script>
+        console.log(Number(num1.value)+Number(num2.value));
+
+        function calculate(op){
+            let num1 = Number(document.getElementById("num1").value);
+            let num2 = Number(document.getElementById("num2").value);
+            const result =  document.getElementById("result");
+            switch(op){
+                case '+' : result.innerText = num1+num2; break;
+                case '-' : result.innerText = num1-num2; break;
+                case '*' : result.innerText = num1*num2; break;
+                case '/' : result.innerText = num1/num2; break;
+                case '%' : result.innerText = num1%num2; break;
+                default : result.innerText = "값을 다시 입력해주세요"; break;
+            }
+            document.getElementById("num1").value="";
+            document.getElementById("num2").value="";
+        }
+
+    </script>
+</head>
+<body>
+    <h1>간이 계산기 만들기</h1>
+    첫번째 값 : <input type="text" id="num1"><br>
+    두번째 값 : <input type="text" id="num2"><br>
+
+    <button id="plus" onclick="calculate('+')">+</button>
+    <button id="mius" onclick="calculate('-')">-</button>
+    <button id="mult" onclick="calculate('*')">*</button>
+    <button id="divi" onclick="calculate('/')">/</button>
+    <button id="ferc" onclick="calculate('%')">%</button><br><br>
+
+    계산 결과 : <span id="result"></span>
+    
+</body>
+</html>
