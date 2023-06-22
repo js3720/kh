@@ -76,15 +76,15 @@ function accessCss(){
     // document.querySelector("#css-div > div").style.fontSize="30px";
 
      //querySelectorAll() : 모든 요소 선택시 사용
-     const arr = document.querySelectorAll("#css-div > div");
-     for(let i=0; i<arr.length; i++){
+    const arr = document.querySelectorAll("#css-div > div");
+    for(let i=0; i<arr.length; i++){
         if(arr[i].innerText == "test1"){
             arr[i].style.backgroundColor="pink";
         }
         else{
             arr[i].style.backgroundColor="yellow";
         }
-     }
+    }
 }
 
 // 카카오톡 채팅 만들기

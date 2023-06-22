@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또 번호 생성기t</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #container{
+            margin: 100px auto 50px;
+            display: flex;
+        }
+        #container > div{
+            width: 50px;
+            height: 50px;
+            border: 2px solid black;
+            outline: 1px solid black;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+            font-weight: bold;
+        }
+        #createLotto{
+            display: block;
+            width: 300px;
+            height: 30px;
+            font-weight: bold;
+        }
+    </style>
+    
+</head>
+<body>
+    <div id="container">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <button id="createLotto">로또 번호 생성</button>
+
+    <script>
+        document.getElementById("createLotto").addEventListener("click", function(){
+            const arr = new Array(6);
+            const div = document.querySelectorAll("#container > div");
+
+            for(let i=0; i<arr.length; i++ ){
+                let num = Math.floor(Math.random()*45+1);
+                if(arr.indexOf(num)== -1) arr[i]=num;
+                else i--;
+            }
+
+            arr.sort(function(a,b){ return a-b;})
+
+            for(let i in arr) {
+                div[i].innerHTML= arr[i];
+                div[i].style.borderColor = arr[i]<11 ? "yellow" : arr[i]<21 ? "blue" : arr[i]<31 ? "red" : arr[i]<41 ? "gray" : "green";
+            }
+
+        })
+    </script>
+</body>
+</html>
