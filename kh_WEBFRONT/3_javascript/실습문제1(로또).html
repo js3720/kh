@@ -18,14 +18,19 @@
         #container > div{
             width: 50px;
             height: 50px;
-            border: 2px solid black;
-            outline: 1px solid black;
+            border: 3px solid black;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             margin: 10px;
             font-weight: bold;
+        }
+        #container > p{
+            display: block;
+            font-size: 35px;
+            font-weight: bold;
+            line-height: 0;
         }
         #createLotto{
             display: block;
@@ -44,12 +49,14 @@
         <div></div>
         <div></div>
         <div></div>
+        <p>+</p>
+        <div></div>
     </div>
     <button id="createLotto">로또 번호 생성</button>
 
     <script>
         document.getElementById("createLotto").addEventListener("click", function(){
-            const arr = new Array(6);
+            const arr = new Array(7);
             const div = document.querySelectorAll("#container > div");
 
             for(let i=0; i<arr.length; i++ ){
