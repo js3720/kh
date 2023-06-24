@@ -130,7 +130,7 @@ $("#check").on("click", function(){
         
         alert( $(gender).val()+"를 선택하셨습니다.")
     }
-    //alert(gender.length==0 ? "남자 또는 여자 중 하나를 선택 해주세요." : $(gender).val()+"자를 선택하셨습니다.");
+    // alert(gender.length==0 ? "남자 또는 여자 중 하나를 선택 해주세요." : $(gender).val()+"자를 선택하셨습니다.");
 })
 
 // prop()메소드
