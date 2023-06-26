@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>체크박스 선택문제</title>
+    <style>
+        fieldset{
+            width: 700px;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        div{
+            height: 150px;
+            width: 700px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <form action="#" onSubmit="return false">
+        <fieldset>
+            <legend>취미</legend>
+            <table>
+                <tr>
+                    <td>
+                        <input type="checkbox" name="hobby" id="all"></input>
+                        <label for="all">전체선택</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="hobby" id="check1" value="종합"></input>
+                        <label for="check1">종합</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="hobby" id="check2" value="소설"></input>
+                        <label for="check2">소설</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="hobby" id="check3" value="시/에세이"></input>
+                        <label for="check3">시/에세이</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="hobby" id="check4" value="경제/경영"></input>
+                        <label for="check4">경제/경영</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="hobby" id="check5" value="자기계발"></input>
+                        <label for="check5">자기계발</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="hobby" id="check6" value="아동"></input>
+                        <label for="check6">아동</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="checkbox" name="hobby" id="check7" value="여행"></input>
+                        <label for="check7">여행</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="hobby" id="check8" value="과학"></input>
+                        <label for="check8">과학</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="hobby" id="check9" value="역사/문화"></input>
+                        <label for="check9">역사/문화</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="hobby" id="check10" value="외국어"></input>
+                        <label for="check10">외국어</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="hobby" id="check11" value="컴퓨터"></input>
+                        <label for="check11">컴퓨터</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="hobby" id="check12" value="만화"></input>
+                        <label for="check12">만화</label>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <button id="select-btn">카테고리 선택</button>
+        <div id="result"></div>
+    </form>
+    <script src="js/체크박스선택문제.js"></script>
+</body>
+</html>
