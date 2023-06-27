@@ -6,9 +6,10 @@ document.getElementById("all").addEventListener("click", function(){
 
 for(let i=1; i<hobby.length; i++){
     hobby[i].addEventListener("click", function(){
+        let count = 0;
         for(let j=1; j<hobby.length; j++){
-            if(hobby[j].checked==false) break;
-            if(j==hobby.length-1) hobby[0].checked=true;
+            if(hobby[j].checked==true) count++;
+            if(count==hobby.length-1) hobby[0].checked=true;
             else hobby[0].checked=false;
         }
     })
@@ -17,9 +18,7 @@ for(let i=1; i<hobby.length; i++){
 document.getElementById("select-btn").addEventListener("click", function(){
     const result = document.getElementById("result");
     result.innerText="";
-    let str ="";
     for(let i=1; i<hobby.length; i++){
-        if(hobby[i].checked) str+= hobby[i].value +" ";
+        if(hobby[i].checked) result.innerHTML += hobby[i].value+" ";
     }
-    result.innerText=str;
 })
