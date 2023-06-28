@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>index라는 이름이 붙은 파일은 메인페이지 역할을 합니다.</h1>
+    
+    <hr>
+    
+    <h3>테스트1</h3>
+    
+    <pre>
+        form 태그 :
+            내부에 작성된 input 태그의 값을 지정된 서버 또는 페이지로
+            제출(전달)하는 역할
+        
+            * 이 때, 어떤 input 태그에 작성된 값이 제출 된건지 알 수 있도록
+            input 태그에 name 속성을 반드시 작성한다<!DOCTYPE html>
+
+            * form 태그 속성
+            - action : input 태그 값을 전달할 서버 또는 페이지 주소를 작성하는 속성
+            - method : 데이터 전달 방식 지정 속성(get / post)
+
+    </pre>
+
+    <!-- http://localhost:8080      /ServletProject1/ 
+
+        -http://아이디:포트번호 : 통신규약, 서버 컴퓨터 위치를 지정(고정)
+
+        -/ServletProject1/ : 요청하고자 하는 내용을 나타내는 주소
+    
+    -->
+    <form action="/ServletProject1/example1.do">
+        <!-- ServletProject1 프로젝트에 example1.do 라는 요청을 전달한다 
+                -> 예제 1번을 수행해서 결과를 응답할 예정
+        -->
+
+        이름 : <input type="text" name="inputName"><br>
+        나이 : <input type="text" name="inputAge"><br>
+
+        <button type="submit">서버로 제출하기</button>
+    </form>
+    
+    <hr>
+
+    <h3>GET방식 요청 및 응답</h3>
+
+    <pre>
+        GET 방식 :  요청하는 주소 뒤에 
+                    전달하려는 값(input 태그에 작성된 값)을
+                    문자열 형태로 붙여서 서버로 전달하는 방식
+        - 장점 : 단순함, 캐싱 가능(요청 저장 가능 == 북마크, 즐겨찾기)
+        - 단점 : 보안에 취약함(눈에 다 보임)
+
+        * form태그, a태그, 주소창 직접 입력하는 모든 것이 GET방식*
+        * form태그 method 속성 기본값
+    </pre>
+    <form action="/ServletProject1/example2.do" method="get">
+        주문자 : <input type="text" name="orderer"><br>
+        <label><input type="checkbox" name="coffee" value="아이스 아메리카노">아이스 아메리카노</label><br>
+        <label><input type="checkbox" name="coffee" value="카라멜 마끼야또">카라멜 마끼야또</label><br>
+        <label><input type="checkbox" name="coffee" value="카페라떼">카페라떼</label><br>
+        <label><input type="checkbox" name="coffee" value="자바칩 프라푸치노">자바칩 프라푸치노</label><br>
+        <label><input type="checkbox" name="coffee" value="카페모카">카페모카</label><br>
+
+        <button type="submit">주문서 제출하기</button>
+    </form>
+</body>
+</html>
