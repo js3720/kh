@@ -6,6 +6,22 @@
     <title>JSP 프로젝트</title>
 </head>
 <body>
+    <ul>
+        <li>
+            <!-- 상대 경로 작성법 -->
+            <a href="EL.html">1. EL(Expression Language)</a>
+        </li>
+        <li>
+            
+        </li>
+    </ul>
+
+    <!-- <a href="JSPProject/test/test1.html">1. EL(Expression Language)</a> -->
+    <a href="test/test1.html">test</a>
+
+    <hr>
+    <hr>
+
     <h3>GET 방식 요청</h3>
     <form action="/JSPProject/login" method="get">
         <!--
@@ -40,6 +56,34 @@
         수량 : <input type="number" name="amount" min="1" max="10" value="1">판<br>
 
         <button>주문하기</button>
+    </form>
+
+    <hr>
+
+    <h3>회원가입</h3>
+    <form action="/JSPProject/signUp" method="post">
+        <table>
+            <tr>
+                <th>아이디 : </th>
+                <td><input type="text" name="memberId"></td>
+            </tr>
+            <tr>
+                <th>비밀번호 : </th>
+                <td><input type="password" name="memberPw"></td>
+            </tr>
+            <tr>
+                <th>이름 : </th>
+                <td><input type="text" name="memberName"></td>
+            </tr>
+            <tr>
+                <th>자기 소개</th>
+                <td>
+                    <textarea name="intro" rows="3" cols="30"></textarea>
+                </td>
+            </tr>
+        </table>
+        <button>회원가입</button>
+        <button type="reset">초기화</button>
     </form>
 </body>
 </html>
