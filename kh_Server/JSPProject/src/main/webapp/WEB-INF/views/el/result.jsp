@@ -1,32 +1,39 @@
-<!-- Person Å¬·¡½º import -->
+<!-- Person í´ë˜ìŠ¤ import -->
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
 <%@page import="edu.kh.jsp.controller.Person"%>
 
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 
 	<!--
-		ELÀÇ Æ¯Â¡
+		ELì˜ íŠ¹ì§•
 		
-		1. getÀÌ¶ó´Â ´Ü¾î¸¦ »ç¿ëÇÏÁö ¾ÊÀ½
+		1. getì´ë¼ëŠ” ë‹¨ì–´ë¥¼ ì‚¬ìš©í•˜ì§€ ì•ŠìŒ
 		
-		2. ELÀº nullÀ» ºóÄ­À¸·Î Ãâ·ÂÇÔ
-			(null°ú °ü·ÃµÈ °ÍÀº ¸ğµÎ ºóÄ­)
+		2. ELì€ nullì„ ë¹ˆì¹¸ìœ¼ë¡œ ì¶œë ¥í•¨
+			(nullê³¼ ê´€ë ¨ëœ ê²ƒì€ ëª¨ë‘ ë¹ˆì¹¸)
  	-->
-	<h3>request¿¡¼­ Parameter ¾ò¾î¿À±â</h3>
+ 	session ë²”ìœ„ sessionValue : ${ sessionValue }
+ 	
+ 	<br>
+ 	application ë²”ìœ„ appValue : ${ appValue }
+ 	
+	<h3>requestì—ì„œ Parameter ì–»ì–´ì˜¤ê¸°</h3>
 	
 	<pre>
-		EL·Î Parameter ¾ò¾î¿Í¼­ Ãâ·ÂÇÏ´Â ¹æ¹ı
-		\${ param.name¼Ó¼º°ª }
+		ELë¡œ Parameter ì–»ì–´ì™€ì„œ ì¶œë ¥í•˜ëŠ” ë°©ë²•
+		\${ param.nameì†ì„±ê°’ }
 	</pre>
 	
-	1) JSP Ç¥Çö½Ä :
+	1) JSP í‘œí˜„ì‹ :
 	<%= request.getParameter("inputName")%> /
 	<%= request.getParameter("inputAge") %> /
 	<%= request.getParameter("inputAddress")%>
@@ -36,26 +43,26 @@
 	
 	<br><br>
 	
-	2) EL(Ç¥Çö ¾ğ¾î) :
+	2) EL(í‘œí˜„ ì–¸ì–´) :
 	${ param.inputName } /
 	${ param.inputAge } /
 	${ param.inputAddress }
 	
 	${ param.inputAddress2 }
-	<!-- ºóÄ­ -->
+	<!-- ë¹ˆì¹¸ -->
 	
-	<h3>request¿¡¼­ ¼Ó¼º(Attribute) ¾ò¾î¿À±â</h3>
+	<h3>requestì—ì„œ ì†ì„±(Attribute) ì–»ì–´ì˜¤ê¸°</h3>
 	
 	<pre>
-		Servlet¿¡¼­ Ãß°¡µÈ ¼Ó¼ºÀ» Ç¥Çö(Ãâ·Â)ÇÏ·Á´Â °æ¿ì
-		request¿¡ ¼¼ÆÃµÈ ¼Ó¼º(Attribute)ÀÇ key°ª¸¸ ÀÛ¼ºÇÏ¿© Ãâ·ÂÇÒ ¼ö ÀÖ´Ù!
+		Servletì—ì„œ ì¶”ê°€ëœ ì†ì„±ì„ í‘œí˜„(ì¶œë ¥)í•˜ë ¤ëŠ” ê²½ìš°
+		requestì— ì„¸íŒ…ëœ ì†ì„±(Attribute)ì˜ keyê°’ë§Œ ì‘ì„±í•˜ì—¬ ì¶œë ¥í•  ìˆ˜ ìˆë‹¤!
 		
-		\${ ¼Ó¼ºkey }
+		\${ ì†ì„±key }
 		
-		\${ ¼Ó¼ºkey.ÇÊµå¸í }
-		(´Ü, getter°¡ ÀÛ¼ºµÇ¾î ÀÖ¾î¾ßÁö¸¸ °¡´ÉÇÏ´Ù!)
+		\${ ì†ì„±key.í•„ë“œëª… }
+		(ë‹¨, getterê°€ ì‘ì„±ë˜ì–´ ìˆì–´ì•¼ì§€ë§Œ ê°€ëŠ¥í•˜ë‹¤!)
 		
-		[getÀ» »ç¿ëÇÏÁö ¾ÊÀ¸¹Ç·Î¼­ ÀÛ¼º¹ıµµ °£´ÜÇØÁö°í Ä¸½¶È­ È®ÀÎ°ú null ¿¹¿ÜÃ³¸®°¡ µÇ¾îÀÖ¾î ÁÁ´Ù]
+		[getì„ ì‚¬ìš©í•˜ì§€ ì•Šìœ¼ë¯€ë¡œì„œ ì‘ì„±ë²•ë„ ê°„ë‹¨í•´ì§€ê³  ìº¡ìŠí™” í™•ì¸ê³¼ null ì˜ˆì™¸ì²˜ë¦¬ê°€ ë˜ì–´ìˆì–´ ì¢‹ë‹¤]
 		
 	</pre>
 	
@@ -64,20 +71,59 @@
 		Person person = (Person)request.getAttribute("person");
 	%>
 	
-	1) JSP Ç¥Çö½Ä : <%=menu%>
+	1) JSP í‘œí˜„ì‹ : <%=menu%>
 	
 	<br> <%= person %>
 	
-	<br> <%= person.getName() +", ³ªÀÌ : "+ person.getAge() +", ÁÖ¼Ò : "+ person.getAddress() %>
+	<br> <%= person.getName() +", ë‚˜ì´ : "+ person.getAge() +", ì£¼ì†Œ : "+ person.getAddress() %>
 	
 	<br><br>
 	
-	2) EL(Ç¥Çö ¾ğ¾î) : ${ menu }
+	2) EL(í‘œí˜„ ì–¸ì–´) : ${ menu }
 	
 	<br> ${ person }
 	<br> ${ person.name }
 	<br> ${ person.age }
 	<br> ${ person.address }
+	
+	<hr>
+	
+	<h3>null ì²˜ë¦¬ ë°©ë²•</h3>
+	
+	<pre>
+		ELì—ì„œ nullì„ ì¶œë ¥í•´ì•¼ ë˜ëŠ” ê²½ìš° ""(ë¹ˆ ë¬¼ìì—´)ì„ ì¶œë ¥í•œë‹¤.
+		
+		+ NullTointerExceptionì´ ë°œìƒí•˜ëŠ” ì½”ë“œì—ì„œë„ ""(ë¹ˆ ë¬¸ìì—´)ì„ ì¶œë ¥í•œë‹¤.
+		
+		+ ELì€ nullì¸ ê²½ìš°ë¥¼ í™•ì¸í•  ë•Œ emptyë¥¼ í†µí•´ì„œ í™•ì¸í•  ìˆ˜ ìˆë‹¤.
+	</pre>
+	
+	<% 
+		List<String> list = null; 
+	%>
+	
+	1) JSP í‘œí˜„ì‹ : <%= list %>
+	<br> <%= list == null %>
+	
+	<br><br>
+	
+	2) EL(í‘œí˜„ ì–¸ì–´) : ${ list }
+	<br> ${ empty list }
+	
+	<h3 style="color:red;">ELì˜ emptyëŠ” nullê³¼ ë¹„ì–´ìˆëŠ” ì»¬ë ‰ì…˜ì„ ë¹„ì–´ìˆëŠ” ê²ƒìœ¼ë¡œ ì·¨ê¸‰í•¨</h3>
+	<%
+		list = new ArrayList<String>();
+	
+		// listê°€ ArrayList ê°ì²´ë¥¼ ì°¸ì¡° == null ì•„ë‹˜
+		// ì°¸ì¡°í•˜ê³  ìˆëŠ” ArrayListì— ë‚´ìš©ì€ ì—†ìŒ == ë¹„ì–´ìˆìŒ
+	%>
+	
+	${ empty list }
+	<!--
+		ELì„ ì´ìš©í•´ì„œ ì»¬ë ‰ì…˜ ìš”ì†Œë¥¼ ë‹¤ë£° ë•Œ
+		nullì¸ì§€ ë¹„ì–´ìˆëŠ”ì§€ í™•ì¸í•˜ëŠ” ë°©ë²•ì´ ë™ì¼í•˜ê¸° ë•Œë¬¸ì—
+		ì½”ë“œ ì‘ì„± ì‹œ ì´ë¥¼ ì˜ êµ¬ë¶„í•  ìˆ˜ ìˆë„ë¡ í•´ì•¼í•œë‹¤. 
+	 -->
 	
 </body>
 </html>

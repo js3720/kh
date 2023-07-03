@@ -1,21 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     
-<!-- HTML ÁÖ¼® (°³¹ßÀÚ µµ±¸¿¡ ³ëÃâ O) -->
-<%-- JSP ÁÖ¼® (°³¹ßÀÚ µµ±¸¿¡ ³ëÃâ X) --%>
+<!-- HTML ì£¼ì„ (ê°œë°œìž ë„êµ¬ì— ë…¸ì¶œ O) -->
+<%-- JSP ì£¼ì„ (ê°œë°œìž ë„êµ¬ì— ë…¸ì¶œ X) --%>
 
 <%--
-	<%@ %> : Áö½ÃÀÚ -> ¾Ë·ÁÁÖ°Å³ª Áö½ÃÇÏ´Â ¼Ó¼ºÀ» ±âÀÔ
-	"charset=UTF-8"			:ÇöÀç ¹®¼­°¡ UTF-8 ¹®ÀÚ ÀÎÄÚµù Çü½ÄÀ¸·Î ÀÛ¼ºµÇ¾úÀ½
-	pageEncoding="UTF-8"	:ÇöÀç ¹®¼­¸¦ ÇØ¼®ÇÒ ¶§ UTF-8 ¹®ÀÚ ÀÎÄÚµùÀ» ÀÌ¿ëÇØ¼­ ÇØ¼®
+	<%@ %> : ì§€ì‹œìž -> ì•Œë ¤ì£¼ê±°ë‚˜ ì§€ì‹œí•˜ëŠ” ì†ì„±ì„ ê¸°ìž…
+	"charset=UTF-8"			:í˜„ìž¬ ë¬¸ì„œê°€ UTF-8 ë¬¸ìž ì¸ì½”ë”© í˜•ì‹ìœ¼ë¡œ ìž‘ì„±ë˜ì—ˆìŒ
+	pageEncoding="UTF-8"	:í˜„ìž¬ ë¬¸ì„œë¥¼ í•´ì„í•  ë•Œ UTF-8 ë¬¸ìž ì¸ì½”ë”©ì„ ì´ìš©í•´ì„œ í•´ì„
 
-	<% %> : ½ºÅ©¸³Æ²¸´(scriptlet) -> JSP¿¡¼­ ÀÚ¹Ù ÄÚµå¸¦ ÀÛ¼ºÇÒ ¼ö ÀÖ´Â ¿µ¿ª
-	-> JSTL ¶óÀÌºê·¯¸®¸¦ ÀÌ¿ëÇØ¼­ ÅÂ±× Çü½ÄÀ¸·Î º¯°æ
+	<% %> : ìŠ¤í¬ë¦½í‹€ë¦¿(scriptlet) -> JSPì—ì„œ ìžë°” ì½”ë“œë¥¼ ìž‘ì„±í•  ìˆ˜ ìžˆëŠ” ì˜ì—­
+	-> JSTL ë¼ì´ë¸ŒëŸ¬ë¦¬ë¥¼ ì´ìš©í•´ì„œ íƒœê·¸ í˜•ì‹ìœ¼ë¡œ ë³€ê²½
 	
-	<%= %> : Ç¥Çö½Ä(Expression) -> ÀÚ¹Ù ÄÚµåÀÇ °ªÀ» HTML Çü½ÄÀ¸·Î Ç¥Çö(Ãâ·Â)
+	<%= %> : í‘œí˜„ì‹(Expression) -> ìžë°” ì½”ë“œì˜ ê°’ì„ HTML í˜•ì‹ìœ¼ë¡œ í‘œí˜„(ì¶œë ¥)
  --%>
     
-<% // ÀÚ¹Ù ÄÚµå ÀÛ¼º ¿µ¿ª (scliptlet, ½ºÅ©¸³Æ²¸´)
+<% // ìžë°” ì½”ë“œ ìž‘ì„± ì˜ì—­ (scliptlet, ìŠ¤í¬ë¦½í‹€ë¦¿)
 	int result = (int)request.getAttribute("res");
 	String pizza = (String)request.getAttribute("pizza");
 	String size = (String)request.getAttribute("size");
@@ -25,8 +25,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-	<title>ÁÖ¹® °á°ú</title>
+<meta charset="UTF-8">
+	<title>ì£¼ë¬¸ ê²°ê³¼</title>
 	<style>
 		#area{
 			font-size : 18px;
@@ -36,11 +36,11 @@
 	</style>
 </head>
 <body>
-	<!-- webapp Æú´õ ³»ºÎ html/css/jsp µîÀº ¼­¹ö¸¦ ²ôÁö ¾Ê°íµµ ¼öÁ¤ °¡´É -->
+	<!-- webapp í´ë” ë‚´ë¶€ html/css/jsp ë“±ì€ ì„œë²„ë¥¼ ë„ì§€ ì•Šê³ ë„ ìˆ˜ì • ê°€ëŠ¥ -->
 	<div id="area">
-		ÇÇÀÚ : <%=pizza%>
+		í”¼ìž : <%=pizza%>
 		<br>
-		»çÀÌÁî : <%=size.equals("R") ? "Regular" : "Large"%>
+		ì‚¬ì´ì¦ˆ : <%=size.equals("R") ? "Regular" : "Large"%>
 		<%-- 
 			<% if(size.equals("R")){%>
          	Regular
@@ -49,12 +49,12 @@
       		<% } %>
 		 --%>
 		<br>
-		¼ö·® : <%=amount%>ÆÇ
+		ìˆ˜ëŸ‰ : <%=amount%>íŒ
 	</div>
-	<h1>°è»ê °á°ú : <%=result%>¿ø</h1>
+	<h1>ê³„ì‚° ê²°ê³¼ : <%=result%>ì›</h1>
 	
 	<% for(int i=1; i<6; i++){%>
-		<h<%=i%>><%=i%>¹øÂ° Ãâ·ÂÁß</h<%=i%>>
+		<h<%=i%>><%=i%>ë²ˆì§¸ ì¶œë ¥ì¤‘</h<%=i%>>
 	<%}%>
 	
 </body>

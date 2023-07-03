@@ -1,26 +1,26 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
-<% 	// ÀÚ¹Ù ÄÚµå ÀÛ¼º ¿µ¿ª
-	// ¿©±â´Â JSP -> ServletÀ¸·Î ºÎÅÍ Àü¼Û ¹ÞÀº req, resp°¡ ÀÖÀ½
-	// -> req, resp¸¦ »ç¿ëÇÒ ¼ö ÀÖ´Ù!
-	// -> ´ë½Å ÀÌ¸§ÀÌ request, response·Î ¹Ù²ñ
+<% 	// ìžë°” ì½”ë“œ ìž‘ì„± ì˜ì—­
+	// ì—¬ê¸°ëŠ” JSP -> Servletìœ¼ë¡œ ë¶€í„° ì „ì†¡ ë°›ì€ req, respê°€ ìžˆìŒ
+	// -> req, respë¥¼ ì‚¬ìš©í•  ìˆ˜ ìžˆë‹¤!
+	// -> ëŒ€ì‹  ì´ë¦„ì´ request, responseë¡œ ë°”ë€œ
 	
 	String r = (String)request.getAttribute("res");
 	
 	// getAttribute("key")
-	// -¹ÝÈ¯Çü Object -> ¿ø·¡Å¸ÀÔÀ¸·Î °­Á¦ Çüº¯È¯ÀÌ ÇÊ¿äÇÔ
+	// -ë°˜í™˜í˜• Object -> ì›ëž˜íƒ€ìž…ìœ¼ë¡œ ê°•ì œ í˜•ë³€í™˜ì´ í•„ìš”í•¨
 	
 	
 %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>·Î±×ÀÎ °á°ú ÆäÀÌÁö</title>
+<meta charset="UTF-8">
+<title>ë¡œê·¸ì¸ ê²°ê³¼ íŽ˜ì´ì§€</title>
 </head>
 <body>
-	<!-- À§¿¡ ¼±¾ðµÈ º¯¼ö r¿¡ ÀúÀåµÈ °ª Ãâ·Â -->
+	<!-- ìœ„ì— ì„ ì–¸ëœ ë³€ìˆ˜ rì— ì €ìž¥ëœ ê°’ ì¶œë ¥ -->
 	<h1><%=r%></h1>
 </body>
 </html>
