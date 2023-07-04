@@ -1,7 +1,7 @@
 <!-- Person 클래스 import -->
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
-<%@page import="edu.kh.jsp.controller.Person"%>
+<%@page import="edu.kh.jsp.model.vo.Person"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>

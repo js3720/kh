@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import edu.kh.jsp.model.vo.Person;
+
 
 @WebServlet("/EL/result")
 public class ELResultServlet extends HttpServlet {
