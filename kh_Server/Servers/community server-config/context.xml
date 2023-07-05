@@ -28,7 +28,7 @@
     <Manager pathname="" />
     -->
     
-    <!-- Connection Pool 
+    <!-- DataBase Connection Pool (DBCP) 
     
     	- 미리 DB와 연결되어 있는 Connection을 일정 개수 만들어 두고
     	  클라이언트 요청 시 만들어 둔 Connection을 빌려주고
@@ -47,7 +47,7 @@
       type="javax.sql.DataSource" 
       driverClassName="oracle.jdbc.OracleDriver"
       url="jdbc:oracle:thin:@localhost:1521:xe"
-      username="community_jhs" 
+      username="community_kjs" 
       password="community1234" 
       maxTotal="50"      
       maxIdle="10"

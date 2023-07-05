@@ -15,42 +15,17 @@
   <!-- ServletEx1 클래스 Servlet으로 등록(자격 부여) -->
   <servlet>
     <servlet-name>example1</servlet-name>
+    
     <!-- Servlet으로 등록하고자 하는 클래스 파일의 패키지명 + 클래스명 -->
     <servlet-class>edu.kh.servlet.ServletEx1</servlet-class>
+    
   </servlet>
   
   <!-- 요청 주소를 처리할 Servlet과 연결을 지정 -->
   <servlet-mapping>
     <servlet-name>example1</servlet-name>
     <url-pattern>/example1.do</url-pattern>
-  </servlet-mapping>
-  
-  <!-- ==================================================================================== -->
-  
-  <servlet>
-  	<servlet-name>example2</servlet-name>
-  	<servlet-class>edu.kh.servlet.ServletEx2</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-    <servlet-name>example2</servlet-name>
-    <url-pattern>/example2.do</url-pattern>
-  </servlet-mapping>
-  
-  <!-- ==================================================================================== -->
-  
-  <servlet>
-  	<servlet-name>example3</servlet-name>
-  	<servlet-class>edu.kh.servlet.ServletEx3</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-    <servlet-name>example3</servlet-name>
-    <url-pattern>/example3.do</url-pattern>
-  </servlet-mapping>
- 
-  
-  
+  </servlet-mapping>  
   
   
   
