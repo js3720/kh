@@ -1,6 +1,6 @@
-<!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -59,7 +59,7 @@
                
                <hr>
                
-               message : ${sessionScope.message}
+               ${sessionScope.message}
             
             </section>
             <section class="content-2">
@@ -75,7 +75,8 @@
                          <!-- 아이디/비밀번호/로그인버튼 영역 -->
                          <fieldset id="id-pw-area">
                              <section>
-                                 <input type="text" name="inputEmail" placeholder="아이디(이메일)">
+                                 <input type="text" name="inputEmail" placeholder="아이디(이메일)" autocomplete="off" value="${cookie.saveId.value}">
+                                                                                                                            <%-- 현재 페이지 쿠키 중 "saveId"의 내용을 출력 --%>
                                  <input type="password" name="inputPw" placeholder="비밀번호">
              
                              </section>
@@ -91,9 +92,16 @@
                              <span>|</span>
                              <a href="#">ID/PW 찾기</a>
                          </article>
+      					 
+      					 <%-- 쿠키에 saveId가 있는 경우 --%>
+      					 <c:if test="${ !empty cookie.saveId.value }">
+      					 	<%-- chk 변수 생성(page scope) --%>
+      					 	<c:set var="chk" value="checked"></c:set>
+      					 </c:if>
+      
       
                          <label>
-                             <input type="checkbox">아이디 저장
+                             <input type="checkbox" name="saveId" ${chk}>아이디 저장
                          </label>
                       </form>
             
@@ -113,7 +121,7 @@
                            <div>         <!-- page > request > session > application 이여서 생략해도 자동으로 session -->
                               <a href="#" id="nickname">${loginMember.memberNickname }</a>
                               
-                              <a href="#" id="logout-btn">로그아웃</a>
+                              <a href="/community/member/logout" id="logout-btn">로그아웃</a>
                            </div>
                            
                            <p>
