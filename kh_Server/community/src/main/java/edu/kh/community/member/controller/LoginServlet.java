@@ -56,7 +56,7 @@ public class LoginServlet extends HttpServlet{
 			
 			if(loginMember!=null) { // 성공
 				System.out.println(loginMember.getMemberNickname()+"님이 로그인하셨습니다.");
-				System.out.println(loginMember);
+				//System.out.println(loginMember);
 				
 				// 회원 정보 Session 세팅
 				session.setAttribute("loginMember", loginMember);
