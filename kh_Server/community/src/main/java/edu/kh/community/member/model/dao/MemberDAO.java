@@ -2,6 +2,8 @@ package edu.kh.community.member.model.dao;
 
 import java.io.FileInputStream;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 import edu.kh.community.member.model.vo.Member;
@@ -71,11 +73,11 @@ public class MemberDAO {
 		return loginMember;
 	}
 
-	/** 회원가입 doa
-	    * @param conn, mem
-	    * @return result
-	    * @throws Exception
-	    */
+	/** 회원가입 DAO
+    * @param conn, mem
+    * @return result
+    * @throws Exception
+    */
 	public int signUp(Connection conn, Member mem) throws Exception{
 		int result=0;
 		
@@ -95,6 +97,207 @@ public class MemberDAO {
 			close(pstmt);
 		}
 		return result;
+	}
+
+	/** 회원 정보 수정 DAO
+    * @param conn
+    * @param currentPw
+	* @param newPw
+	* @param memberNo
+	* @return result
+	* @throws Exception
+	*/
+	public int updateMember(Connection conn, Member mem) throws Exception{
+		int result=0;
+		
+		try {
+			String sql = prop.getProperty("updateMember");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, mem.getMemberNickname());
+			pstmt.setString(2, mem.getMemberTel());
+			pstmt.setString(3, mem.getMemberAddress());
+			pstmt.setInt(4, mem.getMemberNo());
+			
+			result = pstmt.executeUpdate();
+		}finally{
+			close(pstmt);
+		}
+		return result;
+	}
+
+	/** 비밀번호 변경 DAO
+	    * @param conn
+	    * @param 
+	    * @return result
+	    * @throws Exception
+	    */
+	public int changePw(Connection conn, String currentPw, String newPw, int memberNo) throws Exception{
+		int result=0;
+		
+		try {
+			String sql = prop.getProperty("changePw");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, newPw);
+			pstmt.setInt(2, memberNo);
+			pstmt.setString(3, currentPw);
+			
+			result = pstmt.executeUpdate();
+		}finally{
+			// try - finally 왜 사용하는가?
+			// -> try 구문에서 JDBC 관련 예외가 발생하더라도
+			// 	  사용중이던 JDBC 객체 자원을 무조건 반환하기 위해서
+			close(pstmt);
+		}
+		return result;
+	}
+
+	/** 비밀번호 변경 DAO
+	    * @param conn
+	    * @param 
+	    * @return result
+	    * @throws Exception
+	    */
+	public int secession(Connection conn, int memberNo, String memberPw) throws Exception{
+		int result=0;
+		
+		try {
+			String sql = prop.getProperty("secession");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, memberNo);
+			pstmt.setString(2, memberPw);
+			
+			result = pstmt.executeUpdate();
+		}finally{
+			// try - finally 왜 사용하는가?
+			// -> try 구문에서 JDBC 관련 예외가 발생하더라도
+			// 	  사용중이던 JDBC 객체 자원을 무조건 반환하기 위해서
+			close(pstmt);
+		}
+		return result;
+	}
+
+	/** 이메일 중복 검사 DAO
+	    * @param conn
+	    * @param memberEmail
+	    * @return result
+	    * @throws Exception
+	    */
+	public int emailDupCheck(Connection conn, String memberEmail) throws Exception {
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("EmailDupCheck");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memberEmail);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next())result = rs.getInt("count(*)");
+		
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		return result;
+	}
+
+	/** 닉네임 중복 검사 DAO
+	    * @param conn
+	    * @param memberNickname
+	    * @return result
+	    * @throws Exception
+	    */
+	public int nicknameDupCheck(Connection conn, String memberNickname) throws Exception{
+		int result =  0;
+		
+		try {
+			String sql = prop.getProperty("nicknameDupCheck");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memberNickname);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next())result = rs.getInt("count(*)");
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		return result;
+	}
+
+	/** 회원 정보 조회 DAO
+	    * @param conn
+	    * @param memberEmail
+	    * @return member
+	    * @throws Exception
+	    */
+	public Member selectOne(Connection conn, String memberEmail) throws Exception{
+		Member member = null;
+		
+		try {
+			String sql = prop.getProperty("selectOne");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memberEmail);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				member = new Member();
+				member.setMemberEmail(rs.getString(1));
+				member.setMemberNickname(rs.getString(2));
+				member.setMemberTel(rs.getString(3));
+				member.setMemberAddress(rs.getString(4));
+				member.setEnrollDate(rs.getString(5));
+			}
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		return member;
+	}
+
+	/** 회원 목록 조회 DAO
+	    * @param conn
+	    * @return memberList
+	    * @throws Exception
+	    */
+	public List<Member> selectAll(Connection conn) throws Exception{
+		List<Member> memberList = new ArrayList<Member>();
+		
+		try {
+			String sql = prop.getProperty("selectAll");
+			
+			stmt = conn.createStatement();
+			
+			rs = stmt.executeQuery(sql);
+			
+			while(rs.next()){
+				Member mem = new Member();
+				
+				mem.setMemberNo(rs.getInt(1));
+				mem.setMemberEmail(rs.getString(2));
+				mem.setMemberNickname(rs.getString(3));
+				
+				memberList.add(mem);
+			}
+			
+		}finally {
+			close(rs);
+			close(stmt);
+		}	
+		return memberList;
 	}
 
 }

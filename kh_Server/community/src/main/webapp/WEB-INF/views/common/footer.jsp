@@ -23,7 +23,7 @@
 		// 일치하는 속성이 있으면 출력
 	</script>
 	<%-- message 1회 출력 후 session에서 제거 --%>
-	<c:remove var="massage" scope="session"/>
+	<c:remove var="message" scope="session"/>
 </c:if>
 
 

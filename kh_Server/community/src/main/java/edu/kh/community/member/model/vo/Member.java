@@ -34,6 +34,6 @@ public class Member {
 				"<br>닉네임 : "+memberNickname+
 				"<br>휴대폰 : "+memberTel+
 				"<br>주소 : "+memberAddress+
-				"<br>가입일 : "+enrollDate+"\n";
+				"<br>가입일 : "+enrollDate+"<br>";
 	}
 }

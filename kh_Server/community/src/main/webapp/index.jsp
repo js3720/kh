@@ -23,12 +23,56 @@
 		<jsp:include page="/WEB-INF/views/common/header.jsp"/>
         <section class="content">
             <section class="content-1">
-                ${ sessionScope.loginMember }
                 
+                <h3>회원 정보 조회(AJAX)</h3>
+
+                <p> 이메일을 입력 받아 일치하는 회원 정보를 출력</p>
+
+                이메일 : <input type="text" id="in1">
+                <button id="select1">조회</button>
+                <div id="result1" style="height: 150px;">
+                    
+                </div>
+
                 <hr>
-                
-                ${sessionScope.message}
-            
+
+                <h3>회원 목록 조회</h3>
+
+                <p>일정 시간 마다 비동기로 회원 목록(회원 번호, 이메일, 닉네임) 조회</p>
+
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>회원 번호</th>
+                            <th>이메일</th>
+                            <th>닉네임</th>
+                        </tr>
+                    </thead>
+
+
+                    <tbody id="memberList">
+
+                        <tr>
+                            <td>1</td>
+                            <td>user01@kh.or.kr</td>
+                            <td>유저일</td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+                            <td>user02@kh.or.kr</td>
+                            <td>유저이</td>
+                        </tr>
+
+                        <tr>
+                            <td>3</td>
+                            <td>user03@kh.or.kr</td>
+                            <td>유저삼</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
             </section>
             <section class="content-2">
             
@@ -38,7 +82,7 @@
                     <%-- ★★★ choose 내부에는 jsp 주석만 사용가능 ★★★ --%>
                     <c:when test="${ empty sessionScope.loginMember}">
                     
-                        <form action="member/login" method="post" name="login-form" >
+                        <form action="member/login" method="post" name="login-form" onsubmit="return loginValidate()">
                 
                             <!-- 아이디/비밀번호/로그인버튼 영역 -->
                             <fieldset id="id-pw-area">
@@ -76,7 +120,7 @@
         
         
                             <label>
-                                <input type="checkbox" name="saveId" ${chk}>아이디 저장
+                                <input type="checkbox" name="saveId" ${chk} id="saveId">아이디 저장
                             </label>
                         </form>
             
@@ -115,5 +159,7 @@
         </section>
         </main>
         <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+        <script src="${contextPath}/resources/js/main.js"></script>
 </body>
 </html>
