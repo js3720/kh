@@ -1,7 +1,5 @@
 package edu.kh.community.board.model.vo;
 
-import java.util.List;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,11 +9,10 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
-public class Board {
+public class BoardImage {
+	private int imageNo;
+	private String imageReName;
+	private String imageOriginal;
+	private int imageLevel;
 	private int boardNo;
-	private String boardTitle;
-	private String memberNickname;
-	private String createDate;
-	private int readCount;
-	private String thumbnail;
 }

@@ -35,7 +35,7 @@
                     http://localhost:8080/community/member/myPage/info (POST) 
                     
                     같은곳을 이동하지만 겹치는거 다지우고 info 적어주면 메소드 방식만 달라짐
-                 -->
+                -->
                 <form action="info" method="post" onsubmit="return infoValidate()" name="myPage-form">
                     
                     <div class="myPage-row">
@@ -76,10 +76,10 @@
 
     </main>
         
-       <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+        <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
-       <!-- myPage.js 추가 -->
-       <script src="${contextPath}/resources/js/member/myPage.js"></script>
+        <!-- myPage.js 추가 -->
+        <script src="${contextPath}/resources/js/member/myPage.js"></script>
     
 </body>
 </html>

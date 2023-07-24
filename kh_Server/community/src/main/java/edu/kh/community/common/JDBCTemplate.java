@@ -114,7 +114,7 @@ public class JDBCTemplate {
         try {
             if (conn != null && !conn.isClosed()) {
                 // conn.isClosed() : 닫혀있으면 true값 반환
-                conn.close();
+                conn.commit();
 
             }
 

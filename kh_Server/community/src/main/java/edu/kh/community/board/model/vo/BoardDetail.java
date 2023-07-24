@@ -11,11 +11,17 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
-public class Board {
+
+public class BoardDetail {
 	private int boardNo;
 	private String boardTitle;
-	private String memberNickname;
+	private String boardContent;
 	private String createDate;
+	private String updateDate;
 	private int readCount;
-	private String thumbnail;
+	private String memberNickname;
+	private String profileImage;
+	private int memberNo;
+	private String boardName;
+	private List<BoardImage> imageList;
 }

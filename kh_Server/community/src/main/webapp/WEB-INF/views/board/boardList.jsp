@@ -1,12 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
+<!-- map에 저장된 값을 각각 변수에 저장 -->
+<c:set var="boardName" value="${map.boardName}"/>
+<c:set var="pagination" value="${map.pagination}"/>
+<c:set var="boardList" value="${map.boardList}"/>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>게시판</title>
+    <title>${boardName}</title>
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style.css">
     <script src="https://kit.fontawesome.com/51fc103959.js" crossorigin="anonymous"></script>
@@ -31,96 +37,31 @@
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td>10</td>
-                                <td>
-                                    <a href="#">10번째 게시글</a>
-                                </td>
-                                <td>유저일</td>
-                                <td>2023-07-17</td>
-                                <td>50</td>
-                            </tr>
-                            <tr>
-                                <td>10</td>
-                                <td>
-                                    <a href="#">10번째 게시글</a>
-                                </td>
-                                <td>유저일</td>
-                                <td>2023-07-17</td>
-                                <td>50</td>
-                            </tr>
-                            <tr>
-                                <td>10</td>
-                                <td>
-                                    <a href="#">10번째 게시글</a>
-                                </td>
-                                <td>유저일</td>
-                                <td>2023-07-17</td>
-                                <td>50</td>
-                            </tr>
-                            <tr>
-                                <td>10</td>
-                                <td>
-                                    <a href="#">10번째 게시글</a>
-                                </td>
-                                <td>유저일</td>
-                                <td>2023-07-17</td>
-                                <td>50</td>
-                            </tr>
-                            <tr>
-                                <td>10</td>
-                                <td>
-                                    <a href="#">10번째 게시글</a>
-                                </td>
-                                <td>유저일</td>
-                                <td>2023-07-17</td>
-                                <td>50</td>
-                            </tr>
-                            <tr>
-                                <td>10</td>
-                                <td>
-                                    <a href="#">10번째 게시글</a>
-                                </td>
-                                <td>유저일</td>
-                                <td>2023-07-17</td>
-                                <td>50</td>
-                            </tr>
-                            <tr>
-                                <td>10</td>
-                                <td>
-                                    <a href="#">10번째 게시글</a>
-                                </td>
-                                <td>유저일</td>
-                                <td>2023-07-17</td>
-                                <td>50</td>
-                            </tr>
-                            <tr>
-                                <td>10</td>
-                                <td>
-                                    <a href="#">10번째 게시글</a>
-                                </td>
-                                <td>유저일</td>
-                                <td>2023-07-17</td>
-                                <td>50</td>
-                            </tr>
-                            <tr>
-                                <td>10</td>
-                                <td>
-                                    <a href="#">10번째 게시글</a>
-                                </td>
-                                <td>유저일</td>
-                                <td>2023-07-17</td>
-                                <td>50</td>
-                            </tr>
-                            <tr>
-                                <td>10</td>
-                                <td>
-                                    <a href="#">10번째 게시글</a>
-                                </td>
-                                <td>유저일</td>
-                                <td>2023-07-17</td>
-                                <td>50</td>
-                            </tr>
+
+                            <c:choose>
+                                <c:when test="${empty boardList}">
+                                    <!-- 게시글 목록 조회 결과가 비어있다면 -->
+                                    <tr>
+                                        <th colspan="5">게시글이 존재하지 않습니다.</th>
+                                    </tr>
+                                </c:when>
+                                <c:otherwise>
+                                    <!-- 게시글 목록 조회 결과가 비어있지 않다면 -->
+                                    <!-- 향상된 for문처럼 사용 -->
+                                    <c:forEach var="board" items="${boardList}">
+                                        <tr>
+                                            <td>${board.boardNo}</td>
+                                            <td>
+                                                <a href="detail?&no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}">${board.boardTitle}</a>
+                                            </td>
+                                            <td>${board.memberNickname}</td>
+                                            <td>${board.createDate}</td>
+                                            <td>${board.readCount}</td>
+                                        </tr>
+                                    </c:forEach>
+                                </c:otherwise>
+                            </c:choose>
+
                         </tbody>
                     </table>
             </div>
@@ -130,24 +71,27 @@
             </div>
             
             <div class="pagination-area">
-                <ul class="pagination">
-                    <li><a href="#">&lt;&lt;</a></li>
-                    <li><a href="#">&lt;</a></li>
-                    
-                    <li><class="current"></a></li>
+                <!-- 페이지네이션 a태그에 사용될 공통 주소를 저장한 변수 선언 -->
+                <c:set var="url" value="list?type=${param.type}&cp="/>
 
-                    <li><a href="current">1</a></li>
-                    <li><a href="${contextPath}/board/list?type=1&cp=2">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">6</a></li>
-                    <li><a href="#">7</a></li>
-                    <li><a href="#">8</a></li>
-                    <li><a href="#">9</a></li>
-                    <li><a href="#">10</a></li>
-                    <li><a href="#">&gt;</a></li>
-                    <li><a href="#">&gt;&gt;</a></li>
+                <ul class="pagination">
+                    <li><a href="${url}1">&lt;&lt;</a></li>
+                    <li><a href="${url}${pagination.prevPage}">&lt;</a></li>
+                    
+                    <!-- 범위가 정해진 일반 for문 사용 -->
+                    <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+                        <c:choose>
+                            <c:when test="${i == pagination.currentPage}">
+                                <li><a class="current">${i}</a></li>
+                            </c:when>
+                            <c:otherwise>
+                                <li><a href="${url}${i}">${i}</a></li>
+                            </c:otherwise>
+                        </c:choose>
+                    </c:forEach>
+
+                    <li><a href="${url}${pagination.nextPage}">&gt;</a></li>
+                    <li><a href="${url}${pagination.maxPage}">&gt;&gt;</a></li>
                 </ul>
             </div>
 
