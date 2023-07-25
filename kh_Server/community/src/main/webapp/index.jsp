@@ -132,7 +132,13 @@
                         
                         <!-- 회원 프로필 이미지-->
                         <a href="${contextPath}/member/myPage/profile">
-                            <img src="/community/resources/images/user.png" id="member-profile">
+                            
+                            <c:if test="${empty loginMember.profileImage}"> <!-- 프로필 이미지 없는 경우-->
+                                <img src="/community/resources/images/user.png" id="member-profile">
+                            </c:if>
+                            <c:if test="${!empty loginMember.profileImage}">  <!-- 프로필 이미지 있는 경우-->
+                                <img src="${contextPath}${loginMember.profileImage}" id="member-profile">
+                            </c:if>
                         </a>
                         
                         <!-- 회원 정보 + 로그아웃 버튼 -->
