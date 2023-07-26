@@ -108,13 +108,9 @@
             
             <!-- 내용 -->
             <div class="board-content">
-                내용입니다<br>
-                내용입니다<br>
-                내용입니다<br>
-                내용입니다<br>
-                내용입니다<br>
+                ${detail.boardContent}
             </div>
-            ${loginMember.memberNo}
+            
             <!-- 버튼 영역 -->
             <div class="board-btn-area">
 

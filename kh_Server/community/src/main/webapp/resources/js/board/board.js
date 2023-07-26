@@ -34,7 +34,7 @@
             const params = new URL(location.href).searchParams;
 
             const type = "type=" + params.get("type"); // type = 1
-            const cp = "cp=" + params.get("cp"); // cp = 1
+            let cp = "cp=" + (params.get("cp") !="" ? params.get("cp") : "1" );// cp = 1
 
             // 조립
             // /community/board/list?type=1&cp=1

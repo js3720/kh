@@ -61,6 +61,7 @@
     font-weight: bold;
 }
 
+/* 이미지 영역 */
 .img-box{
     display: flex;
     justify-content: space-between;
