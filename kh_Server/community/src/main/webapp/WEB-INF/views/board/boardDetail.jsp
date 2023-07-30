@@ -115,8 +115,18 @@
             <div class="board-btn-area">
 
                 <c:if test="${loginMember.memberNo == detail.memberNo}">
+                    <!-- 현재 주소가 detail?no=493&cp=2&type=1 이런식으로 되어있다-->
+                    <!-- 수정이 완료되고 난 후에는 주소에서 cp 파라미터가 사라진다-->
 
-                    <button id="updateBtn">수정</button>
+                    <%-- cp가 없을 경우에 대한 처리 --%>
+                    <c:if test="${empty param.cp}">
+                        <c:set var="cp" value="1"/>
+                    </c:if>
+                    <%-- cp가 있을 경우 --%>
+                    <c:if test="${!empty param.cp}">
+                        <c:set var="cp" value="${param.cp}"/>
+                    </c:if>
+                    <button id="updateBtn" onclick="location.href='write?mode=update&type=${param.type}&cp=${cp}&no=${detail.boardNo}'">수정</button>
                     <button id="deleteBtn">삭제</button>
 
                 </c:if>

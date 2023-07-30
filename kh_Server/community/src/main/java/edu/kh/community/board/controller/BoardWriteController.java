@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,7 +32,15 @@ public class BoardWriteController extends HttpServlet{
 			
 			// update는 기존 게시글 내용을 조회하는 처리가 필요함
 			if(mode.equals("update")) {
+				// 게시글 상세조회서비스를 이용해서 기존 내용 조회
+				// (new BoardService() : 객체를 생성해서 변수에 저장 X -> 1회성 사용)
 				
+				int boardNo = Integer.parseInt(req.getParameter("no"));
+				BoardDetail detail = new BoardService().selectBoardDetail(boardNo);
+				
+				detail.setBoardContent(detail.getBoardContent().replaceAll("<br>","\n"));
+				
+				req.setAttribute("detail", detail);
 			}
 			
 			String path = "/WEB-INF/views/board/boardWriteForm.jsp";
@@ -144,7 +153,41 @@ public class BoardWriteController extends HttpServlet{
 				resp.sendRedirect(path);
 			}
 			if(mode.equals("update")) { // 수정
-				// 수정
+				// 앞선 코드는 동일(업로드된 이미지 저장, imageList생성, 제목/내용 파라미터 동일)
+				
+				// + update일 때 추가된 내용
+				// 어떤 게시글 수정? -> 파라미터 no
+				// 목록으로 버튼 만들 때 사용할 현재 페이지 -> 파라미터 cp
+				// 이미지 중 x버튼을 눌러서 삭제할 이미지 레벨 목록 -> 파라미터 deleteList
+				int boardNo = Integer.parseInt(mpReq.getParameter("no"));
+				
+				int cp = Integer.parseInt(mpReq.getParameter("cp"));
+				
+				String deleteList = mpReq.getParameter("deleteList"); // 삭제한 인덱스 가져옴 ex) 1, 2, 4
+				
+				// 게시글 수정 서비스 호출 후 결과 반환 받기
+				detail.setBoardNo(boardNo);
+				
+				// imageList, detail, boardNo, deleteList
+				int result = service.updateBoard(detail, imageList, deleteList);
+				
+				String path = null;
+				String message = null;
+				
+				if(result > 0) {
+					// detail?no=1000&type=1&cp=20
+					path = "detail?no="+boardNo+"&type="+boardCode+"&cp="+cp; // 상세 조회 페이지 요청 주소
+					message = "게시글이 수정되었습니다.";
+				}else {
+					// 수정화면으로 이동
+					// 상세조회 -> 수정화면 -> 수정 -> 성공 (상세조회)
+					//							 실패 (수정화면)
+					
+					path = req.getHeader("referer");
+					message = "게시글 수정 실패";
+				}
+				session.setAttribute("message", message);
+				resp.sendRedirect(path);
 			}
 			
 		}catch(Exception e) {
