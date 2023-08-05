@@ -220,9 +220,11 @@ public class BoardService {
 		Pagination pagination = new Pagination(cp, listCount);
 		
 		// 4. 특정 게시판에서 조건을 만족하는 게시글 목록 조회
+		
 		List<Board> boardList = dao.searchBoardList(conn, pagination, type, condition);
 		
-		// 5. 결과 값을 하나의 Map에 모아서 반환
+		
+		// 5. 결과 값을 하나의 Map에 모아서 반
 		Map<String, Object> map = new HashMap<String, Object>();
 		
 		map.put("boardName", boardName);

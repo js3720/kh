@@ -30,10 +30,10 @@ public class Member {
 	@Override
 	public String toString() {
 		return	"프로필 : "+profileImage+
-				"<br>이메일 : "+memberEmail+
-				"<br>닉네임 : "+memberNickname+
-				"<br>휴대폰 : "+memberTel+
-				"<br>주소 : "+memberAddress+
-				"<br>가입일 : "+enrollDate+"<br>";
+				"/n이메일 : "+memberEmail+
+				"/n닉네임 : "+memberNickname+
+				"/n휴대폰 : "+memberTel+
+				"/n주소 : "+memberAddress+
+				"/n가입일 : "+enrollDate+"/n";
 	}
 }
