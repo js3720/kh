@@ -46,8 +46,15 @@ local.properties
 # TeXlipse plugin
 .texlipse
 
-# STS (Spring Tool Suite)
+# Spring 관련 폴더, 파일
+target
+/target/
 .springBeans
+pom.properties
+MANIFEST.MF
+*.log
+.factorypath
+settings.json 
 
 # Code Recommenders
 .recommenders/
