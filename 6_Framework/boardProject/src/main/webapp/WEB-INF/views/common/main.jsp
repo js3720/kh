@@ -53,7 +53,7 @@
                             <fieldset class="id-pw-area">
                                 <section>
                                     <input type="text" name="memberEmail" placeholder="이메일" autocomplete="off"
-                                    	value="${cookie.saveId.value}" >
+                                    	   value="${cookie.saveId.value}">
                                     <input type="password" name="memberPw" placeholder="비밀번호">                  
                                 </section>
                                 <section>
@@ -62,28 +62,27 @@
                             </fieldset>
 
                             <label>
-                            	<%--
-                            		<c:if test="${empty cookie.saveId.value}">
-                            			<input type="checkbox" name="saveId"> 아이디 저장
-                                	</c:if>
-                                	<c:if test="${!empty cookie.saveId.value}">
-                            			<input type="checkbox" name="saveId" checked> 아이디 저장
-                                	</c:if>
-                            	 --%>
- 
+                            	<%-- <c:if test="${empty cookie.saveId.value}">
+	                                <input type="checkbox" name="saveId"> 아이디 저장
+                            	</c:if>
+                            	
+                            	<c:if test="${!empty cookie.saveId.value}">
+	                                <input type="checkbox" name="saveId" checked> 아이디 저장
+                            	</c:if> --%>
+                                
                                 <c:if test="${!empty cookie.saveId.value}">
-                                <%-- 쿠키에 저장된 이메일이 있으면 save 변수 선언
-                                	-> page scope(페이지 내에서 사용 가능, if문 끝나도 가능!) 
-                                --%>
-                            		<c:set var="save" value="checked" />
+                                	<%-- 쿠키에 저장된 이메일이 있으면 save 변수 선언
+                                		 -> page scope(페이지 내에서 사용 가능, if문 끝나도 가능!)
+                                	 --%>
+                                	<c:set var="save" value="checked"/>
                                 </c:if>
                                 
-                                <input type="checkbox" name="saveId" ${save}> 아이디 저장
+                                	<input type="checkbox" name="saveId" ${save}> 아이디 저장
                                 
                             </label>
 
                             <article class="signup-find-area">
-                                <a href="#">회원가입</a>
+                                <a href="/member/signUp">회원가입</a>
                                 <span>|</span>
                                 <a href="#">ID/PW 찾기</a>
                             </article>
@@ -96,13 +95,13 @@
                     <c:otherwise>
                         <article class="login-area">
 
-                            <a href="#">
+                            <a href="/myPage/profile">
                                 <img src="/resources/images/user.png" id="memberProfile">
                             </a>
 
                             <div class="my-info">
                                 <div>
-                                    <a href="#" id="nickname">${sessionScope.loginMember.memberNickname}</a>
+                                    <a href="/myPage/info" id="nickname">${sessionScope.loginMember.memberNickname}</a>
 
                                     <a href="/member/logout" id="logoutBtn">로그아웃</a>
                                 </div>   
@@ -125,6 +124,9 @@
 
     <%-- footer --%>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+
+    <%-- main.js 추가 --%>
+    <script src="/resources/js/main.js"></script>
 
 </body>
 </html>
