@@ -62,6 +62,7 @@
     </main>
 
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-
+    <%--myPage.js 추가 --%>
+    <script src="/resources/js/myPage/myPage.js"></script>
 </body>
 </html>
