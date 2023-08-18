@@ -73,3 +73,103 @@ btn1.addEventListener("click",()=>{
     // tel : 파싱되어 반환된 값이 저장된 변수
     .catch(err => {console.log(err)})
 })
+
+// fetch() API를 이용한 POST 방식 요청
+
+// 이메일을 입력 받아 일치하는 회원의 정보를 모두 조회
+const inputEmail = document.getElementById("inputEmail");
+const btn2 = document.getElementById("btn2");
+const result2 = document.getElementById("result2");
+
+btn2.addEventListener("click",()=>{
+    if(inputEmail.value.trim().length==0){
+        alert("이메일을 입력 해주세요.");
+        inputEmail.value="";
+        inputEmail.focus();
+        return;
+    }
+
+    // POST 방식 비동기 요청
+
+    // JSON.stringity() : JS객체 -> JSON
+    // JSON.parse()     : JSON -> JS객체
+    fetch("/selectMember", {
+        method : "POST",
+        headers : {"Content-Type" : "application/json"},
+        body : JSON.stringify({"email" : inputEmail.value})
+    })
+    .then(resp => resp.json())
+    .then(member => {
+        console.log(member);
+        
+        result2.innerText = "";
+
+        const li1 = document.createElement("li");
+        li1.innerText = `회원번호 : ${member.memberNo}`;
+
+        const li2 = document.createElement("li");
+        li2.innerText = `이메일 : ${member.memberEmail}`;
+        const li3 = document.createElement("li");
+        li3.innerText = `닉네임 : ${member.memberNickname}`;
+        const li4 = document.createElement("li");
+        li4.innerText = `전화번호 : ${member.memberTel}`;
+        const li5 = document.createElement("li");
+        li5.innerText = `주소 : ${member.memberAddress}`;
+        const li6 = document.createElement("li");
+        li6.innerText = `가입일 : ${member.enrollDate}`;
+
+        result2.append(li1, li2, li3, li4, li5, li6);
+
+    }) // 파싱한 데이터를 이용해서 비동기 처리 후 동작
+
+    .catch(err => {
+        console.log(err)
+        result2.innerText = "일치하는 회원이 없습니다";
+    })
+    //.catch((err) => {return console.log(err)})  
+    // 왼쪽에는 매개변수가 하나만 있을 때 괄호생략가능, 오른쪽에는 반환할것이 없으면 리턴생략 가능, 한줄로 작성 시 괄호 생략 가능
+})
+
+// 이메일이 일부라도 일치하는 모든 회원 조회
+const input = document.getElementById("input");
+const btn3 = document.getElementById("btn3");
+const result3 = document.getElementById("result3");
+
+btn3.addEventListener("click", ()=>{
+    fetch("/selectMemberList",{
+        method : "POST",
+        headers : {"Content-Type" : "application/text"},
+        body : input.value // 보내질 문자열 하나
+    })
+    .then(resp => resp.json())
+    .then(memberList => {
+        console.log(memberList);
+
+        result3.innerHTML = "";
+
+        if(memberList.length==0){
+            const tr = document.createElement("tr");
+            const td1 = document.createElement("td");
+            td1.colSpan=3;
+            td1.innerText= "일치하는 회원정보가 없습니다.";
+            tr.append(td1);
+            result3.append(tr);
+            return;
+        }
+
+        for(let member of memberList){
+            const tr = document.createElement("tr");
+            const td1 = document.createElement("td");
+            td1.innerText= `${member.memberNo}`;
+            const td2 = document.createElement("td");
+            td2.innerText= `${member.memberEmail}`;
+            const td3 = document.createElement("td");
+            td3.innerText= `${member.memberNickname}`;
+            tr.append(td1, td2, td3);
+            result3.append(tr);
+        }
+    })
+    .catch(err => {
+        console.log(err)
+    })
+})
