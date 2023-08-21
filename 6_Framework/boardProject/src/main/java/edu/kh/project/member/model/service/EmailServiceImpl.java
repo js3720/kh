@@ -30,7 +30,7 @@ public class EmailServiceImpl implements EmailService {
     private JavaMailSender mailSender;
     
     private String fromEmail = "dbstnrla1124@gmail.com";
-    private String fromUsername = "수업용 프로젝트";
+    private String fromUsername = "수업용프로젝트";
 
 
     @Override
