@@ -4,12 +4,12 @@
 <%-- map에 저장된 값들을 각각 변수에 저장--%>
 <c:set var="pagination" value="${map.pagination}" />
 <c:set var="boardList" value="${map.boardList}" />
-<%-- <c:set var="boardName" value="${boardTypeList[boardCode-1].BOARD_NAME}"/> --%>
-<c:forEach items="${boardTypeList}" var="boardType">
+<c:set var="boardName" value="${boardTypeList[boardCode-1].BOARD_NAME}"/>
+<%-- <c:forEach items="${boardTypeList}" var="boardType">
     <c:if test="${boardType.BOARD_CODE == boardCode}">
         <c:set var="boardName" value="${boardType.BOARD_NAME}"/>
     </c:if>
-</c:forEach>
+</c:forEach> --%>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -67,6 +67,7 @@
                                                 <img class="list-thumbnail" src="${board.thumbnail}">
                                             </c:if>
 
+                                            <%--${boardCode}-- : @Pathvariable로 request scope에 추가된 값 --%>
                                             <a href="/board/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}">${board.boardTitle}</a>   
                                             [${board.commentCount}]                        
                                         </td>
