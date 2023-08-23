@@ -13,11 +13,11 @@
                     <p class="comment-writer">
 
                         <!-- 프로필 이미지 -->
-                        <c:if test="${empty comment.profilleImage}">
+                        <c:if test="${empty comment.profileImage}">
                             <img src="/resources/images/user.png">
                         </c:if>
 
-                        <c:if test="${!empty comment.profilleImage}">
+                        <c:if test="${!empty comment.profileImage}">
                             <img src="${comment.profileImage}">
                         </c:if>
 
