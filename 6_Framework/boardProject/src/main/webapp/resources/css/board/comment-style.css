@@ -1,4 +1,9 @@
 /*댓글*/
+
+.comment-content{
+   white-space: pre-wrap;
+}
+
 .comment-write-area {
     display: flex;
     min-height: 85px;
