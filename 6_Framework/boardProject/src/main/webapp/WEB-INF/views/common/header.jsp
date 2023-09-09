@@ -113,5 +113,11 @@
             interceptor를 이용해서 조회된 boardTypeList를
             application scope에서 얻어와 화면에 출력
         --%>
+
+        <%-- 로그인 했을 때 채팅 보여짐 --%>
+        <c:if test="${!empty loginMember}">
+            <li><a href="/chatting">채팅</a></li>
+        </c:if>
+
     </ul>
 </nav>

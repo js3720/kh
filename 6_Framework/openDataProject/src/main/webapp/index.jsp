@@ -64,12 +64,12 @@
 	<script>
 		$(function(){
 			$("#btn1").click(function(){
-				/* json형식으로 응답 받을 때
+				/*//json형식으로 응답 받을 때
 				$.ajax({
 					url : "air",
 					data : {location : $("#location").val()},
 					success : function(data){
-						//console.log(data);
+						console.log(data);
 						//console.log(data.response.body.items);
 						
 						const itemArr = data.response.body.items;
@@ -101,7 +101,7 @@
 					url : "air",
 					data : {location : $("#location").val()},
 					success : function(result){
-						//console.log(result);
+						console.log(result);
 						
 						// $('요소명').find(매개변수)
 						// - 기준이 되는 요소의 하위 요소들 중 특정 요소를 찾을 때 사용
@@ -140,12 +140,14 @@
 		})
 		
 		// 지진해일 긴급대피장소 ajax
+		// xml으로
 		$(function(){
 			$("#btn2").click(function(){
-				// xml으로
+				
 				$.ajax({
 					url : "shelter",
 					success : function(result){
+						console.log(result);
 						const itemArr = $(result).find("row");
 						
 						let value = "";
