@@ -8,7 +8,6 @@ const LoginComponent = () => {
     const [pw, setPw] = useState('');
 
     const login = () => {
-
         fetch('/login',{
             method : 'post',
             headers : {
@@ -26,7 +25,6 @@ const LoginComponent = () => {
         .then(resp => resp.json())
         .then(map => {
             console.log(map);
-
             // 로그인 실패 시
             if(map.loginMember === null){
                 alert('아이디 또는 비밀번호가 일치하지 않습니다.');
@@ -42,6 +40,7 @@ const LoginComponent = () => {
         })
         .catch(e => console.log(e))
     };
+    
     const logout = () => {
         setLoginMember(null);
     };

@@ -3,21 +3,16 @@ import { TodoListContext } from './App';
 
 const TodoList = () => {
     const {setTodoList, loginMember, todoList} = useContext(TodoListContext);
-
     const [inputTodo, setInputTodo] = useState('');
-
     let keyIndex = 0;
-
 
     // 할 일 추가
     const handleAddTodo = () => {
-
         // 입력 X 
         if(inputTodo.trim().length === 0){
             alert('할 일을 입력해주세요');
             return;
         }
-
         fetch("/todo",{
             method : "POST",
             headers : {
@@ -32,11 +27,7 @@ const TodoList = () => {
         .then(resp => resp.json())
         .then(todoNo =>{
             if(Number(todoNo) === 0) return; // 실패 시 멈춤 
-
-            // 기존 todoList + 새로 추가된 Todo를 이용해
-            // 새 배열을 만들어
-            // todolist에 대입
-
+            // 기존 todoList + 새로 추가된 Todo를 이용해 새 배열을 만들어 todolist에 대입
             // 새로 추가된 Todo 만들기
             const newTodo ={
                 todoNo : todoNo,
@@ -45,17 +36,15 @@ const TodoList = () => {
                 todoMemberNo : loginMember.todoMemberNo
             };
             const newTodoList = [...todoList, newTodo];
-
             console.log(newTodoList);
             setTodoList(newTodoList);
             setInputTodo('');
         })
         .catch(e => console.log(e));
-
     }
+
     // O, X 업데이트
     const handleToggleTodo = (todo, index) => {
-
         fetch("/todo",{
             method : "PUT",
             headers : {
@@ -69,16 +58,14 @@ const TodoList = () => {
         })
         .then(resp => resp.json())
         .then(result =>{
-
             if(result === 0) return; // 실패 시 멈춤 
-
             const updateTodoList = [...todoList]; // 깊복
             updateTodoList[index].isDone = (todoList[index].isDone === 'O' ? 'X' : 'O');
-            
             setTodoList(updateTodoList);
         })
         .catch(e => console.log(e));
     }
+    // 삭제
     const handleDeleteTodo = (todoNo, index) => {
         fetch("/todo",{
             method : "DELETE",
@@ -100,7 +87,6 @@ const TodoList = () => {
         })
         .catch(e => console.log(e));
     }
-
 
     return(
         <>

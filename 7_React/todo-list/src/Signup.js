@@ -38,20 +38,17 @@ const SignupContainer = () => {
 
     // 회원 가입 함수
     const signup = () => {
-
         if(!idValidation){
             alert("아이디를 다시 입력해주세요");
             setId('');
             return;
         }
-
         // 1. 비밀번호가 일치하지 않으면
         //      비밀번호가 일치하지 않습니다 alert로 출력 후 return
         if(pw !== pwCheck){
             alert("비밀번호가 일치하지 않습니다");
             return;
         }
-
         // *** 회원 가입 요청(비동기, POST) ***
         fetch("/signup", {
             method : "POST",
@@ -79,8 +76,6 @@ const SignupContainer = () => {
             }
         })
         .catch(e => console.log(e))
-
-        
     };
 
     return(
