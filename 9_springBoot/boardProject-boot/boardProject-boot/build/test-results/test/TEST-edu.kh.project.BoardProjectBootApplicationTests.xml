@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.kh.project.BoardProjectBootApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-10-04T07:20:45" hostname="iminjuui-MacBookAir.local" time="0.34">
+  <properties/>
+  <testcase name="contextLoads()" classname="edu.kh.project.BoardProjectBootApplicationTests" time="0.34"/>
+  <system-out><![CDATA[16:20:44.430 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [edu.kh.project.BoardProjectBootApplicationTests]: BoardProjectBootApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+16:20:44.465 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration edu.kh.project.BoardProjectBootApplication for test class edu.kh.project.BoardProjectBootApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.1.4)
+
+2023-10-04T16:20:44.601+09:00  INFO 95155 --- [    Test worker] e.k.p.BoardProjectBootApplicationTests   : Starting BoardProjectBootApplicationTests using Java 17.0.8.1 with PID 95155 (started by minjooo in /Users/minjooo/workspace/9_SpringBoot/boardProject-boot)
+2023-10-04T16:20:44.602+09:00  INFO 95155 --- [    Test worker] e.k.p.BoardProjectBootApplicationTests   : No active profile set, falling back to 1 default profile: "default"
+2023-10-04T16:20:44.999+09:00  INFO 95155 --- [    Test worker] e.k.p.BoardProjectBootApplicationTests   : Started BoardProjectBootApplicationTests in 0.483 seconds (process running for 0.901)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
