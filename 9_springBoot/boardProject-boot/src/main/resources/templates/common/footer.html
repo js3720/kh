@@ -1,0 +1,22 @@
+<footer>
+    <p>Copyright &copy; KH Information Educational Institute A-Class</p>
+
+    <article>
+        <a href="#">프로젝트 소개</a>    
+        <span>|</span>
+        <a href="#">이용약관</a>    
+        <span>|</span>
+        <a href="#">개인정보처리방침</a>    
+        <span>|</span>
+        <a href="#">고객센터</a>    
+    </article>
+</footer>
+
+<!-- session에 message가 존재할 경우-->
+<!-- th:inline="javascript" (html문서에서만 사용 가능) -->
+<script th:inline="javascript">
+    /* Natural Template 유니코드로 작성된 값*/
+    const message = /*[[${message}]]*/ "전달받은 message";
+    // 타임리프 해석        값              설명(사라짐)
+    if(message != null) alert(message);
+</script>
